@@ -1,0 +1,18 @@
+.link {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	color: var(--colorLink);
+	font-size: 14px;
+	font-weight: 500;
+	outline: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	&:focus {
+		border: 2px solid var(--colorLink);
+		border-radius: 3px;
+	}
+}
