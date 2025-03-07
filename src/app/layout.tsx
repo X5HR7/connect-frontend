@@ -1,3 +1,4 @@
+import Providers from '@app/Providers.tsx';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.scss';
@@ -21,7 +22,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='ru'>
-			<body className={inter.variable}>{children}</body>
+			<body className={inter.variable}>
+				<Providers>{children}</Providers>
+			</body>
 		</html>
 	);
 }
