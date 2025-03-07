@@ -4,4 +4,12 @@
 	width: 100%;
 	display: flex;
 	flex-direction: column;
+
+	&__error {
+		margin: 0 0 30px 3px;
+		padding: 0;
+		color: var(--colorRed);
+		font-weight: 500;
+		font-size: 14px;
+	}
 }
