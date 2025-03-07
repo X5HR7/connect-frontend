@@ -46,7 +46,7 @@ const SignInForm = () => {
 				})}
 				error={formState.errors.password?.message}
 			/>
-			<SubmitButton text={'Зарегистироваться'} disabled={!formState.isValid} />
+			<SubmitButton text={'Войти'} disabled={!formState.isValid} />
 		</AuthForm>
 	);
 };
