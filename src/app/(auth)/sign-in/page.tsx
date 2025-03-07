@@ -1,5 +1,3 @@
-'use client';
-
 import { SignInForm } from '@features/auth/sign-in-form';
 import { AuthLink, PageTitle } from '@shared/ui/auth';
 import React from 'react';

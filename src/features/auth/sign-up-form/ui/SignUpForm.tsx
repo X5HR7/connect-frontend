@@ -1,3 +1,5 @@
+'use client';
+
 import { FormItem } from '@entities/auth/form-item';
 import {
 	emailRegex,

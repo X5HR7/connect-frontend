@@ -1,5 +1,3 @@
-'use client';
-
 import { SignUpForm } from '@features/auth/sign-up-form';
 import { AuthLink, PageTitle } from '@shared/ui/auth';
 
