@@ -3,10 +3,12 @@
 import { FormItem } from '@entities/auth/form-item';
 import {
 	emailRegex,
-	invalidEmailAddress,
+	invalidEmailAddressMessage,
+	invalidUsernameMessage,
 	maxLength,
 	minLength,
-	requiredFieldErrorMessage
+	requiredFieldErrorMessage,
+	usernameRegex
 } from '@entities/auth/form-item/lib/constants.ts';
 import { ISignUpForm } from '@features/auth/sign-up-form';
 import { AuthForm, SubmitButton } from '@shared/ui/auth';
@@ -31,7 +33,7 @@ const SignUpForm = () => {
 					required: requiredFieldErrorMessage,
 					pattern: {
 						value: emailRegex,
-						message: invalidEmailAddress
+						message: invalidEmailAddressMessage
 					}
 				})}
 				error={formState.errors.email?.message}
@@ -52,7 +54,11 @@ const SignUpForm = () => {
 				register={register('username', {
 					required: requiredFieldErrorMessage,
 					minLength: minLength(5),
-					maxLength: maxLength(15)
+					maxLength: maxLength(15),
+					pattern: {
+						value: usernameRegex,
+						message: invalidUsernameMessage
+					}
 				})}
 				description={'Используйте только буквы, цифры, нижнее подчеркивание и точки.'}
 				error={formState.errors.username?.message}

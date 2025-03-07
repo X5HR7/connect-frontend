@@ -3,7 +3,7 @@
 import { FormItem } from '@entities/auth/form-item';
 import {
 	emailRegex,
-	invalidEmailAddress,
+	invalidEmailAddressMessage,
 	minLength,
 	requiredFieldErrorMessage
 } from '@entities/auth/form-item/lib/constants.ts';
@@ -31,7 +31,7 @@ const SignInForm = () => {
 					required: requiredFieldErrorMessage,
 					pattern: {
 						value: emailRegex,
-						message: invalidEmailAddress
+						message: invalidEmailAddressMessage
 					}
 				})}
 				error={formState.errors.email?.message}
