@@ -1,9 +1,9 @@
-import { IUser } from '@shared/libs/interfaces';
+import { IUserWithProfile } from '@shared/libs/interfaces';
 import { BASE_SERVER_URL } from '@shared/libs/utils/constants';
 import { useAuthStore } from '@shared/store/authStore';
 
-interface AuthResponse {
-	user: IUser;
+export interface AuthResponse {
+	user: IUserWithProfile;
 	accessToken: string;
 }
 
@@ -13,6 +13,23 @@ export const getNewRefreshToken = async (): Promise<AuthResponse> => {
 		credentials: 'include',
 		headers: {
 			'Content-Type': 'application/json'
+		}
+	});
+
+	if (!response.ok) {
+		throw new Error('Failed to refresh token');
+	}
+
+	return response.json();
+};
+
+export const getNewAccessToken = async (token: string): Promise<AuthResponse> => {
+	const response = await fetch(`${BASE_SERVER_URL}/auth/login/access-token`, {
+		method: 'POST',
+		credentials: 'include',
+		headers: {
+			'Content-Type': 'application/json',
+			Cookie: `refresh_token=${token}`
 		}
 	});
 
