@@ -11,20 +11,33 @@ import {
 	usernameRegex
 } from '@entities/auth/form-item/lib/constants.ts';
 import { ISignUpForm } from '@features/auth/sign-up-form';
+import { useRegister } from '@features/auth/sign-up-form/lib/useRegister.ts';
 import { AuthForm, SubmitButton } from '@shared/ui/auth';
+import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 const SignUpForm = () => {
-	const { formState, register, handleSubmit } = useForm<ISignUpForm>({
+	const { formState, register, handleSubmit, setError, reset } = useForm<ISignUpForm>({
 		mode: 'onChange'
 	});
 
+	const { mutate: registerFn, isPending } = useRegister();
+	const router = useRouter();
+
 	const onSubmit: SubmitHandler<ISignUpForm> = data => {
-		console.log(data);
+		registerFn(data, {
+			onSuccess: () => {
+				router.replace('/');
+				reset();
+			},
+			onError: error => {
+				setError('root', { message: error.message });
+			}
+		});
 	};
 
 	return (
-		<AuthForm onSubmit={handleSubmit(onSubmit)}>
+		<AuthForm onSubmit={handleSubmit(onSubmit)} error={formState.errors.root?.message}>
 			<FormItem
 				title={'Адрес электронной почты'}
 				type={'email'}
@@ -73,7 +86,7 @@ const SignUpForm = () => {
 				})}
 				error={formState.errors.password?.message}
 			/>
-			<SubmitButton text={'Зарегистироваться'} disabled={!formState.isValid} />
+			<SubmitButton text={'Зарегистироваться'} disabled={!formState.isValid || isPending} isLoading={isPending} />
 		</AuthForm>
 	);
 };
