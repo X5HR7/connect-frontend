@@ -1,10 +1,10 @@
-import { IUser } from '@shared/libs/interfaces';
+import { IUserWithProfile } from '@shared/libs/interfaces';
 import { create } from 'zustand/react';
 
 interface AuthStore {
-	user: IUser | null;
+	user: IUserWithProfile | null;
 	accessToken: string | null;
-	setUser: (user: IUser | null) => void;
+	setUser: (user: IUserWithProfile | null) => void;
 	setAccessToken: (accessToken: string | null) => void;
 	clearAuth: () => void;
 }

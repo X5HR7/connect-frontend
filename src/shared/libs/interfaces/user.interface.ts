@@ -2,6 +2,10 @@ import { IServer, IServerMember } from '@shared/libs/interfaces/server.interface
 
 type TUser = 'USER' | 'DEVELOPER' | 'ADMIN';
 
+export interface IUserWithProfile extends IUser {
+	profile: IUserProfile;
+}
+
 export interface IUser {
 	id: string;
 	email: string;

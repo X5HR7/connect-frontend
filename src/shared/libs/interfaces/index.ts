@@ -1,4 +1,4 @@
-export type { IUser, IUserProfile, IUserFriend, IUserFriendRequests } from './user.interface.ts';
+export type { IUser, IUserProfile, IUserFriend, IUserFriendRequests, IUserWithProfile } from './user.interface.ts';
 export type {
 	IServer,
 	IServerRole,
