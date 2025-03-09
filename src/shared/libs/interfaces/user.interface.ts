@@ -8,7 +8,7 @@ export interface IUserWithProfile extends IUser {
 
 export interface IUser {
 	id: string;
-	email: string;
+	email?: string;
 	phone?: string;
 	username: string;
 	password?: string;
