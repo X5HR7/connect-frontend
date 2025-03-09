@@ -18,6 +18,10 @@ export async function middleware(request: NextRequest) {
 	if (refreshToken) {
 		try {
 			const data = await getNewAccessToken(refreshToken);
+			if (data && request.nextUrl.pathname.startsWith('/sign')) {
+				return NextResponse.redirect(new URL('/', request.url));
+			}
+
 			const responseWithToken = NextResponse.next();
 			responseWithToken.cookies.set('authData', JSON.stringify(data), {
 				httpOnly: false,
@@ -33,5 +37,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-	matcher: ['/((?!sign-in|sign-up|api|_next/static|_next/image|favicon.ico).*)']
+	matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']
 };
