@@ -1,0 +1,39 @@
+.layout {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: 72px 240px calc(100% - 72px - 240px);
+
+	&__servers {
+		margin: 0;
+		padding: 0;
+		width: 72px;
+		background-color: var(--colorBackgroundTertiary);
+	}
+
+	&__control {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		background-color: var(--colorBackgroundSecondary);
+
+		&-sidebar {
+			margin: 0;
+			padding: 0;
+			max-height: calc(100vh - 56px);
+			width: 100%;
+		}
+
+		&-user {
+			margin: auto 0 0 0;
+			padding: 0;
+			width: 100%;
+			background-color: var(--colorUserControlsBackground);
+		}
+	}
+}
