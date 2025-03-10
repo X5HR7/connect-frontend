@@ -1,0 +1,42 @@
+.item {
+	margin: 15px 0 0 0;
+	padding: 0;
+
+	&::after {
+		content: '';
+		display: block;
+		margin: 15px auto 0 auto;
+		width: 70%;
+		height: 3px;
+		background-color: var(--colorBackgroundPrimary);
+		border-radius: 2px;
+	}
+
+	&__link {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+		padding: 0;
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		transition: border-radius 0.2s;
+		background-color: var(--colorBackgroundPrimary);
+
+		&:hover,
+		&_active {
+			background-color: var(--colorPurple);
+			border-radius: 10px;
+			transition: border-radius 0.2s;
+		}
+
+		&__image {
+			margin: 0;
+			padding: 0;
+			width: 25px;
+			height: 25px;
+		}
+	}
+}
