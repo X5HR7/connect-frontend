@@ -23,7 +23,7 @@ export interface IUser {
 	serversCreated?: IServer[];
 }
 
-type TProfileStatus = 'ONLINE' | 'INACTIVE' | 'DO_NOT_DISTURB' | 'OFFLINE';
+export type TProfileStatus = 'ONLINE' | 'INACTIVE' | 'DO_NOT_DISTURB' | 'OFFLINE';
 
 export interface IUserProfile {
 	id: string;
