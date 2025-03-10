@@ -11,7 +11,7 @@ const Tooltip: FC<ITooltipProps> = ({ position, text, children }) => {
 	return (
 		<div className={styles.tooltip}>
 			{children}
-			<span className={`${styles.toolpit__text} ${styles[`tooltip__text_${position}`]}`}>{text}</span>
+			<span className={`${styles.tooltip__text} ${styles[`tooltip__text_${position}`]}`}>{text}</span>
 		</div>
 	);
 };
