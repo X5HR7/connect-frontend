@@ -9,12 +9,7 @@ const HomeLink: FC = () => {
 	return (
 		<div className={styles.item}>
 			<Tooltip text={'На главную'} position={'right'}>
-				<NavLink
-					href={'/public'}
-					replace={false}
-					className={styles.item__link}
-					activeClassName={styles.item__link_active}
-				>
+				<NavLink href={'/'} replace={false} className={styles.item__link} activeClassName={styles.item__link_active}>
 					<Image src={homeIcon} alt={'На главную'} className={styles.item__link__image} />
 				</NavLink>
 			</Tooltip>
