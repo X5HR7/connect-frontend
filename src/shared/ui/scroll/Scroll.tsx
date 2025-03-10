@@ -88,7 +88,7 @@ const Scroll: React.FC<CustomScrollProps> = ({ children, onLoadMore, hasMore, lo
 					}}
 					className={styles.scroll__element}
 					onMouseDown={handleThumbMouseDown}
-				/>
+				></div>
 			</div>
 		</div>
 	);
