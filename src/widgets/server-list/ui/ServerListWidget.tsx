@@ -16,7 +16,13 @@ const ServerListWidget: FC = () => {
 		<div className={styles.servers}>
 			<nav className={styles.servers__nav}>
 				<HomeLink />
-				{isPending ? <Loader /> : servers?.map(server => <ServerItem server={server} key={server.id} />)}
+				{isPending ? (
+					<div className={styles['servers__nav-loader']}>
+						<Loader />
+					</div>
+				) : (
+					servers?.map(server => <ServerItem server={server} key={server.id} />)
+				)}
 			</nav>
 			<Tooltip text={'Создать новый сервер'}>
 				<CreateServerButton onClick={() => {}} />

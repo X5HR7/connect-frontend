@@ -19,5 +19,9 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+
+		&-loader {
+			margin-top: 20px;
+		}
 	}
 }
