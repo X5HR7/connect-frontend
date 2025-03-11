@@ -1,6 +1,6 @@
 .profile {
 	margin: 0;
-	padding: 1px 8px 1px 2px;
+	padding: 1px 8px 2px 2px;
 	width: 120px;
 	cursor: pointer;
 	border-radius: 5px;
@@ -11,6 +11,16 @@
 	align-items: center;
 
 	&:hover {
+		background-color: var(--colorUserControlsBackgroundHover);
+		transition: background-color 0.2s;
+	}
+
+	&__status {
+		background-color: var(--colorUserControlsBackground);
+		transition: background-color 0.2s;
+	}
+
+	&:hover &__status {
 		background-color: var(--colorUserControlsBackgroundHover);
 		transition: background-color 0.2s;
 	}
@@ -43,8 +53,4 @@
 			color: var(--colorTextSecondary);
 		}
 	}
-}
-
-.status {
-	background-color: var(--colorUserControlsBackground);
 }

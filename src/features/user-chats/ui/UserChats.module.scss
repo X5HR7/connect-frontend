@@ -90,10 +90,21 @@
 				transition: color 0.2s;
 				cursor: pointer;
 			}
+
+			&:hover &-status {
+				background-color: var(--colorChannelBackgroundHover);
+				transition: background-color 0.2s;
+			}
+
+			&_active &-status {
+				background-color: var(--colorChannelBackgroundActive);
+				transition: background-color 0.2s;
+			}
+
+			&-status {
+				background-color: var(--colorBackgroundSecondary);
+				transition: background-color 0.2s;
+			}
 		}
 	}
-}
-
-.status {
-	background-color: var(--colorBackgroundSecondary);
 }

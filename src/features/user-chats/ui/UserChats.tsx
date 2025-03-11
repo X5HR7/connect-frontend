@@ -46,7 +46,7 @@ const UserChats: FC = () => {
 									activeClassName={styles['chats__item-content_active']}
 								>
 									<div className={styles['chats__item-content-wrapper']}>
-										<Avatar profile={friend.profile} statusStyles={styles.status} />
+										<Avatar profile={friend.profile} statusStyles={styles['chats__item-content-status']} />
 										<p className={styles['chats__item-content-username']}>
 											{friend.profile.displayName || friend.username}
 										</p>

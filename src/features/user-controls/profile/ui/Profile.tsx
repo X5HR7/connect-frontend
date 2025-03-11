@@ -7,7 +7,7 @@ import styles from './Profile.module.scss';
 const Profile: FC<IProfileProps> = ({ user, onClick }) => {
 	return (
 		<div className={styles.profile} onClick={onClick}>
-			<Avatar profile={user.profile} size={36} statusStyles={styles.status} />
+			<Avatar profile={user.profile} size={36} statusStyles={styles.profile__status} />
 			<div className={styles.profile__info}>
 				<p className={styles['profile__info-username']}>{user.profile.displayName || user.username}</p>
 				<p className={styles['profile__info-status']}>{getUserStatus(user.profile.status)}</p>
