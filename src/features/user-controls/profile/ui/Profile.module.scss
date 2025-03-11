@@ -1,0 +1,97 @@
+.profile {
+	margin: 0;
+	padding: 1px 8px 1px 2px;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: transparent;
+	transition: background-color 0.2s;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	&:hover {
+		background-color: var(--colorUserControlsBackgroundHover);
+		transition: background-color 0.2s;
+	}
+
+	&__avatar {
+		margin: 0 10px 0 0;
+		padding: 0;
+		width: 36px;
+		height: 36px;
+		position: relative;
+
+		&-image {
+			margin: 0;
+			padding: 0;
+			width: 36px;
+			height: 36px;
+		}
+
+		&-status {
+			margin: 0;
+			padding: 0;
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			position: absolute;
+			right: -2px;
+			bottom: -2px;
+			background-color: var(--colorUserControlsBackground);
+
+			&-ONLINE,
+			&-INACTIVE,
+			&-DO_NOT_DISTURB,
+			&-OFFLINE {
+				margin: 0;
+				padding: 0;
+				width: 10px;
+				height: 10px;
+				position: absolute;
+				left: 3px;
+				bottom: 3px;
+				border-radius: 50%;
+			}
+
+			&-ONLINE {
+				background-color: var(--colorGreen);
+			}
+
+			&-INACTIVE {
+				background-color: var(--colorYellow);
+			}
+
+			&-DO_NOT_DISTURB {
+				background-color: var(--colorRed);
+			}
+
+			&-OFFLINE {
+				background-color: var(--colorGray);
+			}
+		}
+	}
+
+	&__info {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		&-username {
+			margin: 0;
+			padding: 0;
+			font-size: 14px;
+			line-height: 18px;
+			color: var(--colorTextPrimary);
+		}
+
+		&-status {
+			margin: 0;
+			padding: 0;
+			font-size: 11px;
+			line-height: 14px;
+			color: var(--colorTextSecondary);
+		}
+	}
+}
