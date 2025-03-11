@@ -1,6 +1,7 @@
 .profile {
 	margin: 0;
 	padding: 1px 8px 1px 2px;
+	width: 120px;
 	cursor: pointer;
 	border-radius: 5px;
 	background-color: transparent;
@@ -77,6 +78,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
+		width: 100%;
 
 		&-username {
 			margin: 0;
@@ -84,6 +86,10 @@
 			font-size: 14px;
 			line-height: 18px;
 			color: var(--colorTextPrimary);
+			width: 78%;
+			flex-wrap: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
 		}
 
 		&-status {
