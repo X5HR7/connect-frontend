@@ -1,12 +1,11 @@
 'use client';
 
 import { useChats } from '@features/user-chats/lib/useChats.ts';
-import profileIcon from '@shared/assets/icons/profile_avatar_temlate.png';
 import { IChat } from '@shared/libs/interfaces';
 import { useAuthStore } from '@shared/store/authStore.ts';
 import { Loader } from '@shared/ui/loader/Loader.tsx';
 import { NavLink } from '@shared/ui/nav-link/NavLink.tsx';
-import Image from 'next/image';
+import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import React, { FC, useEffect, useState } from 'react';
 import styles from './UserChats.module.scss';
 
@@ -47,11 +46,7 @@ const UserChats: FC = () => {
 									activeClassName={styles['chats__item-content_active']}
 								>
 									<div className={styles['chats__item-content-wrapper']}>
-										<Image
-											src={friend.profile.avatar || profileIcon}
-											alt={'User avatar'}
-											className={styles['chats__item-content-image']}
-										/>
+										<Avatar profile={friend.profile} statusStyles={styles.status} />
 										<p className={styles['chats__item-content-username']}>
 											{friend.profile.displayName || friend.username}
 										</p>

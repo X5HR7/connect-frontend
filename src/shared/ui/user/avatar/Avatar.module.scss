@@ -1,0 +1,52 @@
+.avatar {
+	margin: 0 10px 0 0;
+	padding: 0;
+	position: relative;
+
+	&__image {
+		margin: 0;
+		padding: 0;
+	}
+
+	&__status {
+		margin: 0;
+		padding: 0;
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		position: absolute;
+		right: -2px;
+		bottom: -2px;
+		background-color: transparent;
+
+		&-ONLINE,
+		&-INACTIVE,
+		&-DO_NOT_DISTURB,
+		&-OFFLINE {
+			margin: 0;
+			padding: 0;
+			width: 10px;
+			height: 10px;
+			position: absolute;
+			left: 3px;
+			bottom: 3px;
+			border-radius: 50%;
+		}
+
+		&-ONLINE {
+			background-color: var(--colorGreen);
+		}
+
+		&-INACTIVE {
+			background-color: var(--colorYellow);
+		}
+
+		&-DO_NOT_DISTURB {
+			background-color: var(--colorRed);
+		}
+
+		&-OFFLINE {
+			background-color: var(--colorGray);
+		}
+	}
+}

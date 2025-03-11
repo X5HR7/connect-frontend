@@ -15,63 +15,6 @@
 		transition: background-color 0.2s;
 	}
 
-	&__avatar {
-		margin: 0 10px 0 0;
-		padding: 0;
-		width: 36px;
-		height: 36px;
-		position: relative;
-
-		&-image {
-			margin: 0;
-			padding: 0;
-			width: 36px;
-			height: 36px;
-		}
-
-		&-status {
-			margin: 0;
-			padding: 0;
-			width: 16px;
-			height: 16px;
-			border-radius: 50%;
-			position: absolute;
-			right: -2px;
-			bottom: -2px;
-			background-color: var(--colorUserControlsBackground);
-
-			&-ONLINE,
-			&-INACTIVE,
-			&-DO_NOT_DISTURB,
-			&-OFFLINE {
-				margin: 0;
-				padding: 0;
-				width: 10px;
-				height: 10px;
-				position: absolute;
-				left: 3px;
-				bottom: 3px;
-				border-radius: 50%;
-			}
-
-			&-ONLINE {
-				background-color: var(--colorGreen);
-			}
-
-			&-INACTIVE {
-				background-color: var(--colorYellow);
-			}
-
-			&-DO_NOT_DISTURB {
-				background-color: var(--colorRed);
-			}
-
-			&-OFFLINE {
-				background-color: var(--colorGray);
-			}
-		}
-	}
-
 	&__info {
 		margin: 0;
 		padding: 0;
@@ -100,4 +43,8 @@
 			color: var(--colorTextSecondary);
 		}
 	}
+}
+
+.status {
+	background-color: var(--colorUserControlsBackground);
 }
