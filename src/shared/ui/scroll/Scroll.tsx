@@ -6,9 +6,10 @@ interface CustomScrollProps {
 	onLoadMore: () => void;
 	hasMore: boolean;
 	loading: boolean;
+	width?: number;
 }
 
-const Scroll: React.FC<CustomScrollProps> = ({ children, onLoadMore, hasMore, loading }) => {
+const Scroll: React.FC<CustomScrollProps> = ({ children, onLoadMore, hasMore, loading, width = 6 }) => {
 	const contentRef = useRef<HTMLDivElement>(null);
 	const scrollTrackRef = useRef<HTMLDivElement>(null);
 	const scrollThumbRef = useRef<HTMLDivElement>(null);
@@ -80,7 +81,13 @@ const Scroll: React.FC<CustomScrollProps> = ({ children, onLoadMore, hasMore, lo
 				{loading && <div>Загрузка...</div>}
 			</div>
 
-			<div ref={scrollTrackRef} className={styles.scroll__bar}>
+			<div
+				ref={scrollTrackRef}
+				className={styles.scroll__bar}
+				style={{
+					width: `${width}px`
+				}}
+			>
 				<div
 					ref={scrollThumbRef}
 					style={{
