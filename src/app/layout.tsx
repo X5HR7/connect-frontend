@@ -9,7 +9,7 @@ import './globals.scss';
 const inter = Inter({
 	variable: '--font-inter',
 	subsets: ['latin', 'cyrillic'],
-	weight: ['400', '500', '600', '700'],
+	weight: ['200', '400', '500', '600', '700'],
 	style: ['normal', 'italic']
 });
 

@@ -1,0 +1,119 @@
+.sidebar {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+
+	&__header {
+		margin: 0;
+		padding: 0 10px;
+		height: 48px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		border-bottom: 1.5px solid var(--colorBackgroundTertiary);
+
+		&-content {
+			margin: 0;
+			padding-inline: 6px;
+			width: 100%;
+			height: 28px;
+			font-size: 13px;
+			font-weight: 500;
+			line-height: 24px;
+			color: var(--colorTextSecondary);
+			background-color: var(--colorBackgroundTertiary);
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			text-align: left;
+			outline: none;
+		}
+	}
+
+	&__content {
+		margin: 8px 0 0 0;
+		padding: 0;
+		width: 100%;
+		height: calc(100vh - 54px - 49px - 20px);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		&-buttons {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		&-button {
+			margin: 0;
+			padding: 0;
+			width: 220px;
+			height: 42px;
+			background-color: transparent;
+			border: none;
+			border-radius: 5px;
+			color: var(--colorTextSecondary);
+			cursor: pointer;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+
+			&:hover:not(&_active) {
+				background-color: var(--colorChannelBackgroundHover);
+			}
+
+			&_active {
+				color: var(--colorTextPrimary);
+				background-color: var(--colorChannelBackgroundActive);
+			}
+
+			&-icon {
+				margin: 0 16px 0 12px;
+				padding: 0;
+				width: 24px;
+				height: 24px;
+				display: block;
+			}
+
+			&-text {
+				margin: 0;
+				padding: 0;
+				font-size: 15px;
+				line-height: 20px;
+				font-weight: 500;
+			}
+		}
+
+		&-chats {
+			margin: 0 auto;
+			padding: 0;
+			width: 220px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			&-header {
+				margin: 25px 0 10px 10px;
+				padding: 0;
+				width: 100%;
+				font-size: 12px;
+				line-height: 16px;
+				font-weight: 500;
+				text-transform: uppercase;
+				color: var(--colorTextSecondary);
+				transition: color 0.2s;
+				cursor: default;
+
+				&:hover {
+					color: var(--colorTextPrimary);
+					transition: color 0.2s;
+				}
+			}
+		}
+	}
+}
