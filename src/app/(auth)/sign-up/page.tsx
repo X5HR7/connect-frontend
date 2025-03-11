@@ -1,9 +1,10 @@
 import { SignUpForm } from '@features/auth/sign-up-form';
+import { APP_NAME } from '@shared/libs/utils/constants.ts';
 import { AuthLink, PageTitle } from '@shared/ui/auth';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-	title: 'Connect | Регистрация'
+	title: `${APP_NAME} | Регистрация`
 };
 
 const SignUpPage = () => {

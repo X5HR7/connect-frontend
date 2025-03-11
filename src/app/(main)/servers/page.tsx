@@ -1,7 +1,8 @@
+import { APP_NAME } from '@shared/libs/utils/constants.ts';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-	title: 'Connect | Servers'
+	title: `${APP_NAME} | Сервера`
 };
 
 const Page = () => {
