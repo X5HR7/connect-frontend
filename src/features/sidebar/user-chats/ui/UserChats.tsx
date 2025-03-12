@@ -1,6 +1,6 @@
 'use client';
 
-import { useChats } from '@features/user-chats/lib/useChats.ts';
+import { useChats } from '@features/sidebar/user-chats/lib/useChats.ts';
 import { IChat } from '@shared/libs/interfaces';
 import { useAuthStore } from '@shared/store/authStore.ts';
 import { Loader } from '@shared/ui/loader/Loader.tsx';

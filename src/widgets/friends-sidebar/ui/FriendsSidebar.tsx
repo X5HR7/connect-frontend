@@ -1,8 +1,8 @@
-import { UserChats } from '@features/user-chats';
 import friendsIcon from '@shared/assets/icons/friend.svg';
 import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
 import Image from 'next/image';
 import { FC } from 'react';
+import { UserChats } from '../../../features/sidebar/user-chats';
 import styles from './FriendsSidebar.module.scss';
 
 const FriendsSidebar: FC = () => {
