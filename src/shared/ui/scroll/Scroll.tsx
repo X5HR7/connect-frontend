@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './Scroll.module.scss';
 
@@ -7,9 +9,17 @@ interface CustomScrollProps {
 	hasMore: boolean;
 	loading: boolean;
 	width?: number;
+	showScrollAlways?: boolean;
 }
 
-const Scroll: React.FC<CustomScrollProps> = ({ children, onLoadMore, hasMore, loading, width = 6 }) => {
+const Scroll: React.FC<CustomScrollProps> = ({
+	children,
+	onLoadMore,
+	hasMore,
+	loading,
+	width = 6,
+	showScrollAlways = false
+}) => {
 	const contentRef = useRef<HTMLDivElement>(null);
 	const scrollTrackRef = useRef<HTMLDivElement>(null);
 	const scrollThumbRef = useRef<HTMLDivElement>(null);
@@ -82,7 +92,7 @@ const Scroll: React.FC<CustomScrollProps> = ({ children, onLoadMore, hasMore, lo
 
 			<div
 				ref={scrollTrackRef}
-				className={styles.scroll__bar}
+				className={`${styles.scroll__bar} ${showScrollAlways ? null : styles.scroll__bar_hidden}`}
 				style={{
 					width: `${width}px`
 				}}

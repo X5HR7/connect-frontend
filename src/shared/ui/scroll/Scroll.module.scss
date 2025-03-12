@@ -25,6 +25,11 @@
 		background-color: var(--colorScrollBackground);
 		border-radius: 5px;
 		position: relative;
+
+		&_hidden {
+			opacity: 0;
+			transition: opacity 0.2s;
+		}
 	}
 
 	&__element {
@@ -34,5 +39,10 @@
 		position: absolute;
 		top: 0;
 		cursor: pointer;
+	}
+
+	&:hover > &__bar {
+		opacity: 1;
+		transition: opacity 0.2s;
 	}
 }
