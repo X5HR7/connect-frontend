@@ -1,0 +1,22 @@
+.page {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+
+	&__top-panel {
+		margin: 0;
+		padding: 8px;
+		width: calc(100% - 16px);
+		height: 32px;
+		border-bottom: 1.5px solid var(--colorBackgroundSecondary);
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	&__friends {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+}

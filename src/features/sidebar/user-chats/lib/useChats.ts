@@ -1,4 +1,4 @@
-import { fetchUserChats } from '@shared/libs/api/friends/user-chats.ts';
+import { fetchUserChats } from '@shared/libs/api/friends/friends.ts';
 import { IChat } from '@shared/libs/interfaces';
 import { useAuthStore } from '@shared/store/authStore.ts';
 import { useQuery } from '@tanstack/react-query';
