@@ -78,7 +78,6 @@ const Scroll: React.FC<CustomScrollProps> = ({ children, onLoadMore, hasMore, lo
 		<div className={styles.scroll}>
 			<div ref={contentRef} className={styles.scroll__container} onScroll={handleScroll}>
 				{children}
-				{loading && <div>Загрузка...</div>}
 			</div>
 
 			<div
