@@ -1,9 +1,7 @@
-import { AuthProvider } from '@app/_providers/AuthProvider.tsx';
 import { QueryProvider } from '@app/_providers/QueryProvider.tsx';
-import { AuthResponse } from '@shared/libs/api/api-client.ts';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { cookies } from 'next/headers';
+import { ReactNode } from 'react';
 import './globals.scss';
 
 const inter = Inter({
@@ -18,27 +16,15 @@ export const metadata: Metadata = {
 	description: 'Connect - messenger'
 };
 
-export default async function RootLayout({
+export default function RootLayout({
 	children
 }: Readonly<{
-	children: React.ReactNode;
+	children: ReactNode;
 }>) {
-	const cookieStore = await cookies();
-	const authCookieData: string | undefined = cookieStore.get('authData')?.value;
-	let data: AuthResponse | null;
-
-	if (authCookieData) {
-		data = JSON.parse(authCookieData);
-	} else {
-		data = null;
-	}
-
 	return (
 		<html lang='ru'>
 			<body className={inter.variable}>
-				<AuthProvider authData={data}>
-					<QueryProvider>{children}</QueryProvider>
-				</AuthProvider>
+				<QueryProvider>{children}</QueryProvider>
 			</body>
 		</html>
 	);
