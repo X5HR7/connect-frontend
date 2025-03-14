@@ -1,20 +1,13 @@
 import { ITopPanel } from '@features/friends/top-panel/lib/top-panel.interface.ts';
 import friendsIcon from '@shared/assets/icons/friend.svg';
+import { TFriendsStatus } from '@shared/libs/interfaces/pages.inteface.ts';
 import Image from 'next/image';
 import { FC } from 'react';
 import styles from './TopPanel.module.scss';
 
 const TopPanel: FC<ITopPanel> = ({ filter, setFilter }) => {
-	const handleAllButtonClick = () => {
-		setFilter('ALL');
-	};
-
-	const handleOnlineButtonClick = () => {
-		setFilter('ONLINE');
-	};
-
-	const handlePendingButtonClick = () => {
-		setFilter('PENDING');
+	const handleStatusButtonClick = (status: TFriendsStatus) => {
+		setFilter(status);
 	};
 
 	const handleAddToFriendButtonClick = () => {};
@@ -28,19 +21,19 @@ const TopPanel: FC<ITopPanel> = ({ filter, setFilter }) => {
 			<div className={styles.panel__buttons}>
 				<button
 					className={`${styles['panel__buttons-online']} ${filter === 'ONLINE' ? styles.panel__buttons_active : ''}`}
-					onClick={handleOnlineButtonClick}
+					onClick={() => handleStatusButtonClick('ONLINE')}
 				>
 					В сети
 				</button>
 				<button
 					className={`${styles['panel__buttons-all']} ${filter === 'ALL' ? styles.panel__buttons_active : ''}`}
-					onClick={handleAllButtonClick}
+					onClick={() => handleStatusButtonClick('ALL')}
 				>
 					Все
 				</button>
 				<button
 					className={`${styles['panel__buttons-pending']} ${filter === 'PENDING' ? styles.panel__buttons_active : ''}`}
-					onClick={handlePendingButtonClick}
+					onClick={() => handleStatusButtonClick('PENDING')}
 				>
 					Ожидание
 				</button>
