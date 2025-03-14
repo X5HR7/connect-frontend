@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styles from './Scroll.module.scss';
 
 interface CustomScrollProps {
@@ -28,7 +28,7 @@ const Scroll: React.FC<CustomScrollProps> = ({
 	const [initialScrollTop, setInitialScrollTop] = useState<number>(0);
 	const [isDragging, setIsDragging] = useState(false);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const contentElement = contentRef.current;
 		if (contentElement) {
 			const { scrollHeight, clientHeight } = contentElement;
