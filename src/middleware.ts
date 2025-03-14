@@ -1,8 +1,13 @@
 import { getNewAccessToken } from '@shared/libs/api/api-client.ts';
+import { urls } from '@shared/libs/utils/url.config.ts';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 export async function middleware(request: NextRequest) {
+	if (request.nextUrl.pathname === urls.HOME) {
+		return NextResponse.next();
+	}
+
 	const isClientNavigation = request.headers.get('x-nextjs-data');
 	if (isClientNavigation) {
 		return NextResponse.next();
@@ -12,14 +17,14 @@ export async function middleware(request: NextRequest) {
 	const refreshToken = request.cookies.get('refresh_token')?.value;
 
 	if (!refreshToken && !request.nextUrl.pathname.startsWith('/sign')) {
-		return NextResponse.redirect(new URL('/sign-in', request.url));
+		return NextResponse.redirect(new URL(urls.SIGN_IN, request.url));
 	}
 
 	if (refreshToken) {
 		try {
 			const data = await getNewAccessToken(refreshToken);
 			if (data && request.nextUrl.pathname.startsWith('/sign')) {
-				return NextResponse.redirect(new URL('/', request.url));
+				return NextResponse.redirect(new URL(urls.FRIENDS, request.url));
 			}
 
 			const responseWithToken = NextResponse.next();
@@ -30,7 +35,7 @@ export async function middleware(request: NextRequest) {
 
 			return responseWithToken;
 		} catch (error) {
-			return NextResponse.redirect(new URL('/sign-in', request.url));
+			return NextResponse.redirect(new URL(urls.SIGN_IN, request.url));
 		}
 	}
 	return NextResponse.next();
