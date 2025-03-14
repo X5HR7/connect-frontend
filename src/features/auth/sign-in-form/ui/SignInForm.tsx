@@ -9,6 +9,7 @@ import {
 } from '@entities/auth/form-item/lib/constants.ts';
 import { ISignInForm } from '@features/auth/sign-in-form/lib/form.interface.ts';
 import { useLogin } from '@features/auth/sign-in-form/lib/useLogin.ts';
+import { urls } from '@shared/libs/utils/url.config.ts';
 import { AuthForm, SubmitButton } from '@shared/ui/auth';
 import { useRouter } from 'next/navigation';
 import React from 'react';
@@ -25,7 +26,7 @@ const SignInForm = () => {
 	const onSubmit: SubmitHandler<ISignInForm> = data => {
 		login(data, {
 			onSuccess: () => {
-				router.replace('/');
+				router.replace(urls.FRIENDS);
 				reset();
 			},
 			onError: error => {

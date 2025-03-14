@@ -2,6 +2,7 @@
 
 import { useChats } from '@features/sidebar/user-chats/lib/useChats.ts';
 import { IChat } from '@shared/libs/interfaces';
+import { urls } from '@shared/libs/utils/url.config.ts';
 import { useAuthStore } from '@shared/store/authStore.ts';
 import { Loader } from '@shared/ui/loader/Loader.tsx';
 import { NavLink } from '@shared/ui/nav-link/NavLink.tsx';
@@ -41,7 +42,7 @@ const UserChats: FC = () => {
 						return (
 							<li className={styles.chats__item} key={chat.id}>
 								<NavLink
-									href={`/chats/${chat.id}`}
+									href={urls.CHAT(chat.id)}
 									className={styles['chats__item-content']}
 									activeClassName={styles['chats__item-content_active']}
 								>

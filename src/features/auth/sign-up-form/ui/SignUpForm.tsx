@@ -12,6 +12,7 @@ import {
 } from '@entities/auth/form-item/lib/constants.ts';
 import { ISignUpForm } from '@features/auth/sign-up-form';
 import { useRegister } from '@features/auth/sign-up-form/lib/useRegister.ts';
+import { urls } from '@shared/libs/utils/url.config.ts';
 import { AuthForm, SubmitButton } from '@shared/ui/auth';
 import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -27,7 +28,7 @@ const SignUpForm = () => {
 	const onSubmit: SubmitHandler<ISignUpForm> = data => {
 		registerFn(data, {
 			onSuccess: () => {
-				router.replace('/');
+				router.replace(urls.FRIENDS);
 				reset();
 			},
 			onError: error => {
