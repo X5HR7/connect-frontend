@@ -7,7 +7,7 @@ export interface AuthResponse {
 	accessToken: string;
 }
 
-export const getNewRefreshToken = async (): Promise<AuthResponse> => {
+export const getNewAccessTokenClient = async (): Promise<AuthResponse> => {
 	const response = await fetch(`${BASE_SERVER_URL}/auth/login/access-token`, {
 		method: 'POST',
 		credentials: 'include',
@@ -57,7 +57,7 @@ export const fetchWithAuth = async <T>(input: RequestInfo, init?: RequestInit): 
 		});
 
 		if (response.status === 401) {
-			const { accessToken } = await getNewRefreshToken();
+			const { accessToken } = await getNewAccessTokenClient();
 			setAccessToken(accessToken);
 
 			headers.set('Authorization', `Bearer ${accessToken}`);
