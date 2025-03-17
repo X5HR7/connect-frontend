@@ -2,7 +2,7 @@ class UrlConfig {
 	public HOME = '/';
 
 	public FRIENDS = '/friends';
-	public CHAT = (id: string) => `/chats/${id}`;
+	public CHAT = (id: string) => `${this.FRIENDS}/chats/${id}`;
 
 	public SETTINGS = '/settings';
 	public SIGN_IN = '/sign-in';
