@@ -1,5 +1,5 @@
-import { AuthProvider } from '@app/(main)/_providers/AuthProvider.tsx';
 import { AuthResponse } from '@shared/libs/api/api-client.ts';
+import { AuthProvider } from '@shared/libs/providers/AuthProvider.tsx';
 import { ServerListWidget } from '@widgets/server-list';
 import { UserControlsWidget } from '@widgets/user-controls';
 import { cookies } from 'next/headers';
@@ -9,13 +9,8 @@ import styles from './layout.module.scss';
 const Layout = async ({ children, sidebar }: { children: ReactNode; sidebar: ReactNode }) => {
 	const cookieStore = await cookies();
 	const authCookieData: string | undefined = cookieStore.get('authData')?.value;
-	let data: AuthResponse | null;
+	const data: AuthResponse | null = authCookieData ? JSON.parse(authCookieData) : null;
 
-	if (authCookieData) {
-		data = JSON.parse(authCookieData);
-	} else {
-		data = null;
-	}
 	return (
 		<AuthProvider authData={data}>
 			<div className={styles.layout}>

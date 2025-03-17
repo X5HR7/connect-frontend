@@ -1,4 +1,4 @@
-import { QueryProvider } from '@app/_providers/QueryProvider.tsx';
+import { QueryProvider } from '@shared/libs/providers/QueryProvider.tsx';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
