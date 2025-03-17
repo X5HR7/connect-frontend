@@ -6,7 +6,7 @@ import { TFriendsStatus } from '@shared/libs/interfaces/pages.inteface.ts';
 import { useState } from 'react';
 import styles from './page.module.scss';
 
-export default function Page() {
+const FriendsPage = () => {
 	const [friendStatusFilter, setFriendStatusFilter] = useState<TFriendsStatus>('ALL');
 
 	return (
@@ -19,4 +19,5 @@ export default function Page() {
 			</div>
 		</div>
 	);
-}
+};
+export default FriendsPage;

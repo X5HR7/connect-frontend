@@ -5,8 +5,8 @@ export const metadata: Metadata = {
 	title: `${APP_NAME} | Настройки`
 };
 
-const Page = () => {
+const SettingsPage = () => {
 	return <div>Settings</div>;
 };
 
-export default Page;
+export default SettingsPage;

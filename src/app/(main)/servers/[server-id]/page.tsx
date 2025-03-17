@@ -1,4 +1,10 @@
+import { APP_NAME } from '@shared/libs/utils/constants.ts';
+import { Metadata } from 'next';
 import styles from './page.module.scss';
+
+export const metadata: Metadata = {
+	title: `${APP_NAME} | Сервер`
+};
 
 const ServerPage = () => {
 	return (

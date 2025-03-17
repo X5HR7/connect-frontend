@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 	title: `${APP_NAME} | 404`
 };
 
-const Page = () => {
+const NotFound = () => {
 	return (
 		<div className={styles.page}>
 			<div className={styles.page__content}>
@@ -21,4 +21,4 @@ const Page = () => {
 	);
 };
 
-export default Page;
+export default NotFound;
