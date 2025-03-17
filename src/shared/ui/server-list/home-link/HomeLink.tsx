@@ -15,6 +15,7 @@ const HomeLink: FC = () => {
 					replace={false}
 					className={styles.item__link}
 					activeClassName={styles.item__link_active}
+					exact={false}
 				>
 					<Image src={homeIcon} alt={'На главную'} className={styles.item__link__image} />
 				</NavLink>
