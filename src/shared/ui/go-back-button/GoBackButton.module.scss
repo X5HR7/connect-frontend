@@ -1,0 +1,18 @@
+.button {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	background: transparent;
+	color: var(--colorPurple);
+	text-decoration: underline;
+	font-size: 16px;
+	cursor: pointer;
+	opacity: 1;
+	transition: opacity 0.2s;
+
+	&:hover {
+		opacity: 0.7;
+		transition: opacity 0.2s;
+	}
+}
