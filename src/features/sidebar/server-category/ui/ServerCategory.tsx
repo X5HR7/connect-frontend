@@ -14,7 +14,9 @@ const ServerCategory: FC<IServerCategoryProps> = ({ category, children }) => {
 		setIsCollapsed(prev => !prev);
 	};
 
-	const handleSettingsClick = () => {};
+	const handleSettingsClick = (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+		event.stopPropagation();
+	};
 
 	return (
 		<div className={styles.category}>
@@ -27,7 +29,7 @@ const ServerCategory: FC<IServerCategoryProps> = ({ category, children }) => {
 					/>
 					<span>{category.name}</span>
 				</div>
-				<Image src={settingsIcon} alt='settings' className={styles.category__settings} />
+				<Image src={settingsIcon} alt='settings' className={styles.category__settings} onClick={handleSettingsClick} />
 			</div>
 			<div className={`${styles.category__channels} ${isCollapsed ? styles.category__channels_collapsed : ''}`}>
 				{children}

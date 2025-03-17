@@ -11,6 +11,12 @@ export interface IServer {
 	serverMembers?: IServerMember[];
 }
 
+export interface IFServer extends IServer {
+	roles: IServerRole[];
+	serverCategories: IServerCategory[];
+	serverMembers: IServerMember[];
+}
+
 export interface IServerRole {
 	id: string;
 	name: string;

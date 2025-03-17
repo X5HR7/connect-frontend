@@ -1,0 +1,81 @@
+.channel {
+	margin: 0 5px 0 0;
+	padding: 7px 5px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	list-style: none;
+	color: var(--colorTextSecondary);
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none;
+
+	&:hover {
+		background-color: var(--colorChannelBackgroundHover);
+		color: var(--colorChannelHover);
+		transition:
+			background-color 0.2s,
+			color 0.2s;
+	}
+
+	&_active {
+		background-color: var(--colorChannelBackgroundActive);
+		color: var(--colorChannelActive);
+		transition:
+			background-color 0.2s,
+			color 0.2s;
+	}
+
+	&__wrapper {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		align-items: center;
+	}
+
+	&__image {
+		margin: 0 8px 0 0;
+		padding: 0;
+		width: 17px;
+		height: 17px;
+	}
+
+	&__name {
+		margin: 0;
+		padding: 0;
+		font-size: 15px;
+		max-width: 155px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	&__settings {
+		margin: 0;
+		padding: 0;
+		opacity: 0;
+
+		&:hover {
+			opacity: 1;
+			animation: rotate 0.4s linear;
+		}
+	}
+
+	&:hover > &__settings {
+		opacity: 1;
+	}
+
+	&_active > &__settings {
+		opacity: 1;
+	}
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(90deg);
+	}
+}

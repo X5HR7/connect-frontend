@@ -11,6 +11,7 @@ class UrlConfig {
 	public SERVERS = '/servers';
 	public SERVER = (id: string) => `${this.SERVERS}/${id}`;
 	public SERVER_SETTINGS = (id: string) => `${this.SERVERS}/${id}/settings`;
+	public SERVER_CHANNEL = (serverId: string, channelId: string) => `${this.SERVERS}/${serverId}/channels/${channelId}`;
 }
 
 export const urls = new UrlConfig();
