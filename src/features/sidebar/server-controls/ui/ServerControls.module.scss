@@ -1,0 +1,58 @@
+.controls {
+	margin: 0 auto;
+	padding: 0;
+	width: 204px;
+	height: 0;
+	position: absolute;
+	background-color: var(--colorBackgroundBlack);
+	border-radius: 5px;
+	top: 48px;
+	left: auto;
+	z-index: -1;
+
+	&_opened {
+		padding: 6px 8px;
+		height: fit-content;
+		top: 58px;
+		z-index: 2;
+		transition: all 0.2s;
+	}
+
+	&__button {
+		margin: 0 auto;
+		padding: 6px 8px;
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		text-decoration: none;
+		color: var(--colorTextSecondary);
+		background-color: transparent;
+		border: none;
+		border-radius: 5px;
+		font-size: 13px;
+		cursor: pointer;
+
+		&:hover {
+			background-color: var(--colorChannelBackgroundHover);
+			color: var(--colorChannelHover);
+			transition: all 0.2s;
+		}
+
+		&-image {
+			margin: 0;
+			padding: 0;
+			width: 18px;
+			height: 18px;
+		}
+
+		&_link {
+			width: calc(100% - 16px);
+		}
+
+		&_invite:hover {
+			background-color: var(--colorPurple);
+		}
+	}
+}

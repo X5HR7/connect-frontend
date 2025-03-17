@@ -6,9 +6,12 @@ import closeIcon from '@shared/assets/icons/close.svg';
 import openIcon from '@shared/assets/icons/open.svg';
 import { useServerStore } from '@shared/store/serverStore.ts';
 import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { FC, useState } from 'react';
 import styles from './ServerSidebar.module.scss';
+
+const ServerControls = dynamic(() => import('@features/sidebar/server-controls'));
 
 const ServerSidebar: FC = () => {
 	const { server } = useServerStore();
@@ -30,6 +33,9 @@ const ServerSidebar: FC = () => {
 						className={styles['sidebar__header-content-icon']}
 					/>
 				</button>
+				{server?.id ? (
+					<ServerControls isOpened={isServerModalOpened} serverId={server?.id} setIsOpened={setIsServerModalOpened} />
+				) : null}
 			</div>
 			<ul className={styles.sidebar__channels}>
 				<Scroll onLoadMore={() => {}} hasMore={false} loading={false} width={4}>
