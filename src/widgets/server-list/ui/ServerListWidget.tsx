@@ -2,12 +2,14 @@
 
 import { ServerItem } from '@entities/server-item';
 import { Loader } from '@shared/ui/loader/Loader.tsx';
-import { CreateServerButton } from '@shared/ui/server-list/create-server-button/CreateServerButton.tsx';
 import { HomeLink } from '@shared/ui/server-list/home-link/HomeLink.tsx';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import { useServers } from '@widgets/server-list/lib/useServers.ts';
+import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import styles from './ServerListWidget.module.scss';
+
+const CreateServerButton = dynamic(() => import('@features/server-list/create-server-button'));
 
 const ServerListWidget: FC = () => {
 	const { data: servers, isPending } = useServers();
@@ -25,7 +27,7 @@ const ServerListWidget: FC = () => {
 				)}
 			</nav>
 			<Tooltip text={'Создать новый сервер'}>
-				<CreateServerButton onClick={() => {}} />
+				<CreateServerButton />
 			</Tooltip>
 		</div>
 	);
