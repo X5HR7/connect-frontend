@@ -12,23 +12,6 @@
 		align-items: center;
 		justify-content: center;
 		border-bottom: 1.5px solid var(--colorBackgroundTertiary);
-
-		&-content {
-			margin: 0;
-			padding-inline: 6px;
-			width: 100%;
-			height: 28px;
-			font-size: 13px;
-			font-weight: 500;
-			line-height: 24px;
-			color: var(--colorTextSecondary);
-			background-color: var(--colorBackgroundTertiary);
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-			text-align: left;
-			outline: none;
-		}
 	}
 
 	&__content {
