@@ -5,18 +5,18 @@ import styles from './Scroll.module.scss';
 
 interface CustomScrollProps {
 	children: React.ReactNode;
-	onLoadMore: () => void;
-	hasMore: boolean;
-	loading: boolean;
+	onLoadMore?: () => void;
+	hasMore?: boolean;
+	loading?: boolean;
 	width?: number;
 	showScrollAlways?: boolean;
 }
 
 const Scroll: React.FC<CustomScrollProps> = ({
 	children,
-	onLoadMore,
-	hasMore,
-	loading,
+	onLoadMore = () => {},
+	hasMore = false,
+	loading = false,
 	width = 6,
 	showScrollAlways = false
 }) => {
