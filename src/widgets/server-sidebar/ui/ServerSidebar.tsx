@@ -38,7 +38,7 @@ const ServerSidebar: FC = () => {
 				) : null}
 			</div>
 			<ul className={styles.sidebar__channels}>
-				<Scroll onLoadMore={() => {}} hasMore={false} loading={false} width={4}>
+				<Scroll width={4}>
 					{server?.serverCategories.map(category => (
 						<li key={category.id}>
 							<ServerCategory category={category}>

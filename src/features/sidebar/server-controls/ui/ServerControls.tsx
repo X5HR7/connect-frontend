@@ -1,3 +1,5 @@
+'use client';
+
 import { IServerControlsProps } from '@features/sidebar/server-controls/lib/server-controls.interface.ts';
 import categoryIcon from '@shared/assets/icons/hub.svg';
 import inviteIcon from '@shared/assets/icons/invite.svg';
