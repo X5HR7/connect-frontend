@@ -5,7 +5,7 @@ import { FC } from 'react';
 import styles from './Avatar.module.scss';
 
 interface IAvatarProps {
-	profile: IUserProfile;
+	profile?: IUserProfile;
 	size?: number;
 	statusStyles?: string;
 }
@@ -20,7 +20,7 @@ const Avatar: FC<IAvatarProps> = ({ profile, size = 32, statusStyles = '' }) => 
 			}}
 		>
 			<Image
-				src={profile.avatar || profileAvatar}
+				src={profile?.avatar || profileAvatar}
 				alt={'profile avatar'}
 				className={styles.avatar__image}
 				style={{
@@ -29,7 +29,7 @@ const Avatar: FC<IAvatarProps> = ({ profile, size = 32, statusStyles = '' }) => 
 				}}
 			/>
 			<div className={`${styles.avatar__status} ${statusStyles}`}>
-				<div className={styles['avatar__status-' + profile.status]}></div>
+				<div className={styles['avatar__status-' + profile?.status]}></div>
 			</div>
 		</div>
 	);

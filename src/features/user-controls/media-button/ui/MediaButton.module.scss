@@ -1,0 +1,28 @@
+.button {
+	margin: 0 0 0 2px;
+	padding: 5px;
+	width: fit-content;
+	height: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: transparent;
+	border: none;
+	border-radius: 5px;
+	outline: none;
+	cursor: pointer;
+	transition: background-color 0.2s;
+
+	&:hover {
+		background-color: var(--colorUserControlsBackgroundHover);
+		transition: background-color 0.2s;
+	}
+
+	&__image {
+		margin: 0;
+		padding: 0;
+		width: 20px;
+		height: 20px;
+		display: block;
+	}
+}

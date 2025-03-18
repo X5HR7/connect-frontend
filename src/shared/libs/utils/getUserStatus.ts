@@ -1,6 +1,6 @@
 import { TProfileStatus } from '@shared/libs/interfaces/user.interface.ts';
 
-export const getUserStatus = (status: TProfileStatus) => {
+export const getUserStatus = (status?: TProfileStatus) => {
 	switch (status) {
 		case 'ONLINE':
 			return 'В сети';
@@ -10,5 +10,7 @@ export const getUserStatus = (status: TProfileStatus) => {
 			return 'Не беспокоить';
 		case 'OFFLINE':
 			return 'Не в сети';
+		default:
+			return '';
 	}
 };

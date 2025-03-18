@@ -14,28 +14,24 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+	}
 
-		&-micro,
-		&-voice,
-		&-settings {
-			margin: 0 0 0 2px;
-			padding: 5px;
-			width: fit-content;
-			height: fit-content;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background-color: transparent;
-			border: none;
-			border-radius: 5px;
-			outline: none;
-			cursor: pointer;
-			transition: background-color 0.2s;
-		}
+	&__button {
+		margin: 0 0 0 2px;
+		padding: 5px;
+		width: fit-content;
+		height: fit-content;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: transparent;
+		border: none;
+		border-radius: 5px;
+		outline: none;
+		cursor: pointer;
+		transition: background-color 0.2s;
 
-		&-micro:hover,
-		&-voice:hover,
-		&-settings:hover {
+		&:hover {
 			background-color: var(--colorUserControlsBackgroundHover);
 			transition: background-color 0.2s;
 		}
@@ -46,10 +42,10 @@
 			width: 20px;
 			height: 20px;
 			display: block;
-		}
 
-		&-settings > &-icon:hover {
-			animation: rotate 0.4s linear;
+			&:hover {
+				animation: rotate 0.4s linear;
+			}
 		}
 	}
 }
