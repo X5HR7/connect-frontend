@@ -27,8 +27,10 @@ export default function RootLayout({
 	return (
 		<html lang='ru'>
 			<body className={inter.variable}>
-				<QueryProvider>{children}</QueryProvider>
-				<GlobalModal />
+				<QueryProvider>
+					{children}
+					<GlobalModal />
+				</QueryProvider>
 			</body>
 		</html>
 	);
