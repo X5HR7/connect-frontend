@@ -1,0 +1,53 @@
+.link {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-decoration: none;
+
+	&_active > &__button {
+		color: var(--colorTextPrimary);
+		background-color: var(--colorChannelBackgroundActive);
+	}
+
+	&:not(&_active) > &__button {
+		background-color: var(--colorChannelBackgroundHover);
+	}
+
+	&:not(&_active) > &__button:hover {
+		background-color: var(--colorChannelBackgroundActive);
+	}
+
+	&__button {
+		margin: 0;
+		padding: 0;
+		width: 220px;
+		height: 42px;
+		background-color: transparent;
+		border: none;
+		border-radius: 5px;
+		color: var(--colorTextSecondary);
+		cursor: pointer;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		&-icon {
+			margin: 0 16px 0 12px;
+			padding: 0;
+			width: 24px;
+			height: 24px;
+			display: block;
+		}
+
+		&-text {
+			margin: 0;
+			padding: 0;
+			font-size: 15px;
+			line-height: 20px;
+			font-weight: 500;
+			text-decoration: none;
+		}
+	}
+}
