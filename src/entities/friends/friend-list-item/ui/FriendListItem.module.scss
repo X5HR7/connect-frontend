@@ -36,7 +36,7 @@
 		align-items: center;
 
 		&-status {
-			background-color: var(--colorBackgroundPrimary);
+			background-color: var(--colorBackgroundPrimary) !important;
 			transition: background-color 0.2s;
 		}
 
@@ -49,7 +49,7 @@
 	}
 
 	&:hover &__info-status {
-		background-color: var(--colorChannelBackgroundActive);
+		background-color: var(--colorChannelBackgroundActive) !important;
 		transition: background-color 0.2s;
 	}
 
