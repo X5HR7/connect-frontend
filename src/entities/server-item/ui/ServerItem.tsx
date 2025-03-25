@@ -17,7 +17,11 @@ const ServerItem: FC<IServerItem> = ({ server }) => {
 					exact={false}
 					activeClassName={styles.item__link_active}
 				>
-					{server.image ? <Image src={server.image} alt={server.name} /> : 'Сервер'}
+					{server.image ? (
+						<Image src={server.image} alt={server.name} className={styles.item__image} width={48} height={48} />
+					) : (
+						'Сервер'
+					)}
 				</NavLink>
 			</Tooltip>
 		</div>

@@ -25,4 +25,20 @@
 			transition: border-radius 0.2s;
 		}
 	}
+
+	&__image {
+		margin: 0;
+		padding: 0;
+		width: 48px;
+		height: 48px;
+		display: flex;
+		border-radius: 50%;
+		transition: border-radius 0.2s;
+	}
+
+	&__link_active > &__image,
+	&__link:hover > &__image {
+		border-radius: 10px;
+		transition: border-radius 0.2s;
+	}
 }
