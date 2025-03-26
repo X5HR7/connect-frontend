@@ -3,21 +3,36 @@
 import { FriendListItem } from '@entities/friends/friend-list-item';
 import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IFriendsRequestForm } from '../lib/friends-request-form.interface.ts';
 import { useFetchSendFriendRequest } from '../lib/useFetchSendFriendRequest.ts';
 import styles from './FriendsRequests.module.scss';
 
 const FriendsRequests: FC = () => {
-	const { formState, register, handleSubmit, setError } = useForm<IFriendsRequestForm>({ mode: 'onChange' });
-	const { mutate: sendRequest, isPending, isSuccess } = useFetchSendFriendRequest();
+	const { formState, register, handleSubmit, setError, reset, watch } = useForm<IFriendsRequestForm>({
+		mode: 'onChange'
+	});
+	const { mutate: sendRequest, isPending } = useFetchSendFriendRequest();
 	const { requests } = useFriendsStore();
+	const [isSuccess, setIsSuccess] = useState<boolean>(false);
+
+	const usernameValue = watch('username');
+
+	useEffect(() => {
+		if (isSuccess) {
+			setIsSuccess(false);
+		}
+	}, [usernameValue]);
 
 	const handleFormSubmit: SubmitHandler<IFriendsRequestForm> = ({ username }) => {
 		sendRequest(
 			{ username },
 			{
+				onSuccess: () => {
+					// reset();
+					setIsSuccess(true);
+				},
 				onError: error => {
 					setError('username', { message: error.message });
 				}
@@ -49,9 +64,11 @@ const FriendsRequests: FC = () => {
 				{isSuccess && !formState.errors.username ? (
 					<p className={`${styles.request__message}`}>Запрос успешно отправлен!</p>
 				) : null}
-				<p className={`${styles.request__message} ${formState.errors.username ? styles.request__message_error : ''}`}>
-					{formState.errors.username?.message}
-				</p>
+				{!isSuccess || formState.errors.username ? (
+					<p className={`${styles.request__message} ${formState.errors.username ? styles.request__message_error : ''}`}>
+						{formState.errors.username?.message}
+					</p>
+				) : null}
 			</div>
 			<div className={styles.list}>
 				<h2 className={styles.list__title}>Входящие запросы на добавление в друзья</h2>
