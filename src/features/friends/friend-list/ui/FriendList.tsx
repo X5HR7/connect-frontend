@@ -46,7 +46,7 @@ const FriendList: FC<IFriendList> = ({ filter }) => {
 					type={'text'}
 					value={text}
 					onChange={e => setText(e.target.value)}
-					placeholder={'Введите сообщение'}
+					placeholder={'Поиск'}
 					className={styles['friends__search-element']}
 					disabled={isPending}
 				/>
