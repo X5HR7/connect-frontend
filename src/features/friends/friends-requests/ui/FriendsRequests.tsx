@@ -10,7 +10,7 @@ import { useFetchSendFriendRequest } from '../lib/useFetchSendFriendRequest.ts';
 import styles from './FriendsRequests.module.scss';
 
 const FriendsRequests: FC = () => {
-	const { formState, register, handleSubmit, setError, reset, watch } = useForm<IFriendsRequestForm>({
+	const { formState, register, handleSubmit, setError, watch } = useForm<IFriendsRequestForm>({
 		mode: 'onChange'
 	});
 	const { mutate: sendRequest, isPending } = useFetchSendFriendRequest();
