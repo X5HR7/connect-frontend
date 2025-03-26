@@ -57,21 +57,29 @@ export const fetchWithAuth = async <T>(input: RequestInfo, init?: RequestInit): 
 		});
 
 		if (response.status === 401) {
-			const { accessToken } = await getNewAccessTokenClient();
-			setAccessToken(accessToken);
+			try {
+				const { accessToken } = await getNewAccessTokenClient();
+				setAccessToken(accessToken);
 
-			headers.set('Authorization', `Bearer ${accessToken}`);
-			response = await fetch(input, {
-				...init,
-				headers
-			});
+				headers.set('Authorization', `Bearer ${accessToken}`);
+				response = await fetch(input, {
+					...init,
+					headers
+				});
 
-			if (!response.ok) {
-				throw new Error('Request failed after token refresh');
+				if (!response.ok) {
+					clearAuth();
+					throw new Error('Request failed after token refresh');
+				}
+			} catch (error) {
+				throw error;
 			}
 		}
+
+		if (!response.ok) {
+			throw new Error('Failed to refresh token');
+		}
 	} catch (error) {
-		clearAuth();
 		if (error instanceof Error) {
 			console.error(`Fetch error: ${error.message}`);
 		}

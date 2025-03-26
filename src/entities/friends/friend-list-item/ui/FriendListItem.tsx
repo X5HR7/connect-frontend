@@ -1,9 +1,9 @@
-import { IFriendListItem } from '@entities/friends/friend-list-item/lib/friend-list-item.interface.ts';
 import chatIcon from '@shared/assets/icons/chat.svg';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import Image from 'next/image';
 import { FC } from 'react';
+import { IFriendListItem } from '../lib/friend-list-item.interface.ts';
 import styles from './FriendListItem.module.scss';
 
 const FriendListItem: FC<IFriendListItem> = ({ friend }) => {

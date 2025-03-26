@@ -17,8 +17,8 @@ export interface IUser {
 	profile?: IUserProfile;
 	friends?: IUserFriend[];
 	friendOf?: IUserFriend[];
-	friendRequestsSent?: IUserFriendRequests[];
-	friendRequestsReceived?: IUserFriendRequests[];
+	friendRequestsSent?: IUserFriendRequest[];
+	friendRequestsReceived?: IUserFriendRequest[];
 	serverMember?: IServerMember[];
 	serversCreated?: IServer[];
 }
@@ -39,8 +39,11 @@ export interface IUserFriend {
 	friendId: string;
 }
 
-export interface IUserFriendRequests {
+export interface IUserFriendRequest {
 	id: string;
 	senderId: string;
 	receiverId: string;
+	sender: IUserWithProfile;
 }
+
+export type TFriendsFilter = 'ALL' | 'ONLINE' | 'ADD';

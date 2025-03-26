@@ -3,7 +3,7 @@ import { IUserWithProfile } from '@shared/libs/interfaces';
 import { useAuthStore } from '@shared/store/authStore.ts';
 import { useQuery } from '@tanstack/react-query';
 
-export const useFriends = () => {
+export const useFetchFriends = () => {
 	const { accessToken } = useAuthStore();
 
 	return useQuery<IUserWithProfile[]>({
