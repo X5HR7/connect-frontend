@@ -37,8 +37,8 @@ const FriendsRequests: FC = () => {
 						placeholder={'Вы можете добавить друзей по имени пользователя.'}
 						required={true}
 						{...register('username', {
-							minLength: 5,
-							maxLength: 20,
+							minLength: { value: 5, message: 'Минимальная длина - 5 символов' },
+							maxLength: { value: 20, message: 'Максимальная длина - 20 символов' },
 							required: true
 						})}
 					/>
@@ -46,12 +46,10 @@ const FriendsRequests: FC = () => {
 						Отправить запрос дружбы
 					</button>
 				</form>
-				{formState.errors.username && (
-					<p className={`${styles.request__message} ${formState.errors.username ? styles.request__message_error : ''}`}>
-						{formState.errors.username?.message}
-					</p>
-				)}
 				{isSuccess && <p className={`${styles.request__message}`}>Запрос успешно отправлен!</p>}
+				<p className={`${styles.request__message} ${formState.errors.username ? styles.request__message_error : ''}`}>
+					{formState.errors.username?.message}
+				</p>
 			</div>
 			<div className={styles.list}>
 				<h2 className={styles.list__title}>Входящие запросы на добавление в друзья</h2>

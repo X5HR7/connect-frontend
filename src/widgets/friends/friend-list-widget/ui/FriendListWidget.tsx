@@ -1,13 +1,12 @@
 'use client';
 
-import FriendsRequests from '@features/friends/friends-requests';
 import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import styles from './FriendListWidget.module.scss';
 
 const FriendsList = dynamic(() => import('@features/friends/friends-list'));
-// const FriendsRequests = dynamic(() => import('@features/friends/friends-requests'), { ssr: false });
+const FriendsRequests = dynamic(() => import('@features/friends/friends-requests'));
 
 const FriendListWidget: FC = () => {
 	const { filter } = useFriendsStore();
