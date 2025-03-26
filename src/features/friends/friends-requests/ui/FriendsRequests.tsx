@@ -46,7 +46,9 @@ const FriendsRequests: FC = () => {
 						Отправить запрос дружбы
 					</button>
 				</form>
-				{isSuccess && <p className={`${styles.request__message}`}>Запрос успешно отправлен!</p>}
+				{isSuccess && !formState.errors.username ? (
+					<p className={`${styles.request__message}`}>Запрос успешно отправлен!</p>
+				) : null}
 				<p className={`${styles.request__message} ${formState.errors.username ? styles.request__message_error : ''}`}>
 					{formState.errors.username?.message}
 				</p>
