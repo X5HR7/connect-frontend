@@ -21,10 +21,14 @@ export const fetchUserFriendsRequests = (): Promise<IUserFriendRequest[]> => {
 	});
 };
 
-export const fetchSendFriendRequest = async (username: string) => {
+export const fetchSendFriendRequest = async (dto: { username: string }) => {
 	try {
-		return await fetchWithAuth<IUserFriendRequest>(`${BASE_SERVER_URL}/friends/requests/${username}`, {
-			method: 'POST'
+		return await fetchWithAuth<IUserFriendRequest>(`${BASE_SERVER_URL}/friends/requests`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(dto)
 		});
 	} catch (error) {
 		if (error instanceof HttpError) {

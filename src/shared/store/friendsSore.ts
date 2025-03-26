@@ -11,7 +11,7 @@ interface FriendsStore {
 }
 
 export const useFriendsStore = create<FriendsStore>(set => ({
-	filter: 'ADD',
+	filter: 'ONLINE',
 	friends: [],
 	requests: [],
 	setFilter: filter => set({ filter }),

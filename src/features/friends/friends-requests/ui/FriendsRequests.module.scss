@@ -79,18 +79,24 @@
 		}
 	}
 
-	&__error {
+	&__message {
 		margin: 5px;
 		padding: 0;
-		color: var(--colorRed);
+		height: 20px;
+		color: var(--colorGreen);
 		font-weight: 800;
+
+		&_error {
+			color: var(--colorRed);
+		}
 	}
 }
 
 .list {
-	margin: 20px 0 0 0;
+	margin: 40px 0 0 0;
 	padding: 0;
 	width: 100%;
+	height: calc(100vh - 330px);
 
 	&__title {
 		margin: 20px 20px 30px 30px;

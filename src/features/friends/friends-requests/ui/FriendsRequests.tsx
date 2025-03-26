@@ -3,28 +3,26 @@
 import { FriendListItem } from '@entities/friends/friend-list-item';
 import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IFriendsRequestForm } from '../lib/friends-request-form.interface.ts';
 import { useFetchSendFriendRequest } from '../lib/useFetchSendFriendRequest.ts';
 import styles from './FriendsRequests.module.scss';
 
 const FriendsRequests: FC = () => {
-	const { formState, register, handleSubmit } = useForm<IFriendsRequestForm>({ mode: 'onChange' });
-	const { mutate: sendRequest, isPending } = useFetchSendFriendRequest();
+	const { formState, register, handleSubmit, setError } = useForm<IFriendsRequestForm>({ mode: 'onChange' });
+	const { mutate: sendRequest, isPending, isSuccess } = useFetchSendFriendRequest();
 	const { requests } = useFriendsStore();
-	const [error, setError] = useState<Error>();
 
 	const handleFormSubmit: SubmitHandler<IFriendsRequestForm> = ({ username }) => {
-		sendRequest(username, {
-			onSuccess: data => {
-				console.log(data);
-			},
-			onError: error => {
-				setError(error);
-				console.log(error);
+		sendRequest(
+			{ username },
+			{
+				onError: error => {
+					setError('username', { message: error.message });
+				}
 			}
-		});
+		);
 	};
 
 	return (
@@ -48,11 +46,16 @@ const FriendsRequests: FC = () => {
 						Отправить запрос дружбы
 					</button>
 				</form>
-				<p className={styles.request__error}>{error?.message}</p>
+				{formState.errors.username && (
+					<p className={`${styles.request__message} ${formState.errors.username ? styles.request__message_error : ''}`}>
+						{formState.errors.username?.message}
+					</p>
+				)}
+				{isSuccess && <p className={`${styles.request__message}`}>Запрос успешно отправлен!</p>}
 			</div>
 			<div className={styles.list}>
+				<h2 className={styles.list__title}>Входящие запросы на добавление в друзья</h2>
 				<Scroll width={8}>
-					<h2 className={styles.list__title}>Входящие запросы на добавление в друзья</h2>
 					<ul className={styles.list__items}>
 						{requests.map(request => (
 							<FriendListItem key={request.id} friend={request.sender} />
