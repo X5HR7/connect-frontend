@@ -1,3 +1,4 @@
+import { HttpError } from '@shared/libs/api/HttpError.ts';
 import { IUserWithProfile } from '@shared/libs/interfaces';
 import { BASE_SERVER_URL } from '@shared/libs/utils/constants';
 import { useAuthStore } from '@shared/store/authStore';
@@ -69,7 +70,7 @@ export const fetchWithAuth = async <T>(input: RequestInfo, init?: RequestInit): 
 
 				if (!response.ok) {
 					clearAuth();
-					throw new Error('Request failed after token refresh');
+					throw new HttpError('Request failed after token refresh', response.status);
 				}
 			} catch (error) {
 				throw error;
@@ -77,14 +78,11 @@ export const fetchWithAuth = async <T>(input: RequestInfo, init?: RequestInit): 
 		}
 
 		if (!response.ok) {
-			throw new Error('Failed to refresh token');
+			throw new HttpError(response.statusText, response.status);
 		}
+
+		return (await response.json()) as Promise<T>;
 	} catch (error) {
-		if (error instanceof Error) {
-			console.error(`Fetch error: ${error.message}`);
-		}
 		throw error;
 	}
-
-	return (await response.json()) as Promise<T>;
 };

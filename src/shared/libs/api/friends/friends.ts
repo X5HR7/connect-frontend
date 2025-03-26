@@ -1,3 +1,4 @@
+import { HttpError } from '@shared/libs/api/HttpError.ts';
 import { fetchWithAuth } from '@shared/libs/api/api-client.ts';
 import { IChat, IUserFriendRequest, IUserWithProfile } from '@shared/libs/interfaces';
 import { BASE_SERVER_URL } from '@shared/libs/utils/constants.ts';
@@ -21,9 +22,27 @@ export const fetchUserFriendsRequests = (): Promise<IUserFriendRequest[]> => {
 };
 
 export const fetchSendFriendRequest = async (username: string) => {
-	const response = await fetchWithAuth<IUserFriendRequest>(`${BASE_SERVER_URL}/friends/requests/${username}`, {
-		method: 'POST'
-	});
+	try {
+		return await fetchWithAuth<IUserFriendRequest>(`${BASE_SERVER_URL}/friends/requests/${username}`, {
+			method: 'POST'
+		});
+	} catch (error) {
+		if (error instanceof HttpError) {
+			let message = error.message;
 
-	//тут надо обрабатывать ошибки в зависимости от кода ошибки
+			switch (error.statusCode) {
+				case 400:
+					message = 'Некорректное имя пользователя или вы уже добавили пользователя в друзья ранее.';
+					break;
+				case 404:
+					message = 'Пользователь с таким именем не найден.';
+					break;
+				case 409:
+					message = 'Запрос на добавление в друзья к данному пользоваелю уже был отправлен ранее.';
+					break;
+			}
+
+			throw new Error(message);
+		}
+	}
 };
