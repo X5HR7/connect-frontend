@@ -7,12 +7,18 @@
 	flex-direction: row;
 	align-items: center;
 	background-color: transparent;
-	transition: background-color 0.2s;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	transition:
+		background-color 0.2s,
+		border 0.2s;
 
 	&:hover {
+		border-color: var(--colorChannelBackgroundActive);
 		background-color: var(--colorChannelBackgroundActive);
-		transition: background-color 0.2s;
-		border-radius: 5px;
+		transition:
+			background-color 0.2s,
+			border-color 0.2s;
 	}
 
 	&__content {
