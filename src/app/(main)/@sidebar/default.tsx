@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 
 const ServerSidebar = dynamic(() => import('@widgets/server-sidebar'));
-const FriendsSidebar = dynamic(() => import('@widgets/friends-sidebar'));
+const FriendsSidebar = dynamic(() => import('@widgets/friends/friends-sidebar'));
 
 const Sidebar = () => {
 	const path = usePathname();
