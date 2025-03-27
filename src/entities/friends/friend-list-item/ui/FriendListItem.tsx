@@ -15,16 +15,16 @@ const FriendListItem: FC<IFriendListItem> = ({ friend }) => {
 					<p className={styles['friend__info-username']}>{friend.profile.displayName || friend.username}</p>
 				</div>
 				<div className={styles.friend__buttons}>
-					<button className={styles['friend__buttons-button']}>
-						<Tooltip text={'Сообщение'} position={'top'}>
+					<Tooltip text={'Сообщение'} position={'top'}>
+						<button className={styles['friend__buttons-button']}>
 							<Image src={chatIcon} alt='chat' className={styles['friend__buttons-button-icon']} />
-						</Tooltip>
-					</button>
-					<button className={styles['friend__buttons-button']}>
-						<Tooltip text={'Ещё'} position={'top'}>
+						</button>
+					</Tooltip>
+					<Tooltip text={'Ещё'} position={'top'}>
+						<button className={styles['friend__buttons-button']}>
 							<p className={styles['friend__buttons-button_more']}>...</p>
-						</Tooltip>
-					</button>
+						</button>
+					</Tooltip>
 				</div>
 			</div>
 		</li>
