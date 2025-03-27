@@ -11,21 +11,13 @@ export const fetchUserChats = (): Promise<IChat[]> => {
 
 export const fetchUserFriends = (): Promise<IUserWithProfile[]> => {
 	return fetchWithAuth<IUserWithProfile[]>(`${BASE_SERVER_URL}/friends`, {
-		method: 'GET',
-		cache: 'default',
-		headers: {
-			'Cache-Control': 'private, max-age=120, must-revalidate'
-		}
+		method: 'GET'
 	});
 };
 
 export const fetchUserFriendsRequests = (): Promise<IUserFriendRequest[]> => {
 	return fetchWithAuth<IUserFriendRequest[]>(`${BASE_SERVER_URL}/friends/requests`, {
-		method: 'GET',
-		cache: 'default',
-		headers: {
-			'Cache-Control': 'private, max-age=120, must-revalidate'
-		}
+		method: 'GET'
 	});
 };
 
