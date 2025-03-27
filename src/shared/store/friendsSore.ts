@@ -8,6 +8,8 @@ interface FriendsStore {
 	setFilter: (filter: TFriendsFilter) => void;
 	setFriends: (friends: IUserWithProfile[]) => void;
 	setRequests: (requests: IUserFriendRequest[]) => void;
+	removeRequest: (requestId: string) => void;
+	addFriend: (friend: IUserWithProfile) => void;
 }
 
 export const useFriendsStore = create<FriendsStore>(set => ({
@@ -16,5 +18,13 @@ export const useFriendsStore = create<FriendsStore>(set => ({
 	requests: [],
 	setFilter: filter => set({ filter }),
 	setFriends: friends => set({ friends }),
-	setRequests: requests => set({ requests })
+	setRequests: requests => set({ requests }),
+	removeRequest: requestId =>
+		set(state => ({
+			requests: state.requests.filter(request => request.id !== requestId)
+		})),
+	addFriend: friend =>
+		set(state => ({
+			friends: [...state.friends, friend]
+		}))
 }));

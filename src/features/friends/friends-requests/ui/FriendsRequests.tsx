@@ -1,6 +1,6 @@
 'use client';
 
-import { FriendListItem } from '@entities/friends/friend-list-item';
+import { FriendRequestItem } from '@entities/friends/friend-request-item';
 import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
 import { FC, useEffect, useState } from 'react';
@@ -30,7 +30,6 @@ const FriendsRequests: FC = () => {
 			{ username },
 			{
 				onSuccess: () => {
-					// reset();
 					setIsSuccess(true);
 				},
 				onError: error => {
@@ -71,13 +70,16 @@ const FriendsRequests: FC = () => {
 				) : null}
 			</div>
 			<div className={styles.list}>
-				<h2 className={styles.list__title}>Входящие запросы на добавление в друзья</h2>
 				<Scroll width={8}>
+					<h2 className={styles.list__title}>Входящие запросы на добавление в друзья</h2>
 					<ul className={styles.list__items}>
 						{requests.map(request => (
-							<FriendListItem key={request.id} friend={request.sender} />
+							<FriendRequestItem key={request.id} request={request} />
 						))}
 					</ul>
+					{requests.length > 0 ? null : (
+						<p className={styles.list__empty}>На данный момент у вас нет входящих запросов на добавление в друзья.</p>
+					)}
 				</Scroll>
 			</div>
 		</div>

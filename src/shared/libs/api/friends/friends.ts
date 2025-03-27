@@ -50,3 +50,15 @@ export const fetchSendFriendRequest = async (dto: { username: string }) => {
 		}
 	}
 };
+
+export const fetchFriendRequestAccept = (requestId: string) => {
+	return fetchWithAuth<IUserWithProfile>(`${BASE_SERVER_URL}/friends/requests/${requestId}`, {
+		method: 'PATCH'
+	});
+};
+
+export const fetchFriendRequestReject = (requestId: string) => {
+	return fetchWithAuth<IUserFriendRequest>(`${BASE_SERVER_URL}/friends/requests/${requestId}`, {
+		method: 'DELETE'
+	});
+};
