@@ -1,0 +1,25 @@
+import { BASE_SERVER_URL } from '@shared/libs/utils/constants.ts';
+import { Socket, io } from 'socket.io-client';
+import { create } from 'zustand/react';
+
+interface SocketStore {
+	socket: Socket | null;
+	connect: (userId: string) => void;
+	disconnect: () => void;
+}
+
+export const useSocketStore = create<SocketStore>(set => ({
+	socket: null,
+	connect: (token: string) => {
+		const socket = io(BASE_SERVER_URL, {
+			extraHeaders: {
+				Authorization: token
+			}
+		});
+
+		socket.on('connect', () => {
+			set({ socket });
+		});
+	},
+	disconnect: () => set({ socket: null })
+}));

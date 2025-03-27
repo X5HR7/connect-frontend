@@ -1,4 +1,5 @@
 import { QueryProvider } from '@shared/libs/providers/QueryProvider.tsx';
+import { SocketProvider } from '@shared/libs/providers/SocketProvider.tsx';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
@@ -28,8 +29,10 @@ export default function RootLayout({
 		<html lang='ru'>
 			<body className={inter.variable}>
 				<QueryProvider>
-					{children}
-					<GlobalModal />
+					<SocketProvider>
+						{children}
+						<GlobalModal />
+					</SocketProvider>
 				</QueryProvider>
 			</body>
 		</html>
