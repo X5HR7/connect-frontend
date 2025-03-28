@@ -8,9 +8,13 @@ interface IAvatarProps {
 	profile?: IUserProfile;
 	size?: number;
 	statusStyles?: string;
+	indicatorSize?: number;
 }
 
-const Avatar: FC<IAvatarProps> = ({ profile, size = 32, statusStyles = '' }) => {
+const Avatar: FC<IAvatarProps> = ({ profile, size = 32, statusStyles = '', indicatorSize }) => {
+	const indicatorWrapperSize = indicatorSize || size / 2;
+	const indicatorStatusSize = indicatorWrapperSize / 1.6;
+
 	return (
 		<div
 			className={styles.avatar}
@@ -28,10 +32,13 @@ const Avatar: FC<IAvatarProps> = ({ profile, size = 32, statusStyles = '' }) => 
 					height: `${size}px`
 				}}
 			/>
-			<div className={`${styles.avatar__status} ${statusStyles}`} style={{ width: size / 2, height: size / 2 }}>
+			<div
+				className={`${styles.avatar__status} ${statusStyles}`}
+				style={{ width: indicatorWrapperSize, height: indicatorWrapperSize }}
+			>
 				<div
 					className={styles['avatar__status-' + profile?.status]}
-					style={{ width: size / 3.2, height: size / 3.2 }}
+					style={{ width: indicatorStatusSize, height: indicatorStatusSize }}
 				></div>
 			</div>
 		</div>
