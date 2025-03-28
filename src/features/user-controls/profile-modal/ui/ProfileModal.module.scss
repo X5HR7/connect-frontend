@@ -1,0 +1,128 @@
+.modal {
+	margin: 0;
+	padding: 0;
+	width: 280px;
+	height: 330px;
+	position: absolute;
+	background-color: var(--colorBlack);
+	border-radius: 8px;
+	top: -300px;
+	left: -20px;
+	z-index: -1;
+	transition: all 0.1s;
+
+	&_opened {
+		top: -340px;
+		z-index: 2;
+		transition: top 0.3s;
+	}
+
+	&__content {
+		margin: 0;
+		padding: 16px;
+		width: auto;
+		height: calc(330px - 32px);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+}
+
+.profile {
+	margin: 0;
+	padding: 0;
+
+	&__status {
+		background-color: var(--colorBlack);
+	}
+
+	&__info {
+		margin: 10px 0 0 15px;
+		padding: 0;
+		color: var(--colorTextPrimary);
+
+		&-name {
+			margin: 0;
+			padding: 0;
+			font-size: 20px;
+		}
+
+		&-username {
+			margin: 0;
+			padding: 0;
+			font-size: 16px;
+		}
+	}
+}
+
+.buttons {
+	margin: 0;
+	padding: 8px;
+	width: calc(100% - 16px);
+	background-color: var(--colorBackgroundTertiary);
+	border-radius: 5px;
+	position: relative;
+
+	&__border {
+		margin: 4px 0;
+		padding: 0;
+		width: 100%;
+		height: 1px;
+		background-color: var(--colorBackgroundSecondary);
+	}
+
+	&__button {
+		margin: 0;
+		padding: 8px;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		color: var(--colorTextSecondary);
+		background-color: var(--colorBackgroundTertiary);
+		border-radius: 5px;
+		border: none;
+		outline: none;
+		text-align: left;
+		text-decoration: none;
+		transition:
+			background-color 0.2s,
+			color 0.2s;
+		cursor: pointer;
+		font-size: 14px;
+
+		&_link {
+			width: calc(100% - 16px);
+		}
+
+		&:hover {
+			background-color: var(--colorBackgroundPrimary);
+		}
+
+		&:disabled {
+			cursor: not-allowed;
+		}
+
+		&_exit:hover {
+			color: var(--colorTextPrimary);
+			background-color: var(--colorRed);
+		}
+	}
+
+	&__selector {
+		margin: 0;
+		padding: 0;
+		width: 338px;
+		min-height: 100px;
+		position: absolute;
+		background-color: var(--colorBlack);
+		border-radius: 8px;
+		top: -10px;
+		left: 107%;
+		z-index: -1;
+		display: none;
+
+		&_opened {
+			display: block;
+		}
+	}
+}
