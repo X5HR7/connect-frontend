@@ -28,8 +28,9 @@ export async function middleware(request: NextRequest) {
 			}
 
 			const responseWithToken = NextResponse.next();
-			responseWithToken.cookies.set('authData', JSON.stringify(data), {
-				httpOnly: false,
+
+			responseWithToken.cookies.set('access_token', data.accessToken, {
+				httpOnly: true,
 				secure: process.env.NODE_ENV === 'production'
 			});
 

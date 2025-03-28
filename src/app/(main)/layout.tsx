@@ -1,4 +1,3 @@
-import { AuthResponse } from '@shared/libs/api/api-client.ts';
 import { AuthProvider } from '@shared/libs/providers/AuthProvider.tsx';
 import { ServerListWidget } from '@widgets/server-list';
 import { UserControlsWidget } from '@widgets/user-controls';
@@ -8,11 +7,10 @@ import styles from './layout.module.scss';
 
 const Layout = async ({ children, sidebar }: { children: ReactNode; sidebar: ReactNode }) => {
 	const cookieStore = await cookies();
-	const authCookieData: string | undefined = cookieStore.get('authData')?.value;
-	const data: AuthResponse | null = authCookieData ? JSON.parse(authCookieData) : null;
+	const accessToken: string | undefined = cookieStore.get('access_token')?.value;
 
 	return (
-		<AuthProvider authData={data}>
+		<AuthProvider accessToken={accessToken}>
 			<div className={styles.layout}>
 				<aside className={styles.layout__servers}>
 					<ServerListWidget />

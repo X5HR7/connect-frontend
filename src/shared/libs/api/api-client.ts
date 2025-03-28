@@ -1,10 +1,8 @@
 import { HttpError } from '@shared/libs/api/HttpError.ts';
-import { IUserWithProfile } from '@shared/libs/interfaces';
 import { BASE_SERVER_URL } from '@shared/libs/utils/constants';
 import { useAuthStore } from '@shared/store/authStore';
 
 export interface AuthResponse {
-	user: IUserWithProfile;
 	accessToken: string;
 }
 
