@@ -16,10 +16,14 @@ export const useSocketStore = create<SocketStore>(set => ({
 				Authorization: token
 			}
 		});
-
 		socket.on('connect', () => {
 			set({ socket });
 		});
 	},
-	disconnect: () => set({ socket: null })
+	disconnect: () => {
+		set(state => {
+			state.socket?.disconnect();
+			return { socket: null };
+		});
+	}
 }));
