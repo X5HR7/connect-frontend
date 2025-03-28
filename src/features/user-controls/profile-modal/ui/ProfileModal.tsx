@@ -28,7 +28,6 @@ const ProfileModal: FC<IProfileModalProps> = ({ isOpen }) => {
 		logout(undefined, {
 			onSuccess: data => {
 				if (data.message) {
-					console.log('disconnect');
 					router.push(urls.SIGN_IN);
 				}
 			}
