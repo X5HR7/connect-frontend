@@ -16,12 +16,14 @@ export async function middleware(request: NextRequest) {
 
 	const refreshToken = request.cookies.get('refresh_token')?.value;
 
+	// если нет refresh токена и запрос не на страницы авторизации
 	if (!refreshToken && !request.nextUrl.pathname.startsWith('/sign')) {
 		return NextResponse.redirect(new URL(urls.SIGN_IN, request.url));
 	}
 
 	if (refreshToken) {
 		try {
+			// пробуем получить access токен
 			const data = await getNewAccessToken(refreshToken);
 			if (data && request.nextUrl.pathname.startsWith('/sign')) {
 				return NextResponse.redirect(new URL(urls.FRIENDS, request.url));
@@ -36,12 +38,18 @@ export async function middleware(request: NextRequest) {
 
 			return responseWithToken;
 		} catch (error) {
+			// если refresh токен невалиден
 			const response = NextResponse.redirect(new URL(urls.SIGN_IN, request.url));
+			response.cookies.delete('access_token');
 			response.cookies.delete('refresh_token');
 			return response;
 		}
 	}
-	return NextResponse.next();
+
+	// если нет refresh токена и запрос на страницу авторизации
+	const response = NextResponse.next();
+	response.cookies.delete('access_token');
+	return response;
 }
 
 export const config = {
