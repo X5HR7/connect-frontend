@@ -35,7 +35,9 @@ export async function middleware(request: NextRequest) {
 
 			return responseWithToken;
 		} catch (error) {
-			return NextResponse.redirect(new URL(urls.SIGN_IN, request.url));
+			const response = NextResponse.redirect(new URL(urls.SIGN_IN, request.url));
+			response.cookies.delete('refresh_token');
+			return response;
 		}
 	}
 	return NextResponse.next();
