@@ -1,5 +1,7 @@
 import profileAvatar from '@shared/assets/icons/profile_avatar_temlate.png';
+import offlineIcon from '@shared/assets/status/offline.svg';
 import { IUserProfile } from '@shared/libs/interfaces';
+import { statusIcons } from '@shared/libs/utils/status-icons.ts';
 import Image from 'next/image';
 import { FC } from 'react';
 import styles from './Avatar.module.scss';
@@ -36,10 +38,12 @@ const Avatar: FC<IAvatarProps> = ({ profile, size = 32, statusStyles = '', indic
 				className={`${styles.avatar__status} ${statusStyles}`}
 				style={{ width: indicatorWrapperSize, height: indicatorWrapperSize }}
 			>
-				<div
+				<Image
+					src={profile?.status ? statusIcons[profile?.status] : offlineIcon}
+					alt={'status icon'}
 					className={styles['avatar__status-' + profile?.status]}
 					style={{ width: indicatorStatusSize, height: indicatorStatusSize }}
-				></div>
+				></Image>
 			</div>
 		</div>
 	);

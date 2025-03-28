@@ -21,32 +21,5 @@
 		right: -2px;
 		bottom: -2px;
 		background-color: transparent;
-
-		&-ONLINE,
-		&-INACTIVE,
-		&-DO_NOT_DISTURB,
-		&-OFFLINE {
-			margin: 0;
-			padding: 0;
-			width: 10px;
-			height: 10px;
-			border-radius: 50%;
-		}
-
-		&-ONLINE {
-			background-color: var(--colorGreen);
-		}
-
-		&-INACTIVE {
-			background-color: var(--colorYellow);
-		}
-
-		&-DO_NOT_DISTURB {
-			background-color: var(--colorRed);
-		}
-
-		&-OFFLINE {
-			background-color: var(--colorGray);
-		}
 	}
 }
