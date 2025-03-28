@@ -20,3 +20,4 @@ export type {
 	TServerChannelTypes
 } from './server.interface.ts';
 export type { IChat, IChatMember, IMessage } from './chat.interface.ts';
+export { EVENTS } from './events.ts';

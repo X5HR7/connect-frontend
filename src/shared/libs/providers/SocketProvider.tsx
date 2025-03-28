@@ -1,5 +1,6 @@
 'use client';
 
+import { EVENTS, IUserWithProfile } from '@shared/libs/interfaces';
 import { useAuthStore } from '@shared/store/authStore.ts';
 import { useSocketStore } from '@shared/store/socketStore.ts';
 import { FC, ReactNode, useEffect } from 'react';
@@ -9,18 +10,27 @@ interface ISocketProviderProps {
 }
 
 const SocketProvider: FC<ISocketProviderProps> = ({ children }) => {
-	const { accessToken } = useAuthStore();
-	const { connect, disconnect } = useSocketStore();
+	const { accessToken, setUser } = useAuthStore();
+	const { connect, disconnect, socket } = useSocketStore();
 
 	useEffect(() => {
 		if (accessToken) {
 			connect(accessToken);
-			console.log(accessToken);
 		}
 		return () => {
 			disconnect();
 		};
 	}, [accessToken]);
+
+	useEffect(() => {
+		if (socket) {
+			socket.on(EVENTS.CURRENT_USER_UPDATE, (user: IUserWithProfile) => {
+				if (user) {
+					setUser(user);
+				}
+			});
+		}
+	}, [socket]);
 
 	return <>{children}</>;
 };
