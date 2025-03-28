@@ -28,8 +28,11 @@ const Avatar: FC<IAvatarProps> = ({ profile, size = 32, statusStyles = '' }) => 
 					height: `${size}px`
 				}}
 			/>
-			<div className={`${styles.avatar__status} ${statusStyles}`}>
-				<div className={styles['avatar__status-' + profile?.status]}></div>
+			<div className={`${styles.avatar__status} ${statusStyles}`} style={{ width: size / 2, height: size / 2 }}>
+				<div
+					className={styles['avatar__status-' + profile?.status]}
+					style={{ width: size / 3.2, height: size / 3.2 }}
+				></div>
 			</div>
 		</div>
 	);
