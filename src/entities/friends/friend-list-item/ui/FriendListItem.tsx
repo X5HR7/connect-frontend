@@ -1,7 +1,9 @@
 import chatIcon from '@shared/assets/icons/chat.svg';
+import { urls } from '@shared/libs/utils/url.config.ts';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FC } from 'react';
 import { IFriendListItem } from '../lib/friend-list-item.interface.ts';
 import styles from './FriendListItem.module.scss';
@@ -16,9 +18,9 @@ const FriendListItem: FC<IFriendListItem> = ({ friend }) => {
 				</div>
 				<div className={styles.friend__buttons}>
 					<Tooltip text={'Сообщение'} position={'top'}>
-						<button className={styles['friend__buttons-button']}>
+						<Link href={urls.CHAT(friend.id)} className={styles['friend__buttons-button']}>
 							<Image src={chatIcon} alt='chat' className={styles['friend__buttons-button-icon']} />
-						</button>
+						</Link>
 					</Tooltip>
 					<Tooltip text={'Ещё'} position={'top'}>
 						<button className={styles['friend__buttons-button']}>
