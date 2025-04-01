@@ -42,7 +42,7 @@ const UserChats: FC = () => {
 						return (
 							<li className={styles.chats__item} key={chat.id}>
 								<NavLink
-									href={urls.CHAT(chat.id)}
+									href={urls.CHAT(friend.id)}
 									className={styles['chats__item-content']}
 									activeClassName={styles['chats__item-content_active']}
 								>
