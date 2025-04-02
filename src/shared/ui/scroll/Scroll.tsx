@@ -23,19 +23,42 @@ const Scroll: React.FC<CustomScrollProps> = ({
 	const contentRef = useRef<HTMLDivElement>(null);
 	const scrollTrackRef = useRef<HTMLDivElement>(null);
 	const scrollThumbRef = useRef<HTMLDivElement>(null);
+	const containerRef = useRef<HTMLDivElement>(null);
 	const [thumbHeight, setThumbHeight] = useState(20);
 	const [scrollStartPosition, setScrollStartPosition] = useState<number | null>(null);
 	const [initialScrollTop, setInitialScrollTop] = useState<number>(0);
 	const [isDragging, setIsDragging] = useState(false);
 
-	useLayoutEffect(() => {
+	const updateScrollThumb = () => {
 		const contentElement = contentRef.current;
-		if (contentElement) {
-			const { scrollHeight, clientHeight } = contentElement;
-			const newThumbHeight = (clientHeight / scrollHeight) * clientHeight;
-			setThumbHeight(newThumbHeight);
-		}
+		if (!contentElement) return;
+
+		const { scrollHeight, clientHeight } = contentElement;
+		const newThumbHeight = Math.max(
+			(clientHeight / scrollHeight) * clientHeight,
+			20 // Минимальная высота ползунка
+		);
+		setThumbHeight(newThumbHeight);
+	};
+
+	useLayoutEffect(() => {
+		updateScrollThumb();
 	}, [children]);
+
+	useEffect(() => {
+		const contentElement = contentRef.current;
+		if (!contentElement) return;
+
+		const resizeObserver = new ResizeObserver(() => {
+			updateScrollThumb();
+		});
+
+		resizeObserver.observe(contentElement);
+
+		return () => {
+			resizeObserver.disconnect();
+		};
+	}, []);
 
 	const handleScroll = () => {
 		const contentElement = contentRef.current;
@@ -85,7 +108,7 @@ const Scroll: React.FC<CustomScrollProps> = ({
 	}, [isDragging]);
 
 	return (
-		<div className={styles.scroll}>
+		<div className={styles.scroll} ref={containerRef}>
 			<div ref={contentRef} className={styles.scroll__container} onScroll={handleScroll}>
 				{children}
 			</div>

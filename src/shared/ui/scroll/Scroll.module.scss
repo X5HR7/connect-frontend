@@ -17,6 +17,7 @@
 		overflow-y: auto;
 		scrollbar-width: none;
 		width: 100%;
+		box-sizing: border-box;
 	}
 
 	&__bar {
@@ -39,6 +40,7 @@
 		position: absolute;
 		top: 0;
 		cursor: pointer;
+		transition: height 0.2s;
 	}
 
 	&:hover > &__bar {
