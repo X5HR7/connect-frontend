@@ -35,6 +35,14 @@
 			left: 50%;
 			transform: translateX(-50%);
 		}
+
+		&_bottom {
+			margin: 0;
+			bottom: auto;
+			top: 28px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
 	}
 }
 
