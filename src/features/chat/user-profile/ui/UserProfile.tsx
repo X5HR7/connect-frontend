@@ -1,13 +1,15 @@
 'use client';
 
-import { ModalUserProfile } from '@features/modal-user-profile';
 import { useAuthStore } from '@shared/store/authStore.ts';
 import { useChatStore } from '@shared/store/chatStore.ts';
 import { useModalStore } from '@shared/store/modalStore.ts';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
+import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import styles from './UserProfile.module.scss';
+
+const ModalUserProfile = dynamic(() => import('@features/modal-user-profile'));
 
 const UserProfile: FC = () => {
 	const { user } = useAuthStore();
