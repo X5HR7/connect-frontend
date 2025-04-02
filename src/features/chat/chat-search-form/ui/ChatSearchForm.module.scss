@@ -1,0 +1,32 @@
+.form {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	position: relative;
+
+	&__input {
+		margin: 0;
+		padding: 5px;
+		width: 100%;
+		color: var(--colorTextPrimary);
+		background-color: var(--colorBackgroundTertiary);
+		border: none;
+		border-radius: 5px;
+		outline: none;
+	}
+
+	&__icon {
+		margin: 0;
+		padding: 0;
+		width: 15px;
+		height: 15px;
+		opacity: 0.5;
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		z-index: 2;
+	}
+}
