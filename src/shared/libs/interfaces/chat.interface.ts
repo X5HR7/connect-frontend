@@ -1,4 +1,4 @@
-import { IUser } from '@shared/libs/interfaces/user.interface.ts';
+import { IUserWithProfile } from '@shared/libs/interfaces/user.interface.ts';
 
 export interface IChat {
 	id: string;
@@ -10,8 +10,9 @@ export interface IChatMember {
 	id: string;
 	memberId: string;
 	chatId: string;
-	member?: IUser;
+	member: IUserWithProfile;
 	messages?: IMessage[];
+	lastReadMessageId: string;
 }
 
 export interface IMessage {

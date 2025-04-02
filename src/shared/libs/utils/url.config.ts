@@ -1,5 +1,6 @@
 class UrlConfig {
 	public HOME = '/';
+	public NOT_FOUND = '/not-found';
 
 	public FRIENDS = '/friends';
 	public CHAT = (id: string) => `${this.FRIENDS}/chats/${id}`;

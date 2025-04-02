@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-	title: `${APP_NAME} | Друзья`
+	title: `${APP_NAME} | Чат`
 };
 
 const Layout = ({ children }: { children: ReactNode }) => {

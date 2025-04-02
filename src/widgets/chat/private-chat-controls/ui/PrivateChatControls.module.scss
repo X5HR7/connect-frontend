@@ -1,0 +1,36 @@
+.controls {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+	&__profile {
+		margin: 0;
+		padding: 0;
+		width: fit-content;
+	}
+
+	&__elements {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		&-buttons {
+			margin: 0 15px 0 0;
+			padding: 0;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+
+		&-search {
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
