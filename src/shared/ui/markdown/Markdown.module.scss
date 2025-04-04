@@ -1,0 +1,110 @@
+.h1 {
+	margin: 10px 0;
+	padding: 0;
+	font-size: 34px;
+	font-weight: 700;
+}
+
+.h2 {
+	margin: 7px 0;
+	padding: 0;
+	font-size: 28px;
+	font-weight: 700;
+}
+
+.h3 {
+	margin: 5px 0;
+	padding: 0;
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.h4 {
+	margin: 5px 0;
+	padding: 0;
+	font-size: 22px;
+	font-weight: 600;
+}
+
+.h5 {
+	margin: 5px 0;
+	padding: 0;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.h6 {
+	margin: 5px 0;
+	padding: 0;
+	font-size: 18px;
+}
+
+.a {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	text-decoration: none;
+	color: var(--colorLink);
+
+	&:hover {
+		cursor: pointer;
+		text-decoration: underline;
+	}
+}
+
+.p,
+.div {
+	margin: 5px 0;
+	padding: 0;
+}
+
+.ul {
+	margin: 5px 0;
+	padding: 0 0 0 20px;
+	list-style: circle;
+}
+
+.ol {
+	margin: 5px 0;
+	padding: 0 0 0 20px;
+}
+
+.li {
+	margin: 2px 0;
+	padding: 0;
+}
+
+.b,
+.strong {
+	margin: 0;
+	padding: 0;
+	font-weight: 700;
+}
+
+.i {
+	margin: 0;
+	padding: 0;
+	font-style: italic;
+}
+
+.del {
+	margin: 0;
+	padding: 0;
+	text-decoration: line-through;
+}
+
+.blockquote {
+	margin: 5px 0;
+	padding: 0 0 0 10px;
+	display: block;
+	border-left: solid 4px var(--colorBackgroundTertiary);
+}
+
+.code {
+	margin: 3px 0;
+	padding: 3px;
+	color: var(--colorTextSecondary);
+	border: 1px solid var(--colorChannelBackgroundActive);
+	border-radius: 5px;
+	background-color: var(--colorBackgroundTertiary);
+}

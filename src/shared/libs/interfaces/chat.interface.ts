@@ -21,6 +21,6 @@ export interface IMessage {
 	content: string;
 	isPinned: boolean;
 	createdAt: Date;
-	updatedAt: Date;
-	deletedAt: Date;
+	updatedAt?: Date;
+	deletedAt?: Date;
 }

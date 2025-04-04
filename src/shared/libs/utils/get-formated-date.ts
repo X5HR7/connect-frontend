@@ -1,5 +1,5 @@
-const getFormatedDate = (timestamp: number | Date): string => {
-	const date = typeof timestamp === 'number' ? new Date(timestamp) : timestamp;
+export const getFormatedDate = (timestamp: number | Date): string => {
+	const date = new Date(timestamp);
 
 	const datePart = new Intl.DateTimeFormat('ru-RU', {
 		day: '2-digit',
