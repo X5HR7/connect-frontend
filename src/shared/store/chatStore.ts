@@ -4,15 +4,20 @@ import { create } from 'zustand/react';
 interface ChatStore {
 	chatId: string | null;
 	messages: IMessage[];
+	receiver: IChatMember | null;
 	chatMembers: IChatMember[];
-	setChat: (chat: IChat) => void;
+	setChat: (chat: IChat, receiver: IChatMember | null) => void;
+	addMessage: (message: IMessage) => void;
 	clearChat: () => void;
 }
 
 export const useChatStore = create<ChatStore>(set => ({
 	chatId: null,
-	setChat: (chat: IChat) => set({ chatId: chat.id, chatMembers: chat.chatMembers, messages: chat.messages }),
+	setChat: (chat: IChat, receiver: IChatMember | null) =>
+		set({ chatId: chat.id, chatMembers: chat.chatMembers, messages: chat.messages, receiver }),
 	messages: [],
+	receiver: null,
 	chatMembers: [],
+	addMessage: (message: IMessage) => set(state => ({ messages: [...state.messages, message] })),
 	clearChat: () => set({ chatId: null, messages: [], chatMembers: [] })
 }));
