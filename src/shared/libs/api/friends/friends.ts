@@ -1,6 +1,6 @@
 import { HttpError } from '@shared/libs/api/HttpError.ts';
 import { fetchWithAuth } from '@shared/libs/api/api-client.ts';
-import { IChat, IUserFriendRequest, IUserWithProfile } from '@shared/libs/interfaces';
+import { IChat, IUserFriend, IUserFriendRequest, IUserWithProfile } from '@shared/libs/interfaces';
 import { BASE_SERVER_URL } from '@shared/libs/utils/constants.ts';
 
 export const fetchUserChats = (): Promise<IChat[]> => {
@@ -59,6 +59,12 @@ export const fetchFriendRequestAccept = (requestId: string) => {
 
 export const fetchFriendRequestReject = (requestId: string) => {
 	return fetchWithAuth<IUserFriendRequest>(`${BASE_SERVER_URL}/friends/requests/${requestId}`, {
+		method: 'DELETE'
+	});
+};
+
+export const fetchFriendDelete = (friendId: string) => {
+	return fetchWithAuth<IUserFriend>(`${BASE_SERVER_URL}/friends/${friendId}`, {
 		method: 'DELETE'
 	});
 };

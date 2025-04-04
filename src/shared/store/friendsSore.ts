@@ -10,6 +10,7 @@ interface FriendsStore {
 	setRequests: (requests: IUserFriendRequest[]) => void;
 	removeRequest: (requestId: string) => void;
 	addFriend: (friend: IUserWithProfile) => void;
+	removeFriend: (friendId: string) => void;
 }
 
 export const useFriendsStore = create<FriendsStore>(set => ({
@@ -26,5 +27,9 @@ export const useFriendsStore = create<FriendsStore>(set => ({
 	addFriend: friend =>
 		set(state => ({
 			friends: [...state.friends, friend]
+		})),
+	removeFriend: friendId =>
+		set(state => ({
+			friends: state.friends.filter(friend => friend.id !== friendId)
 		}))
 }));
