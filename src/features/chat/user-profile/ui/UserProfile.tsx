@@ -1,6 +1,5 @@
 'use client';
 
-import { useAuthStore } from '@shared/store/authStore.ts';
 import { useChatStore } from '@shared/store/chatStore.ts';
 import { useModalStore } from '@shared/store/modalStore.ts';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
@@ -12,11 +11,8 @@ import styles from './UserProfile.module.scss';
 const ModalUserProfile = dynamic(() => import('@features/modal-user-profile'));
 
 const UserProfile: FC = () => {
-	const { user } = useAuthStore();
-	const { chatMembers } = useChatStore();
+	const { receiver } = useChatStore();
 	const { openModal } = useModalStore();
-
-	const receiver = chatMembers.filter(member => member.memberId !== user?.id)[0]?.member;
 
 	const handleUsernameClick = () => {
 		if (receiver) {
@@ -26,10 +22,10 @@ const UserProfile: FC = () => {
 
 	return (
 		<div className={styles.profile}>
-			<Avatar profile={receiver?.profile} size={30} statusStyles={styles.profile__avatar} />
-			<Tooltip text={receiver?.username || ''} position={'bottom'}>
+			<Avatar profile={receiver?.member.profile} size={30} statusStyles={styles.profile__avatar} />
+			<Tooltip text={receiver?.member.username || ''} position={'bottom'}>
 				<h2 className={styles.profile__username} onClick={handleUsernameClick}>
-					{receiver?.profile.displayName || receiver?.username}
+					{receiver?.member.profile.displayName || receiver?.member.username}
 				</h2>
 			</Tooltip>
 		</div>
