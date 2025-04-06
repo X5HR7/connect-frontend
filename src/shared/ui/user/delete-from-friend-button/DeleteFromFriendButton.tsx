@@ -1,8 +1,8 @@
-import { useDeleteFriend } from '@entities/chat/user-chat-profile/lib/useDeleteFriend.ts';
 import { IUserWithProfile } from '@shared/libs/interfaces';
 import { Loader } from '@shared/ui/loader/Loader.tsx';
 import { FC } from 'react';
 import styles from './DeleteFromFriendButton.module.scss';
+import { useDeleteFriend } from './useDeleteFriend.ts';
 
 interface IDeleteFromFriendButtonProps {
 	receiver?: IUserWithProfile;
