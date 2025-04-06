@@ -16,7 +16,7 @@ const UserProfile: FC = () => {
 
 	const handleUsernameClick = () => {
 		if (receiver) {
-			openModal(<ModalUserProfile userId={receiver?.id} />);
+			openModal(<ModalUserProfile userId={receiver.member.id} />);
 		}
 	};
 
