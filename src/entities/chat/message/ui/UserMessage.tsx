@@ -1,7 +1,6 @@
 'use client';
 
 import { getFormatedDate } from '@shared/libs/utils/get-formated-date.ts';
-import { useChatStore } from '@shared/store/chatStore.ts';
 import { useModalStore } from '@shared/store/modalStore.ts';
 import { Markdown } from '@shared/ui/markdown/Markdown.tsx';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
@@ -13,12 +12,11 @@ import styles from './UserMessage.module.scss';
 const ModalUserProfile = dynamic(() => import('@features/modal-user-profile'));
 
 const UserMessage: FC<IUserMessageProps> = ({ message, sender }) => {
-	const { receiver } = useChatStore();
 	const { openModal } = useModalStore();
 
 	const handleUsernameClick = () => {
-		if (receiver) {
-			openModal(<ModalUserProfile userId={receiver.member.id} />);
+		if (sender) {
+			openModal(<ModalUserProfile userId={sender.id} />);
 		}
 	};
 
