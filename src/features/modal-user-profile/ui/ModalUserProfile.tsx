@@ -1,9 +1,115 @@
-import { FC } from 'react';
+'use client';
+
+import { getFormatedDate } from '@shared/libs/utils/get-formated-date.ts';
+import { useAuthStore } from '@shared/store/authStore.ts';
+import { useFriendsStore } from '@shared/store/friendsSore.ts';
+import { Loader } from '@shared/ui/loader/Loader.tsx';
+import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
+import dynamic from 'next/dynamic';
+import { FC, useEffect, useState } from 'react';
 import { IModalUserProfileProps } from '../lib/modal-user-profile.interface.ts';
+import { useFetchUserInfo } from '../lib/useFetchUserInfo.ts';
 import styles from './ModalUserProfile.module.scss';
 
+const AddToFriendButton = dynamic(() => import('@shared/ui/user/add-to-friend-button/AddToFriendButton.tsx'));
+const DeleteFromFriendButton = dynamic(
+	() => import('@shared/ui/user/delete-from-friend-button/DeleteFromFriendButton.tsx')
+);
+
 const ModalUserProfile: FC<IModalUserProfileProps> = ({ userId }) => {
-	return <div className={styles.profile}>User profile {userId}</div>;
+	const { user: currentUser } = useAuthStore();
+	const { friends, requests, removeFriend } = useFriendsStore();
+	const { data: user, isPending } = useFetchUserInfo(userId);
+
+	const [isFriend, setIsFriend] = useState<boolean>(false);
+	const [isRequestSent, setIsRequestSent] = useState<boolean>(false);
+
+	useEffect(() => {
+		if ((friends.length !== 0 || requests.length !== 0) && user) {
+			if (friends.filter(friend => friend.id === user.id).length !== 0) {
+				setIsFriend(true);
+			}
+			if (requests.filter(request => request.receiverId === user.id).length !== 0) {
+				setIsRequestSent(true);
+			}
+		}
+	}, [user, friends]);
+
+	const handleAddFriendSuccess = () => {
+		setIsRequestSent(true);
+	};
+
+	const handleDeleteFriendSuccess = (friendId: string) => {
+		setIsFriend(false);
+		removeFriend(friendId);
+	};
+
+	return (
+		<div className={styles.profile}>
+			{!isPending && currentUser && user ? (
+				<div className={styles.profile__content}>
+					<section className={styles.profile__header}>
+						<div className={styles['profile__header-avatar']}>
+							<Avatar
+								profile={user.profile}
+								size={110}
+								statusStyles={styles['profile__header-avatar-status']}
+								indicatorSize={40}
+							/>
+						</div>
+						{currentUser.id === user.id ? null : (
+							<div className={styles['profile__header-buttons']}>
+								{isFriend ? (
+									<DeleteFromFriendButton receiver={user} handleSuccess={handleDeleteFriendSuccess} />
+								) : (
+									<AddToFriendButton
+										receiver={user}
+										handleSuccess={handleAddFriendSuccess}
+										isRequestSent={isRequestSent}
+									/>
+								)}
+							</div>
+						)}
+					</section>
+					<section className={styles.profile__wrapper}>
+						<div className={styles.profile__user}>
+							<p className={styles['profile__user-name']}>{user.profile.displayName || user.username}</p>
+							{user.profile.displayName ? <p className={styles['profile__user-username']}>{user.username}</p> : null}
+						</div>
+						<div className={styles.profile__info}>
+							<ul className={styles['profile__info-header']}>
+								<li className={`${styles['profile__info-header-item']} ${styles['profile__info-header-item_active']}`}>
+									Обо мне
+								</li>
+								{user.id !== currentUser.id ? (
+									<>
+										<li className={styles['profile__info-header-item']}>Общих друзей - {user._count?.friends}</li>
+										<li className={styles['profile__info-header-item']}>
+											Общих серверов - {user._count?.serverMember}
+										</li>
+									</>
+								) : null}
+							</ul>
+							<div className={styles['profile__info-description']}>
+								<p className={styles['profile__info-description-title']}>Описание профиля</p>
+								<p className={styles['profile__info-description-text']}>
+									{user.profile.description || 'Пользователь не указал описание'}
+								</p>
+							</div>
+							<div className={styles['profile__info-member']}>
+								<p className={styles['profile__info-member-title']}>В числе участников с</p>
+								<p className={styles['profile__info-member-text']}>{getFormatedDate(user.profile.createdAt)}</p>
+							</div>
+						</div>
+					</section>
+				</div>
+			) : (
+				<div className={styles.profile__loader}>
+					<Loader size={70} borderWidth={6} color={'#5865f2'} />
+				</div>
+			)}
+		</div>
+	);
 };
 
 export { ModalUserProfile };

@@ -13,6 +13,10 @@ export interface IUser {
 	username: string;
 	password?: string;
 	type?: TUser;
+	_count?: {
+		friends?: number;
+		serverMember?: number;
+	};
 
 	profile?: IUserProfile;
 	friends?: IUserFriend[];
@@ -32,6 +36,8 @@ export interface IUserProfile {
 	background?: string;
 	avatar?: string;
 	status: TProfileStatus;
+
+	createdAt: Date;
 }
 
 export interface IUserFriend {

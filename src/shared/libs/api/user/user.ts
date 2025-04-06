@@ -11,3 +11,9 @@ export const fetchUpdateUserStatus = (status: TProfileStatus) => {
 		body: JSON.stringify({ status })
 	});
 };
+
+export const fetchUserInfo = (userId: string) => {
+	return fetchWithAuth<IUserWithProfile>(`${BASE_SERVER_URL}/users/info/${userId}`, {
+		method: 'GET'
+	});
+};

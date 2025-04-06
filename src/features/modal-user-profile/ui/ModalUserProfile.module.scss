@@ -1,0 +1,145 @@
+.profile {
+	margin: 0;
+	padding: 0;
+	width: 600px;
+	border-radius: 10px;
+
+	background: linear-gradient(
+		to bottom,
+		var(--colorBackgroundSecondary) 190px,
+		var(--colorBackgroundTertiary) 190px,
+		var(--colorBackgroundTertiary) 100%
+	);
+
+	&__loader {
+		margin: 0;
+		padding: 220px 0 0 0;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__content {
+		margin: 0;
+		padding: 20px;
+		width: calc(100% - 40px);
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__header {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+
+		&-avatar {
+			margin: 110px 0 0 0;
+			padding: 0;
+			width: 120px;
+			height: 120px;
+			border-radius: 50%;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			background-color: var(--colorBackgroundTertiary);
+
+			&-status {
+				background-color: var(--colorBackgroundTertiary);
+			}
+		}
+
+		&-buttons {
+			margin: 0 0 25px 0;
+			padding: 0;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+
+	&__wrapper {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+
+	&__user {
+		margin: 20px 0 20px 10px;
+		padding: 0;
+		width: 100%;
+
+		&-name {
+			margin: 0;
+			padding: 0;
+			font-size: 20px;
+			font-weight: 600;
+		}
+
+		&-username {
+			margin: 10px 0 0 0;
+			padding: 0;
+			font-size: 16px;
+			font-weight: 400;
+		}
+	}
+
+	&__info {
+		margin: 0;
+		padding: 10px;
+		width: calc(100% - 20px);
+		min-height: 300px;
+		border-radius: 5px;
+		background-color: rgba(rgb(43 45 49), 0.4); //--colorBackgroundSecondary in RGB
+
+		&-header {
+			margin: 10px 0 0 0;
+			padding: 0 0 10px 0;
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			list-style: none;
+			border-bottom: 1px solid var(--colorBackgroundSecondary);
+
+			&-item {
+				margin: 0 35px 0 0;
+				padding: 0;
+				font-size: 14px;
+				font-weight: 400;
+				cursor: not-allowed;
+
+				&_active {
+					font-weight: 600;
+					cursor: pointer;
+				}
+			}
+		}
+
+		&-description,
+		&-member {
+			margin: 20px 0 0 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+
+			&-title {
+				margin: 0;
+				padding: 0;
+				font-size: 12px;
+				font-weight: 600;
+			}
+
+			&-text {
+				margin: 7px 0 0 0;
+				padding: 0;
+				font-size: 14px;
+				font-weight: 400;
+			}
+		}
+	}
+}
