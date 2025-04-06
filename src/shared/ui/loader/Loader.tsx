@@ -5,16 +5,17 @@ interface ILoaderProps {
 	size?: number;
 	color?: string;
 	borderWidth?: number;
+	className?: string;
 }
 
-const Loader: FC<ILoaderProps> = ({ color = '#1a1b1e', size = 30, borderWidth = 2 }) => {
+const Loader: FC<ILoaderProps> = ({ color, size = 30, borderWidth = 2, className }) => {
 	return (
 		<div
-			className={styles.loader}
+			className={`${styles.loader} ${className || ''}`}
 			style={{
 				width: `${size}px`,
 				height: `${size}px`,
-				borderColor: color,
+				borderColor: color || '#1a1b1e',
 				borderWidth: borderWidth,
 				borderTopColor: 'transparent'
 			}}
