@@ -18,7 +18,7 @@ const UserMessage: FC<IUserMessageProps> = ({ message, sender }) => {
 
 	const handleUsernameClick = () => {
 		if (receiver) {
-			openModal(<ModalUserProfile userId={receiver?.id} />);
+			openModal(<ModalUserProfile userId={receiver.member.id} />);
 		}
 	};
 
