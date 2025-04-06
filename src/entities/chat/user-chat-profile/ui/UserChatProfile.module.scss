@@ -38,9 +38,13 @@
 	}
 
 	&__button {
+		margin-right: 10px;
+	}
+
+	&__button_ban {
 		margin: 0 10px 0 0;
 		padding: 5px 10px;
-		background-color: var(--colorPurple);
+		background-color: var(--colorBackgroundSecondary);
 		border: none;
 		border-radius: 5px;
 		outline: none;
@@ -55,14 +59,6 @@
 
 		&:hover {
 			opacity: 0.7;
-		}
-
-		&_delete {
-			background-color: var(--colorRed);
-		}
-
-		&_ban {
-			background-color: var(--colorBackgroundSecondary);
 		}
 	}
 }

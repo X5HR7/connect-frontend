@@ -3,18 +3,20 @@
 import { useChatStore } from '@shared/store/chatStore.ts';
 import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
+import dynamic from 'next/dynamic';
 import { FC, useEffect, useState } from 'react';
-import { useDeleteFriend } from '../lib/useDeleteFriend.ts';
-import { useSendFriendRequest } from '../lib/useSendFriendRequest.ts';
 import styles from './UserChatProfile.module.scss';
+
+const AddToFriendButton = dynamic(() => import('@shared/ui/user/add-to-friend-button/AddToFriendButton.tsx'));
+const DeleteFromFriendButton = dynamic(
+	() => import('@shared/ui/user/delete-from-friend-button/DeleteFromFriendButton.tsx')
+);
 
 const UserChatProfile: FC = () => {
 	const { receiver } = useChatStore();
 	const { friends, requests, removeFriend } = useFriendsStore();
 	const [isFriend, setIsFriend] = useState<boolean>(false);
 	const [isRequestSent, setIsRequestSent] = useState<boolean>(false);
-	const { mutate: addToFriend, isPending: isAddToFriendPending } = useSendFriendRequest();
-	const { mutate: deleteFriend, isPending: isDeleteFriendPending } = useDeleteFriend();
 
 	useEffect(() => {
 		if ((friends.length !== 0 || requests.length !== 0) && receiver) {
@@ -27,30 +29,13 @@ const UserChatProfile: FC = () => {
 		}
 	}, [receiver, friends]);
 
-	const addToFriendButtonClick = () => {
-		if (receiver?.member.username) {
-			addToFriend(
-				{ username: receiver.member.username },
-				{
-					onSuccess: () => {
-						setIsRequestSent(true);
-					}
-				}
-			);
-		}
+	const handleAddFriendSuccess = () => {
+		setIsRequestSent(true);
 	};
 
-	const deleteFromFriendButtonClick = () => {
-		if (receiver?.memberId) {
-			deleteFriend(receiver.memberId, {
-				onSuccess: data => {
-					if (data?.friendId) {
-						setIsFriend(false);
-						removeFriend(data.friendId);
-					}
-				}
-			});
-		}
+	const handleDeleteFriendSuccess = (friendId: string) => {
+		setIsFriend(false);
+		removeFriend(friendId);
 	};
 
 	return (
@@ -62,26 +47,20 @@ const UserChatProfile: FC = () => {
 			) : null}
 			<p className={styles.profile__text}>Это начало истории ваших личных сообщений с {receiver?.member.username}.</p>
 			<div className={styles.profile__buttons}>
-				{isFriend && (
-					<button
-						className={`${styles.profile__button} ${styles.profile__button_delete}`}
-						disabled={!receiver || isDeleteFriendPending}
-						onClick={deleteFromFriendButtonClick}
-					>
-						Удалить из друзей
-					</button>
-				)}
-
-				{!isFriend && (
-					<button
+				{isFriend ? (
+					<DeleteFromFriendButton
+						receiver={receiver?.member}
+						handleSuccess={handleDeleteFriendSuccess}
 						className={styles.profile__button}
-						disabled={!receiver || isRequestSent || isAddToFriendPending}
-						onClick={addToFriendButtonClick}
-					>
-						{isRequestSent ? 'Запрос уже отправлен' : 'Добавить в друзья'}
-					</button>
+					/>
+				) : (
+					<AddToFriendButton
+						receiver={receiver?.member}
+						handleSuccess={handleAddFriendSuccess}
+						isRequestSent={isRequestSent}
+						className={styles.profile__button}
+					/>
 				)}
-
 				<button className={`${styles.profile__button} ${styles.profile__button_ban}`} disabled={true}>
 					Заблокировать
 				</button>
