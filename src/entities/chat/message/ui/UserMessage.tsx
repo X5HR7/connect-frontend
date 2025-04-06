@@ -1,11 +1,27 @@
+'use client';
+
 import { getFormatedDate } from '@shared/libs/utils/get-formated-date.ts';
+import { useChatStore } from '@shared/store/chatStore.ts';
+import { useModalStore } from '@shared/store/modalStore.ts';
 import { Markdown } from '@shared/ui/markdown/Markdown.tsx';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
+import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import { IUserMessageProps } from '../lib/user-message.interface.ts';
 import styles from './UserMessage.module.scss';
 
+const ModalUserProfile = dynamic(() => import('@features/modal-user-profile'));
+
 const UserMessage: FC<IUserMessageProps> = ({ message, sender }) => {
+	const { receiver } = useChatStore();
+	const { openModal } = useModalStore();
+
+	const handleUsernameClick = () => {
+		if (receiver) {
+			openModal(<ModalUserProfile userId={receiver?.id} />);
+		}
+	};
+
 	return (
 		<li className={styles.message}>
 			<div className={styles.message__avatar}>
@@ -13,7 +29,9 @@ const UserMessage: FC<IUserMessageProps> = ({ message, sender }) => {
 			</div>
 			<div className={styles.message__content}>
 				<div className={styles['message__content-title']}>
-					<p className={styles['message__content-title-username']}>{sender.profile.displayName || sender.username}</p>
+					<p className={styles['message__content-title-username']} onClick={handleUsernameClick}>
+						{sender.profile.displayName || sender.username}
+					</p>
 					<p className={styles['message__content-title-date']}>{getFormatedDate(message.createdAt)}</p>
 				</div>
 				<div className={styles['message__content-text']}>
