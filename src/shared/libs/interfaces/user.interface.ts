@@ -28,6 +28,7 @@ export type TProfileStatus = 'ONLINE' | 'INACTIVE' | 'DO_NOT_DISTURB' | 'OFFLINE
 export interface IUserProfile {
 	id: string;
 	displayName?: string;
+	description?: string;
 	background?: string;
 	avatar?: string;
 	status: TProfileStatus;
