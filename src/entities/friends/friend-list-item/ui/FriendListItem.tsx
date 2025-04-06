@@ -13,7 +13,9 @@ const FriendListItem: FC<IFriendListItem> = ({ friend }) => {
 		<li className={styles.friend}>
 			<div className={styles.friend__content}>
 				<div className={styles.friend__info}>
-					<Avatar profile={friend.profile} size={32} statusStyles={styles['friend__info-status']} />
+					<div className={styles['friend__info-avatar']}>
+						<Avatar profile={friend.profile} size={32} statusStyles={styles['friend__info-avatar-status']} />
+					</div>
 					<p className={styles['friend__info-username']}>{friend.profile.displayName || friend.username}</p>
 				</div>
 				<div className={styles.friend__buttons}>

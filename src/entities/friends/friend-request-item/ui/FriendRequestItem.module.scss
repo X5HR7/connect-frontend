@@ -41,9 +41,14 @@
 		flex-direction: row;
 		align-items: center;
 
-		&-status {
-			background-color: var(--colorBackgroundPrimary) !important;
-			transition: background-color 0.2s;
+		&-avatar {
+			margin: 0 10px 0 0;
+			padding: 0;
+
+			&-status {
+				background-color: var(--colorBackgroundPrimary) !important;
+				transition: background-color 0.2s;
+			}
 		}
 
 		&-username {
@@ -54,7 +59,7 @@
 		}
 	}
 
-	&:hover &__info-status {
+	&:hover &__info-avatar-status {
 		background-color: var(--colorChannelBackgroundActive) !important;
 		transition: background-color 0.2s;
 	}

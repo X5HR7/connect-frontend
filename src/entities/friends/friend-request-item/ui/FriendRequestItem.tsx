@@ -42,7 +42,9 @@ const FriendRequestItem: FC<IFriendRequestItemProps> = ({ request }) => {
 		<li className={styles.request}>
 			<div className={styles.request__content}>
 				<div className={styles.request__info}>
-					<Avatar profile={request.sender.profile} size={32} statusStyles={styles['request__info-status']} />
+					<div className={styles['request__info-avatar-status']}>
+						<Avatar profile={request.sender.profile} size={32} statusStyles={styles['request__info-avatar-status']} />
+					</div>
 					<p className={styles['request__info-username']}>
 						{request.sender.profile.displayName || request.sender.username}
 					</p>

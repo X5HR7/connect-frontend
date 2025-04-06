@@ -6,7 +6,12 @@
 	align-items: center;
 
 	&__avatar {
-		background-color: var(--colorBackgroundPrimary);
+		margin: 0 10px 0 0;
+		padding: 0;
+
+		&-status {
+			background-color: var(--colorBackgroundPrimary);
+		}
 	}
 
 	&__username {
