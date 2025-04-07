@@ -10,7 +10,7 @@ import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IEditPasswordForm } from '../lib/edit-password-form.interface.ts';
 import { useUpdatePassword } from '../lib/useUpdatePassword.ts';
-import styles from '@entities/settings/edit-email-modal/ui/EditEmailModal.module.scss';
+import styles from './EditPasswordModal.module.scss';
 
 const EditPasswordModal: FC = () => {
 	const { closeModal } = useModalStore();
