@@ -12,6 +12,36 @@ export const fetchUpdateUserStatus = (status: TProfileStatus) => {
 	});
 };
 
+export const fetchUpdateUserEmail = (data: { email: string; password: string }) => {
+	return fetchWithAuth<IUserWithProfile>(`${BASE_SERVER_URL}/users/me/email`, {
+		method: 'PATCH',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data)
+	});
+};
+
+export const fetchUpdateUserPassword = (data: { password: string; newPassword: string }) => {
+	return fetchWithAuth<IUserWithProfile>(`${BASE_SERVER_URL}/users/me/password`, {
+		method: 'PATCH',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data)
+	});
+};
+
+export const fetchUpdateUserPhone = (data: { phone: string; password: string }) => {
+	return fetchWithAuth<IUserWithProfile>(`${BASE_SERVER_URL}/users/me/phone`, {
+		method: 'PATCH',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data)
+	});
+};
+
 export const fetchUserInfo = (userId: string) => {
 	return fetchWithAuth<IUserWithProfile>(`${BASE_SERVER_URL}/users/info/${userId}`, {
 		method: 'GET'
