@@ -1,15 +1,15 @@
 'use client';
 
 import { FormItem } from '@entities/auth/form-item';
+import { ICreateServerForm } from '@entities/form/create-server-form/lib/create-server-form.interface.ts';
+import { useCreateServer } from '@entities/form/create-server-form/lib/useCreateServer.ts';
 import {
 	httpsUrlRegex,
 	invalidUrlMessage,
 	maxLength,
 	minLength,
 	requiredFieldErrorMessage
-} from '@entities/auth/form-item/lib/constants.ts';
-import { ICreateServerForm } from '@entities/form/create-server-form/lib/create-server-form.interface.ts';
-import { useCreateServer } from '@entities/form/create-server-form/lib/useCreateServer.ts';
+} from '@shared/libs/utils/auth.constants.ts';
 import { urls } from '@shared/libs/utils/url.config.ts';
 import { useModalStore } from '@shared/store/modalStore.ts';
 import { useServersStore } from '@shared/store/serversStore.ts';
