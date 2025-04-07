@@ -1,6 +1,7 @@
 .button {
 	padding: 5px 10px;
-	width: 165px;
+	min-width: 165px;
+	max-width: 195px;
 	background-color: var(--colorPurple);
 	border: none;
 	border-radius: 5px;
