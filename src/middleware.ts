@@ -32,7 +32,7 @@ export async function middleware(request: NextRequest) {
 			const responseWithToken = NextResponse.next();
 
 			responseWithToken.cookies.set('access_token', data.accessToken, {
-				httpOnly: true,
+				httpOnly: false,
 				secure: process.env.NODE_ENV === 'production'
 			});
 
