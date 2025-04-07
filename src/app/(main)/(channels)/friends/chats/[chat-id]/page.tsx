@@ -1,6 +1,6 @@
-import { PrivateChatControls } from '@/widgets/chat/private-chat-controls';
 import { ChatProvider } from '@shared/libs/providers/ChatProvider.tsx';
 import { ChatMessages } from '@widgets/chat/messages';
+import { PrivateChatControls } from '@widgets/chat/private-chat-controls';
 import styles from './page.module.scss';
 
 const ChatPage = async ({ params }: { params: { 'chat-id': string } }) => {

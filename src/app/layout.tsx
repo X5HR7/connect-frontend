@@ -1,5 +1,6 @@
 import { QueryProvider } from '@shared/libs/providers/QueryProvider.tsx';
 import { SocketProvider } from '@shared/libs/providers/SocketProvider.tsx';
+import { APP_NAME } from '@shared/libs/utils/constants.ts';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
@@ -16,7 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-	title: 'Connect app',
+	title: APP_NAME,
 	description: 'Connect - messenger'
 };
 
