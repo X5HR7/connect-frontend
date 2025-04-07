@@ -3,7 +3,7 @@ import { ChatMessages } from '@widgets/chat/messages';
 import { PrivateChatControls } from '@widgets/chat/private-chat-controls';
 import styles from './page.module.scss';
 
-const ChatPage = async ({ params }: { params: { 'chat-id': string } }) => {
+const ChatPage = async ({ params }: { params: Promise<{ 'chat-id': string }> }) => {
 	const { 'chat-id': chatId } = await params;
 
 	return (

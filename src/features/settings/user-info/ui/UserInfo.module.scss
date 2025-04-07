@@ -1,0 +1,26 @@
+.info {
+	margin: 0;
+	padding: 0;
+	width: fit-content;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	&__avatar {
+		margin: 0;
+		padding: 2px;
+		border-radius: 50%;
+		background-color: var(--colorBackgroundTertiary);
+	}
+
+	&__status {
+		background-color: var(--colorBackgroundTertiary);
+	}
+
+	&__name {
+		margin: 15px 0 0 15px;
+		padding: 0;
+		font-size: 20px;
+		font-weight: 500;
+	}
+}
