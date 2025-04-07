@@ -26,7 +26,7 @@ const UserControlsWidget: FC = () => {
 			<div className={styles.controls__buttons}>
 				<MediaButton type={'micro'} />
 				<MediaButton type={'voice'} />
-				<Link href={urls.SETTINGS} className={styles['controls__button']}>
+				<Link href={urls.SETTINGS_ACCOUNT} className={styles['controls__button']}>
 					<Image src={settingsIcon} alt={'settings'} className={styles['controls__button-icon']} />
 				</Link>
 			</div>

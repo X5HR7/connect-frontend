@@ -49,7 +49,7 @@ const ProfileModal: FC<IProfileModalProps> = ({ isOpen }) => {
 					</div>
 				</div>
 				<div className={styles.buttons}>
-					<Link href={urls.SETTINGS} className={`${styles.buttons__button} ${styles.buttons__button_link}`}>
+					<Link href={urls.SETTINGS_ACCOUNT} className={`${styles.buttons__button} ${styles.buttons__button_link}`}>
 						Редактировать профиль
 					</Link>
 					<div className={styles.buttons__border}></div>

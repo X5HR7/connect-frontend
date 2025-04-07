@@ -5,7 +5,7 @@ class UrlConfig {
 	public FRIENDS = '/friends';
 	public CHAT = (id: string) => `${this.FRIENDS}/chats/${id}`;
 
-	public SETTINGS = '/settings';
+	private SETTINGS = '/settings';
 	public SETTINGS_ACCOUNT = `${this.SETTINGS}/account`;
 	public SETTINGS_AUTH = `${this.SETTINGS}/auth`;
 	public SETTINGS_PROFILE = `${this.SETTINGS}/profile`;
