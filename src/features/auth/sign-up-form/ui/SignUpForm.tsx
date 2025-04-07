@@ -1,6 +1,8 @@
 'use client';
 
 import { FormItem } from '@entities/auth/form-item';
+import { ISignUpForm } from '@features/auth/sign-up-form';
+import { useRegister } from '@features/auth/sign-up-form/lib/useRegister.ts';
 import {
 	emailRegex,
 	invalidEmailAddressMessage,
@@ -9,9 +11,7 @@ import {
 	minLength,
 	requiredFieldErrorMessage,
 	usernameRegex
-} from '@entities/auth/form-item/lib/constants.ts';
-import { ISignUpForm } from '@features/auth/sign-up-form';
-import { useRegister } from '@features/auth/sign-up-form/lib/useRegister.ts';
+} from '@shared/libs/utils/auth.constants.ts';
 import { urls } from '@shared/libs/utils/url.config.ts';
 import { AuthForm, SubmitButton } from '@shared/ui/auth';
 import { useRouter } from 'next/navigation';
