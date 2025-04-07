@@ -8,7 +8,11 @@ export async function middleware(request: NextRequest) {
 		return NextResponse.next();
 	}
 
-	const isClientNavigation = request.headers.get('x-nextjs-data');
+	const isClientNavigation =
+		request.headers.get('sec-fetch-dest') === 'empty' ||
+		request.headers.get('next-router-prefetch') === '1' ||
+		request.headers.get('RSC') === '1';
+
 	if (isClientNavigation) {
 		return NextResponse.next();
 	}
