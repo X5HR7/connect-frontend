@@ -1,7 +1,6 @@
 'use client';
 
 import { FormItem } from '@entities/auth/form-item';
-import { useUpdateEmail } from '@entities/settings/edit-email-modal/lib/useUpdateEmail.ts';
 import {
 	emailRegex,
 	invalidEmailAddressMessage,
@@ -16,6 +15,7 @@ import { Modal } from '@shared/ui/settings/modal/Modal.tsx';
 import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IEditEmailForm } from '../lib/edit-email-form.interface.ts';
+import { useUpdateEmail } from '../lib/useUpdateEmail.ts';
 import styles from './EditEmailModal.module.scss';
 
 const EditEmailModal: FC = () => {
