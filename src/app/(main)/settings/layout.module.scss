@@ -11,7 +11,7 @@
 	&__nav {
 		margin: 0;
 		padding: 0;
-		width: 238px;
+		width: 100%;
 		border-right: 2px solid var(--colorBackgroundSecondary);
 	}
 
@@ -26,6 +26,6 @@
 	&__close {
 		margin: 0;
 		padding: 0;
-		width: 40px;
+		width: 100%;
 	}
 }
