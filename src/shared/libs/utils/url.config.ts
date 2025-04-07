@@ -6,6 +6,14 @@ class UrlConfig {
 	public CHAT = (id: string) => `${this.FRIENDS}/chats/${id}`;
 
 	public SETTINGS = '/settings';
+	public SETTINGS_ACCOUNT = `${this.SETTINGS}/account`;
+	public SETTINGS_AUTH = `${this.SETTINGS}/auth`;
+	public SETTINGS_PROFILE = `${this.SETTINGS}/profile`;
+	public SETTINGS_THEME = `${this.SETTINGS}/theme`;
+	public SETTINGS_VOICE_AND_VIDEO = `${this.SETTINGS}/voice-and-video`;
+	public SETTINGS_NOTIFICATIONS = `${this.SETTINGS}/notifications`;
+	public SETTINGS_HOTKEYS = `${this.SETTINGS}/hotkeys`;
+
 	public SIGN_IN = '/sign-in';
 	public SIGN_UP = '/sign-up';
 
