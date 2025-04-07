@@ -7,6 +7,7 @@ export const useStatusUpdate = () => {
 	return useMutation({
 		retry: false,
 		mutationFn: fetchUpdateUserStatus,
+		mutationKey: ['updateStatus'],
 		onSuccess: user => {
 			if (user.id) {
 				setUser(user);
