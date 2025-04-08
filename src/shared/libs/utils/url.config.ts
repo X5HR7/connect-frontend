@@ -20,7 +20,8 @@ class UrlConfig {
 	public SERVERS = '/servers';
 	public SERVER = (id: string) => `${this.SERVERS}/${id}`;
 	public SERVER_SETTINGS = (id: string) => `${this.SERVERS}/${id}/settings`;
-	public SERVER_CHANNEL = (serverId: string, channelId: string) => `${this.SERVERS}/${serverId}/channels/${channelId}`;
+	public SERVER_CHANNEL = (serverId: string, channelId: string, channelType: string) =>
+		`${this.SERVERS}/${serverId}/channels/${channelId}/${channelType.toLowerCase()}`;
 }
 
 export const urls = new UrlConfig();
