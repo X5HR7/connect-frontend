@@ -41,11 +41,9 @@ const ChatInput: FC = () => {
 				</button>
 			</Tooltip>
 			<TextArea value={message} onChange={handleMessageChange} placeholder={'Написать'} />
-			<Tooltip text={'Отправить'} position={'top'}>
-				<button className={styles.input__send} onClick={handleMessageSend} disabled={isPending}>
-					<Image src={sendIcon} alt={'Upload'} className={styles['input__send-icon']} />
-				</button>
-			</Tooltip>
+			<button className={styles.input__send} onClick={handleMessageSend} disabled={isPending}>
+				<Image src={sendIcon} alt={'Upload'} className={styles['input__send-icon']} />
+			</button>
 		</div>
 	);
 };
