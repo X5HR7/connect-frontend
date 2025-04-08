@@ -42,6 +42,16 @@ export const fetchUpdateUserPhone = (data: { phone: string; password: string }) 
 	});
 };
 
+export const fetchUpdateUserName = (data: { username: string; password: string }) => {
+	return fetchWithAuth<IUserWithProfile>(`${BASE_SERVER_URL}/users/me/username`, {
+		method: 'PATCH',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data)
+	});
+};
+
 export const fetchUserInfo = (userId: string) => {
 	return fetchWithAuth<IUserWithProfile>(`${BASE_SERVER_URL}/users/info/${userId}`, {
 		method: 'GET'
