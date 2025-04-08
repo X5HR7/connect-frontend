@@ -1,3 +1,4 @@
 export const EVENTS = {
+	CONNECTED: 'CONNECTED',
 	CURRENT_USER_UPDATE: 'CURRENT_USER_UPDATE'
 } as const;

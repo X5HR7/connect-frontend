@@ -13,24 +13,32 @@ const SocketProvider: FC<ISocketProviderProps> = ({ children }) => {
 	const { accessToken, setUser } = useAuthStore();
 	const { connect, disconnect, socket } = useSocketStore();
 
+	const handleUserUpdate = (user: IUserWithProfile) => {
+		if (user) {
+			console.log('WebSocket get user');
+			setUser(user);
+		}
+	};
+
 	useEffect(() => {
 		if (accessToken) {
 			connect(accessToken);
 			console.log('WebSocket connected');
 		}
-		return () => {
-			disconnect();
-		};
 	}, [accessToken]);
 
 	useEffect(() => {
-		socket?.on(EVENTS.CURRENT_USER_UPDATE, (user: IUserWithProfile) => {
-			if (user) {
-				console.log('WebSocket get user');
-				setUser(user);
-			}
-		});
+		if (socket) {
+			socket.emit(EVENTS.CONNECTED);
+			socket.on(EVENTS.CURRENT_USER_UPDATE, handleUserUpdate);
+		}
 	}, [socket]);
+
+	useEffect(() => {
+		return () => {
+			disconnect();
+		};
+	}, []);
 
 	return <>{children}</>;
 };

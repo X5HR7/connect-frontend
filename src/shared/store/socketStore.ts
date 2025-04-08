@@ -4,7 +4,7 @@ import { create } from 'zustand/react';
 
 interface SocketStore {
 	socket: Socket | null;
-	connect: (userId: string) => void;
+	connect: (token: string) => void;
 	disconnect: () => void;
 }
 
@@ -14,7 +14,8 @@ export const useSocketStore = create<SocketStore>(set => ({
 		const socket = io(BASE_SERVER_URL, {
 			extraHeaders: {
 				Authorization: token
-			}
+			},
+			retries: 3
 		});
 		socket.on('connect', () => {
 			set({ socket });
