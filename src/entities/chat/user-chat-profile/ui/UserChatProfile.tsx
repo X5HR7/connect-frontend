@@ -20,14 +20,18 @@ const UserChatProfile: FC = () => {
 
 	useEffect(() => {
 		if ((friends.length !== 0 || requests.length !== 0) && receiver) {
-			if (friends.filter(friend => friend.id === receiver?.memberId).length !== 0) {
+			if (friends.filter(friend => friend.id === receiver.memberId).length !== 0) {
 				setIsFriend(true);
+			} else {
+				setIsFriend(false);
 			}
 			if (requests.filter(request => request.receiverId === receiver.memberId).length !== 0) {
 				setIsRequestSent(true);
+			} else {
+				setIsRequestSent(false);
 			}
 		}
-	}, [receiver, friends]);
+	}, [receiver, friends, requests]);
 
 	const handleAddFriendSuccess = () => {
 		setIsRequestSent(true);
