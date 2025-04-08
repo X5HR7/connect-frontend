@@ -97,17 +97,17 @@
 			}
 
 			&:hover &-status {
-				background-color: var(--colorChannelBackgroundHover);
+				background-color: var(--colorChannelBackgroundHover) !important;
 				transition: background-color 0.2s;
 			}
 
 			&_active &-status {
-				background-color: var(--colorChannelBackgroundActive);
+				background-color: var(--colorChannelBackgroundActive) !important;
 				transition: background-color 0.2s;
 			}
 
 			&-status {
-				background-color: var(--colorBackgroundSecondary);
+				background-color: var(--colorBackgroundSecondary) !important;
 				transition: background-color 0.2s;
 			}
 		}

@@ -36,7 +36,7 @@
 	align-items: flex-start;
 
 	&__status {
-		background-color: var(--colorBlack);
+		background-color: var(--colorBlack) !important;
 	}
 
 	&__info {

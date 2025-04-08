@@ -21,12 +21,12 @@
 	}
 
 	&__status {
-		background-color: var(--colorUserControlsBackground);
+		background-color: var(--colorUserControlsBackground) !important;
 		transition: background-color 0.2s;
 	}
 
 	&:hover &__status {
-		background-color: var(--colorUserControlsBackgroundHover);
+		background-color: var(--colorUserControlsBackgroundHover) !important;
 		transition: background-color 0.2s;
 	}
 
