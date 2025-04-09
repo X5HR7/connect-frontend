@@ -27,7 +27,7 @@ const FindUserModal: FC = () => {
 	const [users, setUsers] = useState<IUserWithProfile[] | null>(null);
 	const { mutate: findUsers, isPending } = useFindUsers();
 
-	const { formState, register, handleSubmit, setError } = useForm<IForm>({
+	const { formState, register, handleSubmit } = useForm<IForm>({
 		mode: 'onChange'
 	});
 
