@@ -1,3 +1,9 @@
+.wrapper {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
 .button {
 	margin: 0;
 	padding: 0;
@@ -19,5 +25,47 @@
 		padding: 0;
 		width: 22px;
 		height: 22px;
+	}
+}
+
+.modal {
+	margin: 0;
+	padding: 10px;
+	width: 400px;
+	min-height: 100px;
+	max-height: 600px;
+	position: absolute;
+	top: 50px;
+	left: -200px;
+	background-color: var(--colorBackgroundTertiary);
+	border-radius: 10px;
+	z-index: 5;
+	overflow: hidden;
+
+	&_hidden {
+		display: none;
+	}
+
+	&__title {
+		margin: 0 0 10px 0;
+		padding: 0;
+		font-size: 18px;
+		text-align: center;
+	}
+
+	&__placeholder {
+		margin: 20px 0;
+		padding: 0;
+		font-size: 16px;
+		text-align: center;
+		color: var(--colorTextSecondary);
+	}
+
+	&__messages {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		height: 570px;
+		border-radius: 5px;
 	}
 }
