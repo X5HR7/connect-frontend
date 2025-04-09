@@ -57,3 +57,13 @@ export const fetchUserInfo = (userId: string) => {
 		method: 'GET'
 	});
 };
+
+export const fetchUsersByUsername = (username: string) => {
+	return fetchWithAuth<IUserWithProfile[]>(`${BASE_SERVER_URL}/users/find`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({ username })
+	});
+};
