@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const Layout = ({ children }: { children: ReactNode }) => {
 	return (
 		<ServerProvider>
-			<header className={styles.top_panel}>server top panel</header>
+			<header className={styles.top_panel}>Сервер | Главная страница</header>
 			<div className={styles.content}>
 				<div className={styles.main}>{children}</div>
 				<aside className={styles.members}>
