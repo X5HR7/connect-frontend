@@ -1,9 +1,11 @@
 'use client';
 
+import { MessageParent } from '@entities/chat/message-parent';
 import { getFormatedDate } from '@shared/libs/utils/get-formated-date.ts';
 import { useAuthStore } from '@shared/store/authStore.ts';
 import { useModalStore } from '@shared/store/modalStore.ts';
 import { Markdown } from '@shared/ui/markdown/Markdown.tsx';
+import { OptionsIcon } from '@shared/ui/svg/OptionsIcon.tsx';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import dynamic from 'next/dynamic';
@@ -33,7 +35,8 @@ const UserMessage: FC<IUserMessageProps> = ({ message, sender, showControls = fa
 	};
 
 	return (
-		<li className={styles.message}>
+		<li className={`${styles.message} ${message.parent ? styles.message_ans : ''}`}>
+			{message.parent ? <MessageParent parentMessage={message.parent} hiddenCloseButton={true} /> : null}
 			<div className={styles.message__avatar}>
 				<Avatar profile={sender.profile} size={40} statusStyles={styles['message__avatar-status']} />
 			</div>
@@ -52,25 +55,19 @@ const UserMessage: FC<IUserMessageProps> = ({ message, sender, showControls = fa
 				<div className={styles.message__controls}>
 					<button type={'button'} className={styles['message__controls-button']} onClick={handleControlsButtonClick}>
 						<Tooltip text={'Ещё'} position={'top'}>
-							<svg
-								width='15'
-								height='6'
-								viewBox='0 0 24 6'
-								xmlns='http://www.w3.org/2000/svg'
-								className={styles['message__controls-button-icon']}
-							>
-								<circle cx='3' cy='3' r='3' fill='currentColor' />
-								<circle cx='12' cy='3' r='3' fill='currentColor' />
-								<circle cx='21' cy='3' r='3' fill='currentColor' />
-							</svg>
+							<OptionsIcon />
 						</Tooltip>
 					</button>
 					<div
 						className={`${styles['message__controls-buttons']} ${isMessageControlsOpened ? styles['message__controls-buttons_opened'] : ''}`}
 					>
-						<MessageAnswerButton messageId={message.id} />
+						<MessageAnswerButton messageId={message.id} setModalState={setIsMessageControlsOpened} />
 						{user?.id === sender.id ? <MessageEditButton messageId={message.id} /> : null}
-						<MessagePinButton messageId={message.id} isPinned={message.isPinned} />
+						<MessagePinButton
+							messageId={message.id}
+							isPinned={message.isPinned}
+							setModalState={setIsMessageControlsOpened}
+						/>
 						{user?.id === sender.id ? <MessageDeleteButton messageId={message.id} /> : null}
 					</div>
 				</div>

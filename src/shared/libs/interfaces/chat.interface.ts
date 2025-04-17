@@ -18,6 +18,9 @@ export interface IChatMember {
 export interface IMessage {
 	id: string;
 	userId: string;
+	chatId: string;
+	parentId: string;
+	parent: IMessage | null;
 	content: string;
 	isPinned: boolean;
 	createdAt: Date;

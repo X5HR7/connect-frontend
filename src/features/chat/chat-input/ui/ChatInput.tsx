@@ -1,5 +1,6 @@
 'use client';
 
+import { MessageParent } from '@entities/chat/message-parent';
 import sendIcon from '@shared/assets/icons/send_button.svg';
 import uploadIcon from '@shared/assets/icons/upload.svg';
 import { useChatStore } from '@shared/store/chatStore.ts';
@@ -11,7 +12,7 @@ import { useSendMessage } from '../lib/useSendMessage.ts';
 import styles from './ChatInput.module.scss';
 
 const ChatInput: FC = () => {
-	const { addMessage, chatId } = useChatStore();
+	const { addMessage, chatId, parentMessage, setParentMessage } = useChatStore();
 	const [message, setMessage] = useState<string>('');
 	const { mutate: sendMessage, isPending } = useSendMessage();
 
@@ -22,11 +23,12 @@ const ChatInput: FC = () => {
 	const handleMessageSend = () => {
 		if (message.trim() && chatId) {
 			sendMessage(
-				{ chatId, text: message.trim() },
+				{ chatId, text: message.trim(), parentId: parentMessage?.id },
 				{
 					onSuccess: data => {
 						setMessage('');
 						addMessage(data);
+						setParentMessage(null);
 					}
 				}
 			);
@@ -35,6 +37,7 @@ const ChatInput: FC = () => {
 
 	return (
 		<div className={styles.input}>
+			{parentMessage ? <MessageParent parentMessage={parentMessage} hiddenCloseButton={false} /> : null}
 			<Tooltip text={'Загрузить'} position={'top'}>
 				<button className={styles.input__upload}>
 					<Image src={uploadIcon} alt={'Upload'} className={styles['input__upload-icon']} />

@@ -8,12 +8,20 @@ export const fetchChat = (id: string): Promise<IChat> => {
 	});
 };
 
-export const fetchSendChatMessage = ({ text, chatId }: { text: string; chatId: string }): Promise<IMessage> => {
+export const fetchSendChatMessage = ({
+	text,
+	chatId,
+	parentId
+}: {
+	text: string;
+	chatId: string;
+	parentId?: string;
+}): Promise<IMessage> => {
 	return fetchWithAuth<IMessage>(`${BASE_SERVER_URL}/chats/${chatId}`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify({ content: text })
+		body: JSON.stringify(parentId ? { content: text, parentId: parentId } : { content: text })
 	});
 };

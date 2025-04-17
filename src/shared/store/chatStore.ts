@@ -4,9 +4,11 @@ import { create } from 'zustand/react';
 interface ChatStore {
 	chatId: string | null;
 	messages: IMessage[];
+	parentMessage: IMessage | null;
 	receiver: IChatMember | null;
 	chatMembers: IChatMember[];
 	setChat: (chat: IChat, receiver: IChatMember | null) => void;
+	setParentMessage: (parentMessage: IMessage | null) => void;
 	addMessage: (message: IMessage) => void;
 	updateMessage: (updatedMessage: IMessage) => void;
 	deleteMessage: (deletedMessage: IMessage) => void;
@@ -18,6 +20,8 @@ export const useChatStore = create<ChatStore>(set => ({
 	setChat: (chat: IChat, receiver: IChatMember | null) =>
 		set({ chatId: chat.id, chatMembers: chat.chatMembers, messages: chat.messages, receiver }),
 	messages: [],
+	parentMessage: null,
+	setParentMessage: (parentMessage: IMessage | null) => set({ parentMessage }),
 	receiver: null,
 	chatMembers: [],
 	addMessage: (message: IMessage) => set(state => ({ messages: [...state.messages, message] })),
