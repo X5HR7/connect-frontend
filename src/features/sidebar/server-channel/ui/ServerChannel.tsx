@@ -15,7 +15,7 @@ const ServerChannel: FC<IServerChannelProps> = ({ channel, serverId }) => {
 
 	return (
 		<NavLink
-			href={urls.SERVER_CHANNEL(serverId, channel.id, channel.type)}
+			href={urls.SERVER_CHANNEL(serverId, channel.categoryId, channel.id, channel.type)}
 			className={styles.channel}
 			activeClassName={styles.channel_active}
 		>
