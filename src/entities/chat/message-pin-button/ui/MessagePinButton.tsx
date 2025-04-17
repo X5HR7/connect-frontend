@@ -7,7 +7,7 @@ import { FC } from 'react';
 import { MessagePinButtonProps } from '../lib/message-pin-button.interface.ts';
 import styles from './MessagePinButton.module.scss';
 
-const MessagePinButton: FC<MessagePinButtonProps> = ({ messageId, isPinned = false }) => {
+const MessagePinButton: FC<MessagePinButtonProps> = ({ messageId, isPinned = false, setModalState }) => {
 	const { updateMessage } = useChatStore();
 	const { mutate: pinMessage, isPending } = usePinMessage();
 
@@ -16,6 +16,7 @@ const MessagePinButton: FC<MessagePinButtonProps> = ({ messageId, isPinned = fal
 			onSuccess: message => {
 				if (message?.id) {
 					updateMessage(message);
+					setModalState(false);
 				}
 			}
 		});
