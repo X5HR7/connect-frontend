@@ -9,8 +9,7 @@ export const metadata: Metadata = {
 const ServerPage = () => {
 	return (
 		<div className={styles.page}>
-			<div className={styles['page__top-panel']}>server top panel</div>
-			<div className={styles.page__friends}>server chat</div>
+			<div className={styles.page__text}>Для начала общения выберите любой доступный канал из списка.</div>
 		</div>
 	);
 };

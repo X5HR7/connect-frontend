@@ -17,7 +17,11 @@ export type {
 	IServerMember,
 	IServerMemberRoles,
 	Rule,
-	TServerChannelTypes
+	TServerChannelTypes,
+	IServerTextChannel,
+	IServerMessage,
+	IServerTextChannelMember,
+	IFServer
 } from './server.interface.ts';
 export type { IChat, IChatMember, IMessage } from './chat.interface.ts';
 export { EVENTS } from './events.ts';

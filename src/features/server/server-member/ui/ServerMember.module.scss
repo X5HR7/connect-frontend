@@ -1,0 +1,29 @@
+.member {
+	margin: 5px 0 0 0;
+	padding: 5px 6px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: transparent;
+	border-radius: 5px;
+
+	&:hover {
+		cursor: pointer;
+		background-color: var(--colorChannelBackgroundActive);
+	}
+
+	&__status {
+		background-color: var(--colorBackgroundSecondary);
+	}
+
+	&:hover &__status {
+		background-color: var(--colorChannelBackgroundActive) !important;
+	}
+
+	&__username {
+		margin: 0 0 0 10px;
+		padding: 0;
+		font-size: 16px;
+		font-weight: 500;
+	}
+}
