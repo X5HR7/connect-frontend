@@ -1,12 +1,20 @@
-import { IFServer } from '@shared/libs/interfaces/server.interface.ts';
+import { IFServer, IServerCategory, IServerMember, IServerRole } from '@shared/libs/interfaces/server.interface.ts';
 import { create } from 'zustand/react';
 
 interface ServerStore {
-	server: IFServer | null;
-	setServer: (server: IFServer | null) => void;
+	serverId: string | null;
+	roles: IServerRole[];
+	serverCategories: IServerCategory[];
+	serverMembers: IServerMember[];
+	setServer: (server: IFServer) => void;
+	clearServer: () => void;
 }
 
 export const useServerStore = create<ServerStore>(set => ({
-	server: null,
-	setServer: (server: IFServer | null) => set({ server })
+	serverId: null,
+	roles: [],
+	serverCategories: [],
+	serverMembers: [],
+	setServer: (server: IFServer) => set({ ...server }),
+	clearServer: () => set({ serverId: null, roles: [], serverCategories: [], serverMembers: [] })
 }));
