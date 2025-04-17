@@ -27,6 +27,11 @@
 		padding: 0;
 		display: none;
 		position: relative;
+		z-index: 10;
+
+		&:has(&-buttons_opened) {
+			display: flex;
+		}
 
 		&-button {
 			margin: -20px 0 0 0;
