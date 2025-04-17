@@ -1,3 +1,5 @@
+import { IUserWithProfile } from '@shared/libs/interfaces/user.interface.ts';
+
 export interface IServer {
 	id: string;
 	name: string;
@@ -84,12 +86,41 @@ export interface IServerMember {
 	isVoiceMuted: boolean;
 	serverId: string;
 	userId: string;
+	user: IUserWithProfile;
 	serverMemberRoles?: IServerMemberRoles[];
 }
 
 export interface IServerMemberRoles {
 	memberId: string;
 	roleId: string;
+}
+
+export interface IServerMessage {
+	id: string;
+	content: string;
+	isPinned: boolean;
+	parentId?: string;
+	createdAt: Date;
+	updatedAt?: Date;
+	deletedAt?: Date;
+	memberId: string;
+	textChannelId: string;
+}
+
+export interface IServerTextChannel {
+	id: string;
+	channelId: string;
+	channel: IServerChannel;
+	messages: IServerMessage[];
+	channelMembers: IServerTextChannelMember[];
+}
+
+export interface IServerTextChannelMember {
+	id: string;
+	memberId: string;
+	member: IServerMember;
+	channelId: string;
+	lastMessageReadId?: string;
 }
 
 export enum Rule {

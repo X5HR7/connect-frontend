@@ -1,8 +1,14 @@
-import { IFServer, IServerCategory, IServerMember, IServerRole } from '@shared/libs/interfaces/server.interface.ts';
+import {
+	IFServer,
+	IServer,
+	IServerCategory,
+	IServerMember,
+	IServerRole
+} from '@shared/libs/interfaces/server.interface.ts';
 import { create } from 'zustand/react';
 
 interface ServerStore {
-	serverId: string | null;
+	server: IServer | null;
 	roles: IServerRole[];
 	serverCategories: IServerCategory[];
 	serverMembers: IServerMember[];
@@ -11,10 +17,13 @@ interface ServerStore {
 }
 
 export const useServerStore = create<ServerStore>(set => ({
-	serverId: null,
+	server: null,
 	roles: [],
 	serverCategories: [],
 	serverMembers: [],
-	setServer: (server: IFServer) => set({ ...server }),
-	clearServer: () => set({ serverId: null, roles: [], serverCategories: [], serverMembers: [] })
+	setServer: (server: IFServer) => {
+		const { roles, serverCategories, serverMembers, ...serverData } = server;
+		set({ roles, serverCategories, serverMembers, server: serverData });
+	},
+	clearServer: () => set({ server: null, roles: [], serverCategories: [], serverMembers: [] })
 }));

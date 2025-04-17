@@ -14,7 +14,7 @@ import styles from './ServerSidebar.module.scss';
 const ServerControls = dynamic(() => import('@features/sidebar/server-controls'));
 
 const ServerSidebar: FC = () => {
-	const { server } = useServerStore();
+	const { server, serverCategories } = useServerStore();
 
 	const [isServerModalOpened, setIsServerModalOpened] = useState<boolean>(false);
 
@@ -39,13 +39,13 @@ const ServerSidebar: FC = () => {
 			</div>
 			<ul className={styles.sidebar__channels}>
 				<Scroll width={4}>
-					{server?.serverCategories.map(category => (
+					{serverCategories.map(category => (
 						<li key={category.id}>
 							<ServerCategory category={category}>
 								<ul className={styles['sidebar__channels-list']}>
 									{category.serverChannels?.map(channel => (
 										<li key={channel.id}>
-											<ServerChannel channel={channel} serverId={server?.id} />
+											<ServerChannel channel={channel} serverId={category.serverId} />
 										</li>
 									))}
 								</ul>
