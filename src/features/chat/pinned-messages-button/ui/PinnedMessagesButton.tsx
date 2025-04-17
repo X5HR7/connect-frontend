@@ -1,6 +1,6 @@
 'use client';
 
-import { UserMessage } from '@entities/chat/message';
+import { UserMessage } from '@features/chat/message';
 import pinnedIcon from '@shared/assets/icons/pinned.svg';
 import { IMessage } from '@shared/libs/interfaces';
 import { useAuthStore } from '@shared/store/authStore.ts';
