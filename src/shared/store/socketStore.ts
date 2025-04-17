@@ -4,7 +4,7 @@ import { create } from 'zustand/react';
 
 interface SocketStore {
 	socket: Socket | null;
-	connect: (token: string) => void;
+	connect: (token: string) => Socket;
 	disconnect: () => void;
 }
 
@@ -15,11 +15,16 @@ export const useSocketStore = create<SocketStore>(set => ({
 			extraHeaders: {
 				Authorization: token
 			},
-			retries: 3
+			transports: ['polling', 'websocket'],
+			withCredentials: true,
+			upgrade: true
 		});
+
 		socket.on('connect', () => {
 			set({ socket });
 		});
+
+		return socket;
 	},
 	disconnect: () => {
 		set(state => {

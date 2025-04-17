@@ -2,6 +2,7 @@
 
 import { ChatInput } from '@features/chat/chat-input';
 import { UserMessage } from '@features/chat/message';
+import { IUserWithProfile } from '@shared/libs/interfaces';
 import { useChatStore } from '@shared/store/chatStore.ts';
 import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
 import dynamic from 'next/dynamic';
@@ -22,7 +23,8 @@ const ChatMessages: FC = () => {
 						<UserMessage
 							message={message}
 							key={message.id}
-							sender={chatMembers.filter(member => member.id === message.userId)[0]?.member}
+							sender={chatMembers.find(member => member.id === message.userId)?.member as IUserWithProfile}
+							showControls={true}
 						/>
 					))}
 				</Scroll>

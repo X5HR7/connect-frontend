@@ -13,6 +13,48 @@
 		background-color: var(--colorMessageHover);
 	}
 
+	&:hover > &__controls {
+		display: flex;
+	}
+
+	&__controls {
+		margin: 0 10px 0 0;
+		padding: 0;
+		display: none;
+		position: relative;
+
+		&-button {
+			margin: -20px 0 0 0;
+			padding: 4px 6px;
+			background-color: var(--colorChannelBackgroundActive);
+			border: none;
+			border-radius: 5px;
+			outline: none;
+			color: var(--colorTextPrimary);
+			cursor: pointer;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+
+		&-buttons {
+			margin: 0;
+			padding: 5px;
+			width: 280px;
+			position: absolute;
+			top: -20px;
+			right: 30px;
+			display: none;
+			border-radius: 10px;
+			background-color: var(--colorBackgroundTertiary);
+
+			&_opened {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+	}
+
 	&__avatar {
 		margin: 0 10px 0 0;
 		padding: 0;

@@ -9,6 +9,7 @@ interface ChatStore {
 	setChat: (chat: IChat, receiver: IChatMember | null) => void;
 	addMessage: (message: IMessage) => void;
 	updateMessage: (updatedMessage: IMessage) => void;
+	deleteMessage: (deletedMessage: IMessage) => void;
 	clearChat: () => void;
 }
 
@@ -23,6 +24,10 @@ export const useChatStore = create<ChatStore>(set => ({
 	updateMessage: updatedMessage =>
 		set(state => ({
 			messages: state.messages.map(message => (message.id === updatedMessage.id ? updatedMessage : message))
+		})),
+	deleteMessage: deletedMessage =>
+		set(state => ({
+			messages: state.messages.filter(message => message.id !== deletedMessage.id)
 		})),
 	clearChat: () => set({ chatId: null, messages: [], chatMembers: [] })
 }));
