@@ -2,6 +2,7 @@
 
 import { FormItem } from '@entities/auth/form-item';
 import { ProfileDemo } from '@features/settings/profile-demo';
+import { IUpdateUserProfile } from '@shared/libs/api/user/user.ts';
 import { httpsUrlRegex, invalidUrlMessage, maxLength, minLength } from '@shared/libs/utils/auth.constants.ts';
 import { useAuthStore } from '@shared/store/authStore.ts';
 import { SubmitButton } from '@shared/ui/auth';
@@ -35,7 +36,17 @@ const Profile: FC = () => {
 
 	const onSubmit: SubmitHandler<ProfileForm> = data => {
 		if (data) {
-			updateProfile(data, {
+			const newData: IUpdateUserProfile = {
+				avatar: null,
+				displayName: null,
+				description: null
+			};
+
+			if (data.avatar) newData.avatar = data.avatar;
+			if (data.displayName) newData.displayName = data.displayName;
+			if (data.description) newData.description = data.description;
+
+			updateProfile(newData, {
 				onSuccess: data => {
 					if (data?.id) {
 						setUser(data);

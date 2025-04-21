@@ -52,7 +52,13 @@ export const fetchUpdateUserName = (data: { username: string; password: string }
 	});
 };
 
-export const fetchUpdateUserProfile = (data: { displayName?: string; avatar?: string; description?: string }) => {
+export interface IUpdateUserProfile {
+	displayName: string | null;
+	avatar: string | null;
+	description: string | null;
+}
+
+export const fetchUpdateUserProfile = (data: IUpdateUserProfile) => {
 	return fetchWithAuth<IUserWithProfile>(`${BASE_SERVER_URL}/users/me/profile`, {
 		method: 'PATCH',
 		headers: {
