@@ -1,9 +1,9 @@
-import { IServerItem } from '@entities/server-item/lib/server-item.interface.ts';
 import { urls } from '@shared/libs/utils/url.config.ts';
 import { NavLink } from '@shared/ui/nav-link/NavLink.tsx';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import Image from 'next/image';
 import { FC } from 'react';
+import { IServerItem } from '../lib/server-item.interface.ts';
 import styles from './ServerItem.module.scss';
 
 const ServerItem: FC<IServerItem> = ({ server }) => {

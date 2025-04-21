@@ -1,4 +1,4 @@
-import { ServerListWidget } from '@widgets/server-list';
+import { ServerListWidget } from '@widgets/server/server-list';
 import { UserControlsWidget } from '@widgets/user-controls';
 import { ReactNode } from 'react';
 import styles from './layout.module.scss';
