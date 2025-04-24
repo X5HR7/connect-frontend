@@ -1,6 +1,5 @@
 'use client';
 
-import { useChats } from '@features/sidebar/user-chats/lib/useChats.ts';
 import { IChat } from '@shared/libs/interfaces';
 import { urls } from '@shared/libs/utils/url.config.ts';
 import { useAuthStore } from '@shared/store/authStore.ts';
@@ -8,6 +7,7 @@ import { Loader } from '@shared/ui/loader/Loader.tsx';
 import { NavLink } from '@shared/ui/nav-link/NavLink.tsx';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import React, { FC, useEffect, useState } from 'react';
+import { useChats } from '../lib/use-chats.ts';
 import styles from './UserChats.module.scss';
 
 const UserChats: FC = () => {

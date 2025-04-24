@@ -1,8 +1,6 @@
 'use client';
 
 import { FormItem } from '@entities/auth/form-item';
-import { ISignInForm } from '@features/auth/sign-in-form/lib/form.interface.ts';
-import { useLogin } from '@features/auth/sign-in-form/lib/useLogin.ts';
 import {
 	emailRegex,
 	invalidEmailAddressMessage,
@@ -14,6 +12,8 @@ import { AuthForm, SubmitButton } from '@shared/ui/auth';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { ISignInForm } from '../lib/form.interface.ts';
+import { useLogin } from '../lib/use-login.ts';
 
 const SignInForm = () => {
 	const { formState, register, handleSubmit, setError, reset } = useForm<ISignInForm>({

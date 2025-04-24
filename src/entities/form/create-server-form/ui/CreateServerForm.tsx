@@ -1,8 +1,6 @@
 'use client';
 
 import { FormItem } from '@entities/auth/form-item';
-import { ICreateServerForm } from '@entities/form/create-server-form/lib/create-server-form.interface.ts';
-import { useCreateServer } from '@entities/form/create-server-form/lib/useCreateServer.ts';
 import {
 	httpsUrlRegex,
 	invalidUrlMessage,
@@ -17,6 +15,8 @@ import { Loader } from '@shared/ui/loader/Loader.tsx';
 import { useRouter } from 'next/navigation';
 import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { ICreateServerForm } from '../lib/create-server-form.interface.ts';
+import { useCreateServer } from '../lib/use-create-server.ts';
 import styles from './CreateServerForm.module.scss';
 
 const CreateServerForm: FC = () => {

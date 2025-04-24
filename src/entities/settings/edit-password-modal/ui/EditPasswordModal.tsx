@@ -9,7 +9,7 @@ import { Modal } from '@shared/ui/settings/modal/Modal.tsx';
 import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IEditPasswordForm } from '../lib/edit-password-form.interface.ts';
-import { useUpdatePassword } from '../lib/useUpdatePassword.ts';
+import { useUpdatePassword } from '../lib/use-update-password.ts';
 import styles from './EditPasswordModal.module.scss';
 
 const EditPasswordModal: FC = () => {

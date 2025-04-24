@@ -15,7 +15,7 @@ import { Modal } from '@shared/ui/settings/modal/Modal.tsx';
 import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IEditEmailForm } from '../lib/edit-email-form.interface.ts';
-import { useUpdateEmail } from '../lib/useUpdateEmail.ts';
+import { useUpdateEmail } from '../lib/use-update-email.ts';
 import styles from './EditEmailModal.module.scss';
 
 const EditEmailModal: FC = () => {

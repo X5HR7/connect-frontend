@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FC, useEffect, useState } from 'react';
 import { IProfileModalProps } from '../lib/profile-modal.interface.ts';
-import { useLogout } from '../lib/useLogout.ts';
+import { useLogout } from '../lib/use-logout.ts';
 import styles from './ProfileModal.module.scss';
 
 const ProfileStatusSelector = dynamic(() => import('@entities/user-controls/profile-status-selector'));

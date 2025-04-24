@@ -8,7 +8,7 @@ import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import dynamic from 'next/dynamic';
 import { FC, useEffect, useState } from 'react';
 import { IModalUserProfileProps } from '../lib/modal-user-profile.interface.ts';
-import { useFetchUserInfo } from '../lib/useFetchUserInfo.ts';
+import { useGetUserInfo } from '../lib/use-get-user-info.ts';
 import styles from './ModalUserProfile.module.scss';
 
 const AddToFriendButton = dynamic(() => import('@shared/ui/user/add-to-friend-button/AddToFriendButton.tsx'));
@@ -19,7 +19,7 @@ const DeleteFromFriendButton = dynamic(
 const ModalUserProfile: FC<IModalUserProfileProps> = ({ userId }) => {
 	const { user: currentUser } = useAuthStore();
 	const { friends, requests, removeFriend } = useFriendsStore();
-	const { data: user, isPending } = useFetchUserInfo(userId);
+	const { data: user, isPending } = useGetUserInfo(userId);
 
 	const [isFriend, setIsFriend] = useState<boolean>(false);
 	const [isRequestSent, setIsRequestSent] = useState<boolean>(false);

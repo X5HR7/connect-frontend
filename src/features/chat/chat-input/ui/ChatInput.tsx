@@ -8,7 +8,7 @@ import { TextArea } from '@shared/ui/text-area/TextArea.tsx';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import Image from 'next/image';
 import { FC, useState } from 'react';
-import { useSendMessage } from '../lib/useSendMessage.ts';
+import { useSendMessage } from '../lib/use-send-message.ts';
 import styles from './ChatInput.module.scss';
 
 const ChatInput: FC = () => {

@@ -1,7 +1,6 @@
 'use client';
 
 import { FormItem } from '@entities/auth/form-item';
-import { useUpdateUsername } from '@entities/settings/edit-username-modal/lib/useUpdateUsername.ts';
 import {
 	invalidUsernameMessage,
 	maxLength,
@@ -16,6 +15,7 @@ import { Modal } from '@shared/ui/settings/modal/Modal.tsx';
 import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IEditUsernameForm } from '../lib/edit-username-form.interface.ts';
+import { useUpdateUsername } from '../lib/use-update-username.ts';
 import styles from './EditUsernameModal.module.scss';
 
 const EditUsernameModal: FC = () => {

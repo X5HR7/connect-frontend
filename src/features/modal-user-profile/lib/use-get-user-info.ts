@@ -2,7 +2,7 @@ import { fetchUserInfo } from '@shared/libs/api/user/user.ts';
 import { useAuthStore } from '@shared/store/authStore.ts';
 import { useQuery } from '@tanstack/react-query';
 
-export const useFetchUserInfo = (userId: string) => {
+export const useGetUserInfo = (userId: string) => {
 	const { accessToken } = useAuthStore();
 
 	return useQuery({

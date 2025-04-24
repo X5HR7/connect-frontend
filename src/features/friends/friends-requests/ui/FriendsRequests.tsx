@@ -6,14 +6,15 @@ import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
 import { FC, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IFriendsRequestForm } from '../lib/friends-request-form.interface.ts';
-import { useFetchSendFriendRequest } from '../lib/useFetchSendFriendRequest.ts';
+import { useSendFriendRequest } from '../lib/use-send-friend-request.ts';
 import styles from './FriendsRequests.module.scss';
 
 const FriendsRequests: FC = () => {
 	const { formState, register, handleSubmit, setError, watch } = useForm<IFriendsRequestForm>({
 		mode: 'onChange'
 	});
-	const { mutate: sendRequest, isPending } = useFetchSendFriendRequest();
+
+	const { mutate: sendRequest, isPending } = useSendFriendRequest();
 	const { requests } = useFriendsStore();
 	const [isSuccess, setIsSuccess] = useState<boolean>(false);
 

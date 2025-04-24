@@ -1,7 +1,6 @@
 'use client';
 
 import { FormItem } from '@entities/auth/form-item';
-import { useFindUsers } from '@entities/friends/find-user-modal/lib/useFindUsers.ts';
 import { IUserWithProfile } from '@shared/libs/interfaces';
 import {
 	invalidUsernameMessage,
@@ -19,6 +18,7 @@ import Link from 'next/link';
 import { FC, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IForm } from '../lib/form.interface.ts';
+import { useFindUsers } from '../lib/use-find-users.ts';
 import styles from './FindUserModal.module.scss';
 
 const FindUserModal: FC = () => {

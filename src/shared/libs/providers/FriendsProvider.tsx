@@ -1,7 +1,7 @@
 'use client';
 
-import { useFetchFriends } from '@shared/libs/hooks/useFetchFriends.ts';
-import { useFetchFriendsRequests } from '@shared/libs/hooks/useFetchFriendsRequests.ts';
+import { useFetchFriendsRequests } from '@shared/libs/hooks/use-fetch-friends-requests.ts';
+import { useFetchFriends } from '@shared/libs/hooks/use-fetch-friends.ts';
 import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { FC, ReactNode, useEffect } from 'react';
 

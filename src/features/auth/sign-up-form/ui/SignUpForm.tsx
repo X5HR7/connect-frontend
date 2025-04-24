@@ -1,8 +1,6 @@
 'use client';
 
 import { FormItem } from '@entities/auth/form-item';
-import { ISignUpForm } from '@features/auth/sign-up-form';
-import { useRegister } from '@features/auth/sign-up-form/lib/useRegister.ts';
 import {
 	emailRegex,
 	invalidEmailAddressMessage,
@@ -16,6 +14,8 @@ import { urls } from '@shared/libs/utils/url.config.ts';
 import { AuthForm, SubmitButton } from '@shared/ui/auth';
 import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { ISignUpForm } from '../lib/form.interface.ts';
+import { useRegister } from '../lib/use-register.ts';
 
 const SignUpForm = () => {
 	const { formState, register, handleSubmit, setError, reset } = useForm<ISignUpForm>({

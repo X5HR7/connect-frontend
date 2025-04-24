@@ -1,6 +1,6 @@
 'use client';
 
-import { useFetchServerTextChannel } from '@shared/libs/hooks/useFetchServerTextChannel.ts';
+import { useFetchServerTextChannel } from '@shared/libs/hooks/use-fetch-server-text-channel.ts';
 import { useServerChatStore } from '@shared/store/serverChatStore.ts';
 import { FC, ReactNode, useEffect } from 'react';
 
