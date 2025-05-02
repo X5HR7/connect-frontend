@@ -4,7 +4,7 @@
 	width: 280px;
 	height: 290px;
 	position: absolute;
-	background-color: var(--colorBlack);
+	background-color: var(--colorBackgroundBlack);
 	border-radius: 8px;
 	top: -280px;
 	left: -20px;
@@ -36,7 +36,7 @@
 	align-items: flex-start;
 
 	&__status {
-		background-color: var(--colorBlack) !important;
+		background-color: var(--colorBackgroundBlack) !important;
 	}
 
 	&__info {
@@ -118,7 +118,7 @@
 		width: 338px;
 		min-height: 100px;
 		position: absolute;
-		background-color: var(--colorBlack);
+		background-color: var(--colorBackgroundBlack);
 		border-radius: 8px;
 		top: -10px;
 		left: 107%;

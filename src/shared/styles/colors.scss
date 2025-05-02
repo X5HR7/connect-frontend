@@ -1,10 +1,11 @@
+.dark,
 :root {
 	--colorTextPrimary: #f1f2f4;
 	--colorTextSecondary: #949ba4;
 
 	--colorBackgroundPrimary: #313338;
 	--colorBackgroundSecondary: #2b2d31;
-	--colorBackgroundSecondaryRGB: rgb(43 45 49);
+	--colorBackgroundSecondaryRGBA: rgba(43, 45, 49, 0.4);
 	--colorBackgroundTertiary: #1e1f22;
 	--colorBackgroundBlack: #111214;
 
@@ -36,4 +37,36 @@
 	--colorPurple: #5865f2;
 
 	--colorLink: #00aeff;
+}
+
+.light {
+	--colorTextPrimary: #111214;
+	--colorTextSecondary: #4e5058;
+
+	--colorBackgroundPrimary: #ffffff;
+	--colorBackgroundSecondary: #f2f3f5;
+	--colorBackgroundSecondaryRGBA: rgba(242, 243, 245, 0.4);
+	--colorBackgroundTertiary: #e3e5e8;
+	--colorBackgroundBlack: #f2f3f5;
+
+	--colorMessageInput: #ebedef;
+	--colorMessageInputBlocked: #e3e5e8;
+	--colorMessageHover: #f2f3f5;
+
+	--colorChannelActive: #111214;
+	--colorChannelBackgroundActive: #d9dcdf;
+	--colorChannelHover: #4e5058;
+	--colorChannelBackgroundHover: #ebedef;
+
+	--colorScroll: #d9dcdf;
+	--colorScrollBackground: #f2f3f5;
+
+	--colorInput: #f2f3f5;
+
+	--colorSelectedUserProfileBackground: #ebedef;
+
+	--colorUserControlsBackground: #f2f3f5;
+	--colorUserControlsBackgroundHover: #d9dcdf;
+
+	--colorLink: #0066cc;
 }

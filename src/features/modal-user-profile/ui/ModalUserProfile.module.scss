@@ -94,7 +94,7 @@
 		width: calc(100% - 20px);
 		min-height: 300px;
 		border-radius: 5px;
-		background-color: rgba(rgb(43 45 49), 0.4); //--colorBackgroundSecondary in RGB
+		background-color: var(--colorBackgroundSecondaryRGBA);
 
 		&-header {
 			margin: 10px 0 0 0;
