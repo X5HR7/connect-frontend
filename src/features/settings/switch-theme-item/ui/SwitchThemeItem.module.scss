@@ -1,0 +1,18 @@
+.item {
+	margin: 0;
+	padding: 0;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	outline: none;
+	cursor: pointer;
+	border: 2px solid var(--colorChannelBackgroundActive);
+
+	&_active {
+		border-color: var(--colorPurple);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+}

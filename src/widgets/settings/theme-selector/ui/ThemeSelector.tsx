@@ -1,21 +1,20 @@
-'use client';
-
-import { TThemeValue } from '@shared/libs/types';
-import { useTheme } from 'next-themes';
+import { SwitchThemeItem } from '@features/settings/switch-theme-item';
+import { SynchronizeThemeItem } from '@features/settings/synchronize-theme-item';
 import { FC } from 'react';
+import { themes } from '../lib/themes.ts';
 import styles from './ThemeSelector.module.scss';
 
 const ThemeSelector: FC = () => {
-	const { setTheme } = useTheme();
-
-	const handleThemeChange = (theme: TThemeValue) => {
-		setTheme(theme);
-	};
-
 	return (
 		<ul className={styles.selector}>
-			<button onClick={() => handleThemeChange('light')}>Светлая</button>
-			<button onClick={() => handleThemeChange('dark')}>Темная</button>
+			{themes.map(theme => (
+				<li className={styles.selector__item} key={theme.value}>
+					<SwitchThemeItem theme={theme} />
+				</li>
+			))}
+			<li className={styles.selector__item}>
+				<SynchronizeThemeItem />
+			</li>
 		</ul>
 	);
 };
