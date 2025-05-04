@@ -13,7 +13,6 @@ const SocketProvider: FC<ISocketProviderProps> = ({ children }) => {
 	const { accessToken, setUser } = useAuthStore();
 	const { connect, disconnect, socket } = useSocketStore();
 
-	// Используем useCallback для стабильной ссылки на функцию
 	const handleUserUpdate = useCallback(
 		(user: IUserWithProfile) => {
 			if (user) {
