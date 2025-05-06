@@ -1,0 +1,12 @@
+.indicator {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	color: var(--colorWhite);
+	background-color: var(--colorRed);
+	font-weight: 600;
+}

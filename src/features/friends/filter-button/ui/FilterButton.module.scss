@@ -3,7 +3,9 @@
 	padding: 2px 8px;
 	border: none;
 	outline: none;
-	display: block;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 	background-color: transparent;
 	cursor: pointer;
 	color: var(--colorTextPrimary);
@@ -35,5 +37,12 @@
 			opacity: 0.7;
 			transition: opacity 0.1s;
 		}
+	}
+
+	&__indicator {
+		margin: 0 0 0 6px;
+		padding: 0;
+		width: fit-content;
+		height: fit-content;
 	}
 }
