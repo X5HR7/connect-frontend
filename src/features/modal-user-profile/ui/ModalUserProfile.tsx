@@ -1,48 +1,47 @@
 'use client';
 
+import { useFriendUserStatus } from '@entities/friends/add-to-friend-button';
 import { getFormatedDate } from '@shared/libs/utils/get-formated-date.ts';
 import { useAuthStore } from '@shared/store/authStore.ts';
-import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { Loader } from '@shared/ui/loader/Loader.tsx';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import dynamic from 'next/dynamic';
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import { IModalUserProfileProps } from '../lib/modal-user-profile.interface.ts';
 import { useGetUserInfo } from '../lib/use-get-user-info.ts';
 import styles from './ModalUserProfile.module.scss';
 
-const AddToFriendButton = dynamic(() => import('@shared/ui/user/add-to-friend-button/AddToFriendButton.tsx'));
-const DeleteFromFriendButton = dynamic(
-	() => import('@shared/ui/user/delete-from-friend-button/DeleteFromFriendButton.tsx')
-);
+const AddToFriendButton = dynamic(() => import('@entities/friends/add-to-friend-button/'));
+const DeleteFromFriendButton = dynamic(() => import('@entities/friends/delete-from-friend-button'));
 
 const ModalUserProfile: FC<IModalUserProfileProps> = ({ userId }) => {
 	const { user: currentUser } = useAuthStore();
-	const { friends, requests, removeFriend } = useFriendsStore();
+	// const { friends, requests, removeFriend } = useFriendsStore();
 	const { data: user, isPending } = useGetUserInfo(userId);
+	const { status: friendStatus } = useFriendUserStatus(user);
 
 	const [isFriend, setIsFriend] = useState<boolean>(false);
 	const [isRequestSent, setIsRequestSent] = useState<boolean>(false);
 
-	useEffect(() => {
-		if ((friends.length !== 0 || requests.length !== 0) && user) {
-			if (friends.filter(friend => friend.id === user.id).length !== 0) {
-				setIsFriend(true);
-			}
-			if (requests.filter(request => request.receiverId === user.id).length !== 0) {
-				setIsRequestSent(true);
-			}
-		}
-	}, [user, friends]);
-
-	const handleAddFriendSuccess = () => {
-		setIsRequestSent(true);
-	};
-
-	const handleDeleteFriendSuccess = (friendId: string) => {
-		setIsFriend(false);
-		removeFriend(friendId);
-	};
+	// useEffect(() => {
+	// 	if ((friends.length !== 0 || requests.length !== 0) && user) {
+	// 		if (friends.filter(friend => friend.id === user.id).length !== 0) {
+	// 			setIsFriend(true);
+	// 		}
+	// 		if (requests.filter(request => request.receiverId === user.id).length !== 0) {
+	// 			setIsRequestSent(true);
+	// 		}
+	// 	}
+	// }, [user, friends]);
+	//
+	// const handleAddFriendSuccess = () => {
+	// 	setIsRequestSent(true);
+	// };
+	//
+	// const handleDeleteFriendSuccess = (friendId: string) => {
+	// 	setIsFriend(false);
+	// 	removeFriend(friendId);
+	// };
 
 	return (
 		<div className={styles.profile}>
@@ -59,14 +58,19 @@ const ModalUserProfile: FC<IModalUserProfileProps> = ({ userId }) => {
 						</div>
 						{currentUser.id === user.id ? null : (
 							<div className={styles['profile__header-buttons']}>
-								{isFriend ? (
-									<DeleteFromFriendButton receiver={user} handleSuccess={handleDeleteFriendSuccess} />
+								{/*{isFriend ? (*/}
+								{/*	<DeleteFromFriendButton receiver={user} handleSuccess={handleDeleteFriendSuccess} />*/}
+								{/*) : (*/}
+								{/*	<AddToFriendButton*/}
+								{/*		receiver={user}*/}
+								{/*		handleSuccess={handleAddFriendSuccess}*/}
+								{/*		isRequestSent={isRequestSent}*/}
+								{/*	/>*/}
+								{/*)}*/}
+								{friendStatus === 'friend' ? (
+									<DeleteFromFriendButton receiver={user} className={styles.profile__button} />
 								) : (
-									<AddToFriendButton
-										receiver={user}
-										handleSuccess={handleAddFriendSuccess}
-										isRequestSent={isRequestSent}
-									/>
+									<AddToFriendButton receiver={user} status={friendStatus} className={styles.profile__button} />
 								)}
 							</div>
 						)}

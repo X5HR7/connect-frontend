@@ -1,13 +1,16 @@
+import { TUserRequests } from '@shared/libs/api/friends/friends.ts';
 import { IUserFriendRequest, IUserWithProfile, TFriendsFilter } from '@shared/libs/interfaces';
 import { create } from 'zustand/react';
 
 interface FriendsStore {
 	filter: TFriendsFilter;
 	friends: IUserWithProfile[];
-	requests: IUserFriendRequest[];
+	requestsReceived: IUserFriendRequest[];
+	requestsSent: IUserFriendRequest[];
 	setFilter: (filter: TFriendsFilter) => void;
 	setFriends: (friends: IUserWithProfile[]) => void;
-	setRequests: (requests: IUserFriendRequest[]) => void;
+	setRequests: (requests: TUserRequests) => void;
+	addSentRequest: (request: IUserFriendRequest) => void;
 	removeRequest: (requestId: string) => void;
 	addFriend: (friend: IUserWithProfile) => void;
 	removeFriend: (friendId: string) => void;
@@ -16,13 +19,15 @@ interface FriendsStore {
 export const useFriendsStore = create<FriendsStore>(set => ({
 	filter: 'ONLINE',
 	friends: [],
-	requests: [],
+	requestsReceived: [],
+	requestsSent: [],
 	setFilter: filter => set({ filter }),
 	setFriends: friends => set({ friends }),
-	setRequests: requests => set({ requests }),
+	setRequests: requests => set({ requestsReceived: requests.requestsReceived, requestsSent: requests.requestsSent }),
+	addSentRequest: request => set(state => ({ requestsSent: [...state.requestsSent, request] })),
 	removeRequest: requestId =>
 		set(state => ({
-			requests: state.requests.filter(request => request.id !== requestId)
+			requestsReceived: state.requestsReceived.filter(request => request.id !== requestId)
 		})),
 	addFriend: friend =>
 		set(state => ({

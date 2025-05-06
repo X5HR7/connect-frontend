@@ -8,9 +8,9 @@ export interface IChat {
 
 export interface IChatMember {
 	id: string;
-	memberId: string;
+	userId: string;
 	chatId: string;
-	member: IUserWithProfile;
+	user: IUserWithProfile;
 	messages?: IMessage[];
 	lastReadMessageId: string;
 }

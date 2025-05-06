@@ -1,29 +1,27 @@
 import { IUserWithProfile } from '@shared/libs/interfaces';
+import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { Loader } from '@shared/ui/loader/Loader.tsx';
 import { FC } from 'react';
+import { useDeleteFriend } from '../lib/useDeleteFriend.ts';
 import styles from './DeleteFromFriendButton.module.scss';
-import { useDeleteFriend } from './useDeleteFriend.ts';
 
 interface IDeleteFromFriendButtonProps {
 	receiver?: IUserWithProfile;
 	isDisabled?: boolean;
-	handleSuccess: (friendId: string) => void;
 	className?: string;
 }
 
-const DeleteFromFriendButton: FC<IDeleteFromFriendButtonProps> = ({
-	receiver,
-	isDisabled,
-	handleSuccess,
-	className = ''
-}) => {
+const DeleteFromFriendButton: FC<IDeleteFromFriendButtonProps> = ({ receiver, isDisabled, className = '' }) => {
 	const { mutate: deleteFriend, isPending } = useDeleteFriend();
+	const { removeFriend } = useFriendsStore();
 
 	const handleButtonClick = () => {
 		if (receiver?.id) {
 			deleteFriend(receiver.id, {
 				onSuccess: data => {
-					if (data?.friendId) handleSuccess(data.friendId);
+					if (data?.friendId) {
+						removeFriend(data.friendId);
+					}
 				}
 			});
 		}
@@ -42,4 +40,3 @@ const DeleteFromFriendButton: FC<IDeleteFromFriendButtonProps> = ({
 };
 
 export { DeleteFromFriendButton };
-export default DeleteFromFriendButton;

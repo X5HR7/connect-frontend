@@ -30,7 +30,7 @@ export const FriendsProvider: FC<IFriendsProviderProps> = ({ children }) => {
 		}
 
 		return () => {
-			setRequests([]);
+			setRequests({ requestsSent: [], requestsReceived: [] });
 		};
 	}, [requests, isRequestsPending, setRequests]);
 

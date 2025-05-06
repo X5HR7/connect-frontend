@@ -21,7 +21,7 @@ const ChatProvider: FC<IChatProviderProps> = ({ children, chatId }) => {
 	useEffect(() => {
 		if (!isPending) {
 			if (data) {
-				const receiver = data.chatMembers.filter(member => member.memberId !== user?.id)[0];
+				const receiver = data.chatMembers.filter(member => member.userId !== user?.id)[0];
 				if (receiver) {
 					setChat(data, receiver);
 				}

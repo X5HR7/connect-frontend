@@ -15,7 +15,7 @@ const MessageParent: FC<MessageParentProps> = ({ parentMessage, hiddenCloseButto
 	return (
 		<div className={`${styles.parent} ${hiddenCloseButton ? styles.parent_transparent : ''}`}>
 			<p className={styles.parent__user}>
-				@{chatMembers.find(member => member.id === parentMessage?.userId)?.member.username || 'Пользователь не найден'}
+				@{chatMembers.find(member => member.id === parentMessage?.userId)?.user.username || 'Пользователь не найден'}
 			</p>
 			<p className={styles.parent__message}>{parentMessage?.content?.slice(0, 80)}</p>
 			<button

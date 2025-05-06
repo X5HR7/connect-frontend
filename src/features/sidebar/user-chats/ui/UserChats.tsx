@@ -36,7 +36,7 @@ const UserChats: FC = () => {
 			{chats.length === 0
 				? null
 				: chats.map(chat => {
-						const friend = chat.chatMembers.filter(member => member.memberId !== user?.id)[0].member;
+						const friend = chat.chatMembers.find(member => member.userId !== user?.id)?.user;
 						if (!friend || !friend.profile) return null;
 
 						return (

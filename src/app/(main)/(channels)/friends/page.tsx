@@ -5,12 +5,12 @@ import styles from './page.module.scss';
 const FriendsPage = () => {
 	return (
 		<div className={styles.page}>
-			<div className={styles['page__top-panel']}>
+			<section className={styles['page__top-panel']}>
 				<TopPanel />
-			</div>
-			<div className={styles.page__friends}>
+			</section>
+			<section className={styles.page__friends}>
 				<FriendListWidget />
-			</div>
+			</section>
 		</div>
 	);
 };

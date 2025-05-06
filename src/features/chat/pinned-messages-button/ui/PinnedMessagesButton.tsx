@@ -49,7 +49,7 @@ const PinnedMessagesButton: FC = () => {
 										<UserMessage
 											key={message.id}
 											message={message}
-											sender={message.userId === receiver.id ? receiver?.member : user}
+											sender={message.userId === receiver.id ? receiver?.user : user}
 										/>
 									);
 								}

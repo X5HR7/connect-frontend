@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import styles from './ChatMessages.module.scss';
 
-const UserChatProfile = dynamic(() => import('@entities/chat/user-chat-profile'));
+const UserChatProfile = dynamic(() => import('@/features/chat/user-chat-profile'));
 
 const ChatMessages: FC = () => {
 	const { messages, chatMembers } = useChatStore();
@@ -23,7 +23,7 @@ const ChatMessages: FC = () => {
 						<UserMessage
 							message={message}
 							key={message.id}
-							sender={chatMembers.find(member => member.id === message.userId)?.member as IUserWithProfile}
+							sender={chatMembers.find(member => member.id === message.userId)?.user as IUserWithProfile}
 							showControls={true}
 						/>
 					))}

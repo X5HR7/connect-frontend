@@ -2,19 +2,19 @@
 
 import acceptIcon from '@shared/assets/icons/accept.svg';
 import rejectIcon from '@shared/assets/icons/close.svg';
+import { useFriendRequestAccept } from '@shared/libs/hooks/use-friend-request-accept.ts';
 import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import Image from 'next/image';
 import { FC } from 'react';
 import { IFriendRequestItemProps } from '../lib/friend-request-item.interface.ts';
-import { useRequestAccept } from '../lib/use-request-accept.ts';
 import { useRequestReject } from '../lib/use-request-reject.ts';
 import styles from './FriendRequestItem.module.scss';
 
 const FriendRequestItem: FC<IFriendRequestItemProps> = ({ request }) => {
 	const { removeRequest, addFriend } = useFriendsStore();
-	const { mutate: acceptRequest, isPending: isAcceptPending } = useRequestAccept();
+	const { mutate: acceptRequest, isPending: isAcceptPending } = useFriendRequestAccept();
 	const { mutate: rejectRequest, isPending: isRejectPending } = useRequestReject();
 
 	const handleAcceptButtonClick = () => {

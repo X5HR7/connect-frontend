@@ -15,8 +15,10 @@ export const fetchUserFriends = (): Promise<IUserWithProfile[]> => {
 	});
 };
 
-export const fetchUserFriendsRequests = (): Promise<IUserFriendRequest[]> => {
-	return fetchWithAuth<IUserFriendRequest[]>(`${BASE_SERVER_URL}/friends/requests`, {
+export type TUserRequests = { requestsSent: IUserFriendRequest[]; requestsReceived: IUserFriendRequest[] };
+
+export const fetchUserFriendsRequests = (): Promise<TUserRequests> => {
+	return fetchWithAuth<TUserRequests>(`${BASE_SERVER_URL}/friends/requests`, {
 		method: 'GET'
 	});
 };
