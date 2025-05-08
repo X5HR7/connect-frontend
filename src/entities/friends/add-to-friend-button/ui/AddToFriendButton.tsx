@@ -2,7 +2,7 @@
 
 import inviteIcon from '@shared/assets/icons/invite.svg';
 import { useFriendRequestAccept } from '@shared/libs/hooks/use-friend-request-accept.ts';
-import { IUserFriendRequest, IUserWithProfile } from '@shared/libs/interfaces';
+import { IUserWithProfile } from '@shared/libs/interfaces';
 import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { Loader } from '@shared/ui/loader/Loader.tsx';
 import Image from 'next/image';
@@ -13,7 +13,6 @@ import styles from './AddToFriendButton.module.scss';
 interface IAddToFriendButtonProps {
 	receiver?: IUserWithProfile;
 	className?: string;
-	friendRequest?: IUserFriendRequest;
 	status: 'requestSent' | 'requestReceived' | 'none';
 }
 
@@ -23,7 +22,7 @@ const buttonTexts = {
 	none: 'Добавить в друзья'
 };
 
-const AddToFriendButton: FC<IAddToFriendButtonProps> = ({ receiver, className = '', status, friendRequest }) => {
+const AddToFriendButton: FC<IAddToFriendButtonProps> = ({ receiver, className = '', status }) => {
 	const { addFriend, addSentRequest, requestsReceived, removeReceivedRequest } = useFriendsStore();
 	const { mutate: sendFriendRequest, isPending: isSendRequestPending } = useSendFriendRequest();
 	const { mutate: acceptFriendRequest, isPending: isAcceptRequestPending } = useFriendRequestAccept();
