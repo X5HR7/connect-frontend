@@ -4,33 +4,30 @@ import { create } from 'zustand/react';
 
 interface FriendsStore {
 	filter: TFriendsFilter;
-	friends: IUserWithProfile[];
-	requestsReceived: IUserFriendRequest[];
-	requestsSent: IUserFriendRequest[];
 	setFilter: (filter: TFriendsFilter) => void;
+
+	friends: IUserWithProfile[];
 	setFriends: (friends: IUserWithProfile[]) => void;
-	setRequests: (requests: TUserRequests) => void;
-	addRequestReceived: (request: IUserFriendRequest) => void;
-	addSentRequest: (request: IUserFriendRequest) => void;
-	removeRequest: (requestId: string) => void;
 	addFriend: (friend: IUserWithProfile) => void;
 	removeFriend: (friendId: string) => void;
+
+	setRequests: (requests: TUserRequests) => void;
+
+	requestsReceived: IUserFriendRequest[];
+	addReceivedRequest: (request: IUserFriendRequest) => void;
+	removeReceivedRequest: (requestId: string) => void;
+
+	requestsSent: IUserFriendRequest[];
+	addSentRequest: (request: IUserFriendRequest) => void;
+	removeSentRequest: (requestId: string) => void;
 }
 
 export const useFriendsStore = create<FriendsStore>(set => ({
 	filter: 'ONLINE',
-	friends: [],
-	requestsReceived: [],
-	requestsSent: [],
 	setFilter: filter => set({ filter }),
+
+	friends: [],
 	setFriends: friends => set({ friends }),
-	setRequests: requests => set({ requestsReceived: requests.requestsReceived, requestsSent: requests.requestsSent }),
-	addRequestReceived: request => set(state => ({ requestsReceived: [...state.requestsReceived, request] })),
-	addSentRequest: request => set(state => ({ requestsSent: [...state.requestsSent, request] })),
-	removeRequest: requestId =>
-		set(state => ({
-			requestsReceived: state.requestsReceived.filter(request => request.id !== requestId)
-		})),
 	addFriend: friend =>
 		set(state => ({
 			friends: [...state.friends, friend]
@@ -38,5 +35,21 @@ export const useFriendsStore = create<FriendsStore>(set => ({
 	removeFriend: friendId =>
 		set(state => ({
 			friends: state.friends.filter(friend => friend.id !== friendId)
+		})),
+
+	setRequests: requests => set({ requestsReceived: requests.requestsReceived, requestsSent: requests.requestsSent }),
+
+	requestsReceived: [],
+	addReceivedRequest: request => set(state => ({ requestsReceived: [...state.requestsReceived, request] })),
+	removeReceivedRequest: requestId =>
+		set(state => ({
+			requestsReceived: state.requestsReceived.filter(request => request.id !== requestId)
+		})),
+
+	requestsSent: [],
+	addSentRequest: request => set(state => ({ requestsSent: [...state.requestsSent, request] })),
+	removeSentRequest: requestId =>
+		set(state => ({
+			requestsSent: state.requestsSent.filter(request => request.id !== requestId)
 		}))
 }));

@@ -13,7 +13,7 @@ import { useRequestReject } from '../lib/use-request-reject.ts';
 import styles from './FriendRequestItem.module.scss';
 
 const FriendRequestItem: FC<IFriendRequestItemProps> = ({ request }) => {
-	const { removeRequest, addFriend } = useFriendsStore();
+	const { removeReceivedRequest, addFriend } = useFriendsStore();
 	const { mutate: acceptRequest, isPending: isAcceptPending } = useFriendRequestAccept();
 	const { mutate: rejectRequest, isPending: isRejectPending } = useRequestReject();
 
@@ -21,7 +21,7 @@ const FriendRequestItem: FC<IFriendRequestItemProps> = ({ request }) => {
 		acceptRequest(request.id, {
 			onSuccess: friend => {
 				if (friend.id) {
-					removeRequest(request.id);
+					removeReceivedRequest(request.id);
 					addFriend(friend);
 				}
 			}
@@ -32,7 +32,7 @@ const FriendRequestItem: FC<IFriendRequestItemProps> = ({ request }) => {
 		rejectRequest(request.id, {
 			onSuccess: data => {
 				if (data.id) {
-					removeRequest(request.id);
+					removeReceivedRequest(request.id);
 				}
 			}
 		});

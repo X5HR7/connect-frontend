@@ -17,8 +17,14 @@ interface IAddToFriendButtonProps {
 	status: 'requestSent' | 'requestReceived' | 'none';
 }
 
+const buttonTexts = {
+	requestSent: 'Запрос уже отправлен',
+	requestReceived: 'Принять запрос',
+	none: 'Добавить в друзья'
+};
+
 const AddToFriendButton: FC<IAddToFriendButtonProps> = ({ receiver, className = '', status, friendRequest }) => {
-	const { addFriend, addSentRequest } = useFriendsStore();
+	const { addFriend, addSentRequest, requestsReceived, removeReceivedRequest } = useFriendsStore();
 	const { mutate: sendFriendRequest, isPending: isSendRequestPending } = useSendFriendRequest();
 	const { mutate: acceptFriendRequest, isPending: isAcceptRequestPending } = useFriendRequestAccept();
 	const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -33,14 +39,18 @@ const AddToFriendButton: FC<IAddToFriendButtonProps> = ({ receiver, className = 
 
 	const handleButtonClick = () => {
 		if (receiver?.username) {
-			if (friendRequest?.id) {
-				acceptFriendRequest(friendRequest.id, {
-					onSuccess: friend => {
-						if (friend?.id) {
-							addFriend(friend);
+			if (status === 'requestReceived') {
+				const friendRequest = requestsReceived.find(req => req.senderId === receiver.id);
+				if (friendRequest) {
+					acceptFriendRequest(friendRequest.id, {
+						onSuccess: friend => {
+							if (friend?.id) {
+								addFriend(friend);
+								removeReceivedRequest(friendRequest.id);
+							}
 						}
-					}
-				});
+					});
+				}
 			} else {
 				sendFriendRequest(
 					{ username: receiver.username },
@@ -65,9 +75,7 @@ const AddToFriendButton: FC<IAddToFriendButtonProps> = ({ receiver, className = 
 		>
 			{isLoading && <Loader size={12} />}
 			<Image src={inviteIcon} alt={'Invite'} className={`${styles.button__image} ${isLoading ? styles.loading : ''}`} />
-			<span className={`${styles.button__text} ${isLoading ? styles.loading : ''}`}>
-				{status === 'requestSent' ? 'Запрос уже отправлен' : 'Добавить в друзья'}
-			</span>
+			<span className={`${styles.button__text} ${isLoading ? styles.loading : ''}`}>{buttonTexts[status]}</span>
 		</button>
 	);
 };
