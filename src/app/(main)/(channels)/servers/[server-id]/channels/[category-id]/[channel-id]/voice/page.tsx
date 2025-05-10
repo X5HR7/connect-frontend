@@ -1,12 +1,7 @@
-import { APP_NAME } from '@shared/libs/utils/constants.ts';
-import { Metadata } from 'next';
+import { ServerVoiceChannelPage } from '@pages/server-pages/server-voice-channel-page';
 
-export const metadata: Metadata = {
-	title: `${APP_NAME} | Канал сервера`
+const Page = () => {
+	return <ServerVoiceChannelPage />;
 };
 
-const ServerChannelPage = () => {
-	return <div>Voice channel page</div>;
-};
-
-export default ServerChannelPage;
+export default Page;

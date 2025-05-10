@@ -1,3 +1,4 @@
+import { create } from 'zustand';
 import {
 	IFServer,
 	IServer,
@@ -5,7 +6,6 @@ import {
 	IServerMember,
 	IServerRole
 } from '@shared/libs/interfaces/server.interface.ts';
-import { create } from 'zustand/react';
 
 interface ServerStore {
 	server: IServer | null;

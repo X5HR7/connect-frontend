@@ -1,14 +1,14 @@
+import Image from 'next/image';
+import { FC } from 'react';
 import { usePinMessage } from '@entities/chat/message-pin-button/lib/use-pin-message.ts';
 import pinIcon from '@shared/assets/icons/pinned.svg';
 import { useChatStore } from '@shared/store/chatStore.ts';
 import { MessageControlButton } from '@shared/ui/chat/message-control-button/MessageControlButton.tsx';
-import Image from 'next/image';
-import { FC } from 'react';
 import { MessagePinButtonProps } from '../lib/message-pin-button.interface.ts';
 import styles from './MessagePinButton.module.scss';
 
 const MessagePinButton: FC<MessagePinButtonProps> = ({ messageId, isPinned = false, setModalState }) => {
-	const { updateMessage } = useChatStore();
+	const updateMessage = useChatStore(state => state.updateMessage);
 	const { mutate: pinMessage, isPending } = usePinMessage();
 
 	const handleButtonClick = () => {

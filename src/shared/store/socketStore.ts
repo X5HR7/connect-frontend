@@ -1,7 +1,7 @@
+import { Socket, io } from 'socket.io-client';
+import { create } from 'zustand';
 import { EVENTS } from '@shared/libs/interfaces';
 import { BASE_SERVER_URL } from '@shared/libs/utils/constants.ts';
-import { Socket, io } from 'socket.io-client';
-import { create } from 'zustand/react';
 
 interface SocketStore {
 	socket: Socket | null;

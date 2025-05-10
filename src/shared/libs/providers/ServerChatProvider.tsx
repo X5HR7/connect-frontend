@@ -1,8 +1,8 @@
 'use client';
 
+import { FC, ReactNode, useEffect } from 'react';
 import { useFetchServerTextChannel } from '@shared/libs/hooks/use-fetch-server-text-channel.ts';
 import { useServerChatStore } from '@shared/store/serverChatStore.ts';
-import { FC, ReactNode, useEffect } from 'react';
 
 interface IServerChatProviderProps {
 	children: ReactNode;
@@ -12,7 +12,7 @@ interface IServerChatProviderProps {
 }
 
 const ServerChatProvider: FC<IServerChatProviderProps> = ({ children, serverId, categoryId, channelId }) => {
-	const { setChat } = useServerChatStore();
+	const setChat = useServerChatStore(state => state.setChat);
 	const { data, isPending } = useFetchServerTextChannel({ serverId, categoryId, channelId });
 
 	useEffect(() => {

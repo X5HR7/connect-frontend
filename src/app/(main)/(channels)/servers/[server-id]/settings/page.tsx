@@ -1,12 +1,7 @@
-import { APP_NAME } from '@shared/libs/utils/constants.ts';
-import { Metadata } from 'next';
+import { ServerSettingsPage } from '@pages/server-pages/server-settings-page';
 
-export const metadata: Metadata = {
-	title: `${APP_NAME} | Настройки сервера`
+const Page = () => {
+	return <ServerSettingsPage />;
 };
 
-const ServerSettingsPage = () => {
-	return <div>Server settings</div>;
-};
-
-export default ServerSettingsPage;
+export default Page;

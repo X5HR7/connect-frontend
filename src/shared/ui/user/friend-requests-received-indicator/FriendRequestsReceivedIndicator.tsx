@@ -1,7 +1,7 @@
 'use client';
 
-import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { FC } from 'react';
+import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import styles from './FriendRequestsReceivedIndicator.module.scss';
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const FriendRequestsReceivedIndicator: FC<Props> = ({ size = 20, fontSize = 13 }) => {
-	const { requestsReceived } = useFriendsStore();
+	const requestsReceived = useFriendsStore(state => state.requestsReceived);
 
 	return requestsReceived.length === 0 ? null : (
 		<span

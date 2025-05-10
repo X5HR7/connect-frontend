@@ -1,16 +1,7 @@
-import { PageTitle } from '@shared/ui/settings/page-title/PageTitle.tsx';
-import { Profile } from '@widgets/settings/profile';
-import styles from './page.module.scss';
+import { SettingsProfilePage } from '@pages/settings-pages/settings-profile-page';
 
-const SettingsProfilePage = () => {
-	return (
-		<div className={styles.page}>
-			<PageTitle title={'Профиль'} />
-			<section className={styles.page__profile}>
-				<Profile />
-			</section>
-		</div>
-	);
+const Page = () => {
+	return <SettingsProfilePage />;
 };
 
-export default SettingsProfilePage;
+export default Page;

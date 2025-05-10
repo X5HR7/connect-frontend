@@ -1,5 +1,5 @@
+import { create } from 'zustand';
 import { IChat, IChatMember, IMessage } from '@shared/libs/interfaces';
-import { create } from 'zustand/react';
 
 interface ChatStore {
 	chatId: string | null;

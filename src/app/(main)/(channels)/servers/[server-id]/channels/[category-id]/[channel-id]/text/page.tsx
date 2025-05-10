@@ -1,12 +1,7 @@
-import { APP_NAME } from '@shared/libs/utils/constants.ts';
-import { Metadata } from 'next';
+import { ServerTextChannelPage } from '@pages/server-pages/server-text-channel-page';
 
-export const metadata: Metadata = {
-	title: `${APP_NAME} | Канал сервера`
+const Page = () => {
+	return <ServerTextChannelPage />;
 };
 
-const ServerChannelPage = () => {
-	return <div>Text channel page</div>;
-};
-
-export default ServerChannelPage;
+export default Page;

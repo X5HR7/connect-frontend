@@ -1,1 +1,1 @@
-export { UserControlsWidget } from './ui/UserControlsWidget.tsx';
+export { UserControls } from './ui/UserControls.tsx';

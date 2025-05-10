@@ -1,20 +1,23 @@
 'use client';
 
+import { useParams, useRouter } from 'next/navigation';
+import { FC, ReactNode, useEffect } from 'react';
+import { useShallow } from 'zustand/shallow';
 import { useFetchChat } from '@shared/libs/hooks/use-fetch-chat.ts';
 import { urls } from '@shared/libs/utils/url.config.ts';
 import { useAuthStore } from '@shared/store/authStore.ts';
 import { useChatStore } from '@shared/store/chatStore.ts';
-import { useRouter } from 'next/navigation';
-import { FC, ReactNode, useEffect } from 'react';
 
-interface IChatProviderProps {
+interface ChatProviderProps {
 	children: ReactNode;
-	chatId: string;
 }
 
-const ChatProvider: FC<IChatProviderProps> = ({ children, chatId }) => {
-	const { user } = useAuthStore();
-	const { setChat, clearChat } = useChatStore();
+const ChatProvider: FC<ChatProviderProps> = ({ children }) => {
+	const { 'chat-id': chatId } = useParams<{ 'chat-id': string }>();
+	const user = useAuthStore(state => state.user);
+	const { setChat, clearChat } = useChatStore(
+		useShallow(state => ({ setChat: state.setChat, clearChat: state.clearChat }))
+	);
 	const { data, isPending } = useFetchChat(chatId);
 	const router = useRouter();
 

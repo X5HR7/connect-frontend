@@ -1,12 +1,13 @@
 'use client';
 
+import Image from 'next/image';
+import { FC, useEffect, useState } from 'react';
+import { useShallow } from 'zustand/shallow';
 import inviteIcon from '@shared/assets/icons/invite.svg';
 import { useFriendRequestAccept } from '@shared/libs/hooks/use-friend-request-accept.ts';
 import { IUserWithProfile } from '@shared/libs/interfaces';
 import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { Loader } from '@shared/ui/loader/Loader.tsx';
-import Image from 'next/image';
-import { FC, useEffect, useState } from 'react';
 import { useSendFriendRequest } from '../lib/use-send-friend-request.ts';
 import styles from './AddToFriendButton.module.scss';
 
@@ -23,7 +24,14 @@ const buttonTexts = {
 };
 
 const AddToFriendButton: FC<IAddToFriendButtonProps> = ({ receiver, className = '', status }) => {
-	const { addFriend, addSentRequest, requestsReceived, removeReceivedRequest } = useFriendsStore();
+	const { addFriend, addSentRequest, requestsReceived, removeReceivedRequest } = useFriendsStore(
+		useShallow(state => ({
+			addFriend: state.addFriend,
+			addSentRequest: state.addSentRequest,
+			requestsReceived: state.requestsReceived,
+			removeReceivedRequest: state.removeReceivedRequest
+		}))
+	);
 	const { mutate: sendFriendRequest, isPending: isSendRequestPending } = useSendFriendRequest();
 	const { mutate: acceptFriendRequest, isPending: isAcceptRequestPending } = useFriendRequestAccept();
 	const [isLoading, setIsLoading] = useState<boolean>(false);

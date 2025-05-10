@@ -1,14 +1,14 @@
 'use client';
 
-import { useAuthStore } from '@shared/store/authStore.ts';
 import { FC, ReactNode, useEffect } from 'react';
+import { useAuthStore } from '@shared/store/authStore.ts';
 
 interface IAuthProviderProps {
 	children: ReactNode;
 }
 
 export const AuthProvider: FC<IAuthProviderProps> = ({ children }) => {
-	const { setAccessToken } = useAuthStore();
+	const setAccessToken = useAuthStore(state => state.setAccessToken);
 
 	useEffect(() => {
 		const cookieString = document.cookie;

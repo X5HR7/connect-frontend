@@ -1,0 +1,37 @@
+'use client';
+
+import dynamic from 'next/dynamic';
+import { FC, useState } from 'react';
+import { getSecurePhone } from '@shared/libs/utils/get-secure-data.ts';
+import { useAuthStore } from '@shared/store/authStore.ts';
+import { useModalStore } from '@shared/store/modalStore.ts';
+import { AccountItem } from '@shared/ui/settings/account-item/AccountItem.tsx';
+import { EditButton } from '@shared/ui/settings/edit-button/EditButton.tsx';
+
+const EditPhoneModal = dynamic(() => import('../components/edit-phone-modal'));
+
+const EditPhoneItem: FC = () => {
+	const user = useAuthStore(state => state.user);
+	const openModal = useModalStore(state => state.openModal);
+	const [isSecure, setIsSecure] = useState<boolean>(true);
+
+	const handleEditButtonClick = () => {
+		openModal(<EditPhoneModal />);
+	};
+
+	const toggleValueState = () => {
+		setIsSecure(prev => !prev);
+	};
+
+	return (
+		<AccountItem
+			title={'Номер телефона'}
+			value={user?.phone && isSecure ? getSecurePhone(user.phone) : user?.phone}
+			showFullValue={toggleValueState}
+		>
+			<EditButton onClick={handleEditButtonClick} />
+		</AccountItem>
+	);
+};
+
+export { EditPhoneItem };

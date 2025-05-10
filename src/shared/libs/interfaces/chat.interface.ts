@@ -18,6 +18,7 @@ export interface IChatMember {
 export interface IMessage {
 	id: string;
 	userId: string;
+	user?: IUserWithProfile;
 	chatId: string;
 	parentId: string;
 	parent: IMessage | null;

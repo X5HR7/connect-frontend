@@ -1,10 +1,10 @@
+import { useQuery } from '@tanstack/react-query';
 import { fetchUserFriends } from '@shared/libs/api/friends/friends.ts';
 import { IUserWithProfile } from '@shared/libs/interfaces';
 import { useAuthStore } from '@shared/store/authStore.ts';
-import { useQuery } from '@tanstack/react-query';
 
 export const useFetchFriends = () => {
-	const { accessToken } = useAuthStore();
+	const accessToken = useAuthStore(state => state.accessToken);
 
 	return useQuery<IUserWithProfile[]>({
 		retry: false,

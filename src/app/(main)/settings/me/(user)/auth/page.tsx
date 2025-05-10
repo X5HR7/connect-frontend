@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import styles from './page.module.scss';
+import { SettingsAuthPage } from '@pages/settings-pages/settings-auth-page';
 
-const SettingsAuthPage: FC = () => {
-	return <div className={styles.page}>auth</div>;
+const Page: FC = () => {
+	return <SettingsAuthPage />;
 };
 
-export default SettingsAuthPage;
+export default Page;

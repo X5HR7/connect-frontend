@@ -97,14 +97,16 @@ export interface IServerMemberRoles {
 
 export interface IServerMessage {
 	id: string;
+	userId: string;
+	user?: IUserWithProfile;
+	chatId: string;
+	parentId: string;
+	parent: IServerMessage | null;
 	content: string;
 	isPinned: boolean;
-	parentId?: string;
 	createdAt: Date;
 	updatedAt?: Date;
 	deletedAt?: Date;
-	memberId: string;
-	textChannelId: string;
 }
 
 export interface IServerTextChannel {

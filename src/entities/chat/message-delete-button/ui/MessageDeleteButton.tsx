@@ -1,18 +1,18 @@
 'use client';
 
+import { FC, useState } from 'react';
 import { EVENTS, IMessage } from '@shared/libs/interfaces';
 import { useChatStore } from '@shared/store/chatStore.ts';
 import { useSocketStore } from '@shared/store/socketStore.ts';
 import { MessageControlButton } from '@shared/ui/chat/message-control-button/MessageControlButton.tsx';
 import { DeleteIcon } from '@shared/ui/svg/DeleteIcon.tsx';
-import { FC, useState } from 'react';
 import { MessageDeleteButtonProps } from '../lib/message-delete-button.interface.ts';
 import styles from './MessageDeleteButton.module.scss';
 
 const MessageDeleteButton: FC<MessageDeleteButtonProps> = ({ messageId }) => {
 	const [isPending, setIsPending] = useState<boolean>(false);
-	const { socket } = useSocketStore();
-	const { deleteMessage } = useChatStore();
+	const socket = useSocketStore(state => state.socket);
+	const deleteMessage = useChatStore(state => state.deleteMessage);
 
 	const handleDeleteMessage = (message: IMessage) => {
 		deleteMessage(message);

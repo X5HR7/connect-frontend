@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { create } from 'zustand/react';
+import { create } from 'zustand';
 
 interface ModalStore {
 	isOpen: boolean;

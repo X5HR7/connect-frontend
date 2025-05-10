@@ -1,5 +1,5 @@
+import { create } from 'zustand';
 import { IServer } from '@shared/libs/interfaces/server.interface.ts';
-import { create } from 'zustand/react';
 
 interface ServersStore {
 	servers: IServer[] | null;

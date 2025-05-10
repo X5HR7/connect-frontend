@@ -1,11 +1,12 @@
 'use client';
 
+import { FC, ReactNode, useEffect } from 'react';
+import { useShallow } from 'zustand/shallow';
 import { useFetchFriendsRequests } from '@shared/libs/hooks/use-fetch-friends-requests.ts';
 import { useFetchFriends } from '@shared/libs/hooks/use-fetch-friends.ts';
 import { EVENTS, IUserFriendRequest, IUserWithProfile } from '@shared/libs/interfaces';
 import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { useSocketStore } from '@shared/store/socketStore.ts';
-import { FC, ReactNode, useEffect } from 'react';
 
 interface IFriendsProviderProps {
 	children: ReactNode;
@@ -14,8 +15,17 @@ interface IFriendsProviderProps {
 export const FriendsProvider: FC<IFriendsProviderProps> = ({ children }) => {
 	const { data: friends, isPending: isFriendsPending } = useFetchFriends();
 	const { data: requests, isPending: isRequestsPending } = useFetchFriendsRequests();
-	const { setFriends, setRequests, addReceivedRequest, removeSentRequest, removeFriend, addFriend } = useFriendsStore();
-	const { socket } = useSocketStore();
+	const { setFriends, setRequests, addReceivedRequest, removeSentRequest, removeFriend, addFriend } = useFriendsStore(
+		useShallow(state => ({
+			setFriends: state.setFriends,
+			setRequests: state.setRequests,
+			addReceivedRequest: state.addReceivedRequest,
+			removeSentRequest: state.removeSentRequest,
+			removeFriend: state.removeFriend,
+			addFriend: state.addFriend
+		}))
+	);
+	const socket = useSocketStore(state => state.socket);
 
 	useEffect(() => {
 		if (!isFriendsPending && friends) {

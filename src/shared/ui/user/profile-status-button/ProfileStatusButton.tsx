@@ -1,8 +1,8 @@
-import { TProfileStatus } from '@shared/libs/interfaces/user.interface.ts';
-import { getUserStatus } from '@shared/libs/utils/getUserStatus.ts';
-import { statusIcons } from '@shared/libs/utils/status-icons.ts';
 import Image from 'next/image';
 import { FC } from 'react';
+import { TProfileStatus } from '@shared/libs/interfaces/user.interface.ts';
+import { getUserStatus } from '@shared/libs/utils/get-user-status.ts';
+import { statusIcons } from '@shared/libs/utils/status-icons.ts';
 import styles from './ProfileStatusButton.module.scss';
 
 interface ProfileStatusButtonProps {

@@ -1,12 +1,13 @@
-import closeIcon from '@shared/assets/icons/close.svg';
-import { useChatStore } from '@shared/store/chatStore.ts';
 import Image from 'next/image';
 import { FC } from 'react';
+import closeIcon from '@shared/assets/icons/close.svg';
+import { useChatStore } from '@shared/store/chatStore.ts';
 import { MessageParentProps } from '../lib/message-parent.interface.ts';
 import styles from './MessageParent.module.scss';
 
 const MessageParent: FC<MessageParentProps> = ({ parentMessage, hiddenCloseButton = true }) => {
-	const { chatMembers, setParentMessage } = useChatStore();
+	const chatMembers = useChatStore(state => state.chatMembers);
+	const setParentMessage = useChatStore(state => state.setParentMessage);
 
 	const handleCloseButtonClick = () => {
 		setParentMessage(null);

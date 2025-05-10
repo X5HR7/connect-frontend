@@ -1,5 +1,5 @@
+import { create } from 'zustand';
 import { IUserWithProfile } from '@shared/libs/interfaces';
-import { create } from 'zustand/react';
 
 interface AuthStore {
 	user: IUserWithProfile | null;

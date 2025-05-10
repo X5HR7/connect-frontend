@@ -1,18 +1,26 @@
 'use client';
 
+import Image from 'next/image';
+import { FC, useState } from 'react';
+import { useShallow } from 'zustand/shallow';
 import { MessageParent } from '@entities/chat/message-parent';
 import sendIcon from '@shared/assets/icons/send_button.svg';
 import uploadIcon from '@shared/assets/icons/upload.svg';
 import { useChatStore } from '@shared/store/chatStore.ts';
-import { TextArea } from '@shared/ui/text-area/TextArea.tsx';
+import { TextArea } from '@shared/ui/form/text-area';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
-import Image from 'next/image';
-import { FC, useState } from 'react';
 import { useSendMessage } from '../lib/use-send-message.ts';
 import styles from './ChatInput.module.scss';
 
 const ChatInput: FC = () => {
-	const { addMessage, chatId, parentMessage, setParentMessage } = useChatStore();
+	const { addMessage, chatId, parentMessage, setParentMessage } = useChatStore(
+		useShallow(state => ({
+			addMessage: state.addMessage,
+			chatId: state.chatId,
+			parentMessage: state.parentMessage,
+			setParentMessage: state.setParentMessage
+		}))
+	);
 	const [message, setMessage] = useState<string>('');
 	const { mutate: sendMessage, isPending } = useSendMessage();
 

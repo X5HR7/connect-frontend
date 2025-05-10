@@ -1,5 +1,7 @@
 'use client';
 
+import dynamic from 'next/dynamic';
+import { FC, useState } from 'react';
 import { MessageParent } from '@entities/chat/message-parent';
 import { getFormatedDate } from '@shared/libs/utils/get-formated-date.ts';
 import { useAuthStore } from '@shared/store/authStore.ts';
@@ -8,8 +10,6 @@ import { Markdown } from '@shared/ui/markdown/Markdown.tsx';
 import { OptionsIcon } from '@shared/ui/svg/OptionsIcon.tsx';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
-import dynamic from 'next/dynamic';
-import { FC, useState } from 'react';
 import { IUserMessageProps } from '../lib/user-message.interface.ts';
 import styles from './UserMessage.module.scss';
 
@@ -21,8 +21,8 @@ const MessageDeleteButton = dynamic(() => import('@entities/chat/message-delete-
 
 const UserMessage: FC<IUserMessageProps> = ({ message, sender, showControls = false }) => {
 	const [isMessageControlsOpened, setIsMessageControlsOpened] = useState<boolean>(false);
-	const { user } = useAuthStore();
-	const { openModal } = useModalStore();
+	const user = useAuthStore(state => state.user);
+	const openModal = useModalStore(state => state.openModal);
 
 	const handleControlsButtonClick = () => {
 		setIsMessageControlsOpened(prev => !prev);

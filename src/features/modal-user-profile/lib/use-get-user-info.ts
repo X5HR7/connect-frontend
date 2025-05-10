@@ -1,9 +1,9 @@
+import { useQuery } from '@tanstack/react-query';
 import { fetchUserInfo } from '@shared/libs/api/user/user.ts';
 import { useAuthStore } from '@shared/store/authStore.ts';
-import { useQuery } from '@tanstack/react-query';
 
 export const useGetUserInfo = (userId: string) => {
-	const { accessToken } = useAuthStore();
+	const accessToken = useAuthStore(state => state.accessToken);
 
 	return useQuery({
 		queryFn: () => fetchUserInfo(userId),

@@ -1,12 +1,15 @@
 'use client';
 
-import { useModalStore } from '@shared/store/modalStore.ts';
 import { FC, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useShallow } from 'zustand/shallow';
+import { useModalStore } from '@shared/store/modalStore.ts';
 import styles from './GlobalModal.module.scss';
 
 const GlobalModal: FC = () => {
-	const { isOpen, content, closeModal } = useModalStore();
+	const { isOpen, content, closeModal } = useModalStore(
+		useShallow(state => ({ isOpen: state.isOpen, content: state.content, closeModal: state.closeModal }))
+	);
 	const [isMounted, setIsMounted] = useState<boolean>(false);
 
 	useEffect(() => {

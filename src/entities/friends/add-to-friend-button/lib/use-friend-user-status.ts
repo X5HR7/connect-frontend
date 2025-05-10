@@ -1,9 +1,12 @@
+import { useEffect, useState } from 'react';
 import { IUserWithProfile } from '@shared/libs/interfaces';
 import { useFriendsStore } from '@shared/store/friendsSore.ts';
-import { useEffect, useState } from 'react';
 
 export const useFriendUserStatus = (user?: IUserWithProfile | null) => {
-	const { friends, requestsReceived, requestsSent } = useFriendsStore();
+	const friends = useFriendsStore(state => state.friends);
+	const requestsReceived = useFriendsStore(state => state.requestsReceived);
+	const requestsSent = useFriendsStore(state => state.requestsSent);
+
 	const [friendStatus, setFriendStatus] = useState<'friend' | 'requestSent' | 'requestReceived' | 'none'>('none');
 
 	useEffect(() => {

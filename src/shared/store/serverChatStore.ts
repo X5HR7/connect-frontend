@@ -1,5 +1,5 @@
+import { create } from 'zustand';
 import { IServerChannel, IServerMember, IServerMessage, IServerTextChannel } from '@shared/libs/interfaces';
-import { create } from 'zustand/react';
 
 interface ServerChatStore {
 	serverTextChannelId: string | null;

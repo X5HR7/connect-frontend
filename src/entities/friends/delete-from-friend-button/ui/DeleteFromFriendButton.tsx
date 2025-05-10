@@ -1,7 +1,7 @@
+import { FC } from 'react';
 import { IUserWithProfile } from '@shared/libs/interfaces';
 import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { Loader } from '@shared/ui/loader/Loader.tsx';
-import { FC } from 'react';
 import { useDeleteFriend } from '../lib/useDeleteFriend.ts';
 import styles from './DeleteFromFriendButton.module.scss';
 
@@ -13,7 +13,7 @@ interface IDeleteFromFriendButtonProps {
 
 const DeleteFromFriendButton: FC<IDeleteFromFriendButtonProps> = ({ receiver, isDisabled, className = '' }) => {
 	const { mutate: deleteFriend, isPending } = useDeleteFriend();
-	const { removeFriend } = useFriendsStore();
+	const removeFriend = useFriendsStore(state => state.removeFriend);
 
 	const handleButtonClick = () => {
 		if (receiver?.id) {

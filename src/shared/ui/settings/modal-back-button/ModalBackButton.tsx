@@ -1,11 +1,11 @@
 'use client';
 
-import { useModalStore } from '@shared/store/modalStore.ts';
 import { FC } from 'react';
+import { useModalStore } from '@shared/store/modalStore.ts';
 import styles from './ModalBackButton.module.scss';
 
 const ModalBackButton: FC = () => {
-	const { closeModal } = useModalStore();
+	const closeModal = useModalStore(state => state.closeModal);
 
 	const handleCloseButtonClick = () => {
 		closeModal();
