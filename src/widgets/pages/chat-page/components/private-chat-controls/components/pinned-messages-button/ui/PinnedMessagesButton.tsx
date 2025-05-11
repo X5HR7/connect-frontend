@@ -2,11 +2,12 @@
 
 import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
-import { UserMessage } from '@features/chat/message';
+// import { UserMessage } from '@features/chat/message';
+import { useChatStore } from '@entities/chat/model/chatStore.ts';
+import { MessageLayout } from '@entities/message';
 import pinnedIcon from '@shared/assets/icons/pinned.svg';
 import { IMessage } from '@shared/libs/interfaces';
 import { useAuthStore } from '@shared/store/authStore.ts';
-import { useChatStore } from '@shared/store/chatStore.ts';
 import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import styles from './PinnedMessagesButton.module.scss';
@@ -47,15 +48,18 @@ const PinnedMessagesButton: FC = () => {
 							{filteredMessages.map(message => {
 								if (user && receiver) {
 									return (
-										<UserMessage
+										<MessageLayout
 											key={message.id}
 											message={message}
 											sender={message.userId === receiver.id ? receiver?.user : user}
+											showParentMessage={false}
+											handleUsernameClick={() => {}}
 										/>
 									);
 								}
 								return null;
 							})}
+							<></>
 						</Scroll>
 					</ul>
 				)}

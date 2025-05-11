@@ -2,14 +2,13 @@
 
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
-import { ChatInput } from '@features/chat/chat-input';
-import { UserMessage } from '@features/chat/message';
+import { DirectChatInput, MemoizedDirectChatMessage } from '@features/direct-chat';
+import { useChatStore } from '@entities/chat';
 import { IUserWithProfile } from '@shared/libs/interfaces';
-import { useChatStore } from '@shared/store/chatStore.ts';
 import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
 import styles from './ChatMessages.module.scss';
 
-const UserChatProfile = dynamic(() => import('@features/chat/user-chat-profile'));
+const UserChatProfile = dynamic(() => import('@features/direct-chat'));
 
 const ChatMessages: FC = () => {
 	const messages = useChatStore(state => state.messages);
@@ -21,17 +20,21 @@ const ChatMessages: FC = () => {
 				<Scroll>
 					{messages.length < 10 ? <UserChatProfile /> : null}
 					{messages.map(message => (
-						<UserMessage
+						<MemoizedDirectChatMessage
 							message={message}
-							key={message.id}
 							sender={chatMembers.find(member => member.id === message.userId)?.user as IUserWithProfile}
-							showControls={true}
+							parentMessageSender={
+								message.parent?.userId
+									? chatMembers.find(member => member.id === message.parent?.userId)?.user
+									: undefined
+							}
+							key={message.id}
 						/>
 					))}
 				</Scroll>
 			</ul>
 			<div className={styles.messages__input}>
-				<ChatInput />
+				<DirectChatInput />
 			</div>
 		</section>
 	);

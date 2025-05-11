@@ -1,0 +1,49 @@
+.parent {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 30px;
+	background-color: transparent;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	text-decoration: none;
+
+	&_transparent {
+		background-color: transparent;
+	}
+
+	&__user {
+		margin: 0 20px 0 10px;
+		padding: 0;
+		font-weight: 600;
+		font-size: 15px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		color: var(--colorTextPrimary);
+
+		&:before {
+			content: '';
+			margin: 10px 10px 0 0;
+			width: 25px;
+			height: 10px;
+			display: block;
+			border-top-left-radius: 5px;
+			border-top: 2px solid var(--colorTextSecondary);
+			border-left: 2px solid var(--colorTextSecondary);
+		}
+	}
+
+	&__message {
+		margin: 0;
+		padding: 0;
+		color: var(--colorTextSecondary);
+		font-weight: 400;
+		font-size: 14px;
+		max-width: 80%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}

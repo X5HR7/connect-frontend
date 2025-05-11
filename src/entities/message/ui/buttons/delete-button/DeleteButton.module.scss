@@ -1,0 +1,7 @@
+.button:hover {
+	background-color: var(--colorRed) !important;
+}
+
+.button:hover > .button__text {
+	color: var(--colorTextPrimary) !important;
+}

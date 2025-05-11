@@ -1,0 +1,64 @@
+.input {
+	margin: 0;
+	padding: 0 10px;
+	width: calc(100% - 20px - 20px);
+	min-height: 46px;
+	background-color: var(--colorInput);
+	border-radius: 5px;
+	border: 1px solid transparent;
+	transition: border-color 0.2s;
+	position: relative;
+
+	&:focus-within {
+		border: 1px solid var(--colorLink);
+	}
+
+	&__content {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+	}
+
+	&__upload,
+	&__send {
+		margin: 10px 0 0 0;
+		padding: 0;
+		width: 25px;
+		height: 25px;
+		border: none;
+		outline: none;
+		background-color: transparent;
+		cursor: pointer;
+
+		&-icon {
+			margin: 0;
+			padding: 0;
+			width: 25px;
+			height: 25px;
+		}
+	}
+
+	&__upload {
+		opacity: 0.6;
+		scale: 1;
+		transition:
+			opacity 0.2s,
+			scale 0.2s;
+
+		&:hover {
+			opacity: 1;
+			scale: 1.2;
+		}
+	}
+
+	&__send {
+		scale: 1;
+		transition: scale 0.2s;
+
+		&:hover {
+			scale: 1.2;
+		}
+	}
+}

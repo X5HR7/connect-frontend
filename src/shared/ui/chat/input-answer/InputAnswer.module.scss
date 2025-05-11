@@ -1,0 +1,55 @@
+.answer {
+	margin: 0;
+	padding: 5px 0 8px 0;
+	width: 100%;
+	height: fit-content;
+	border-bottom: 1px solid var(--colorBackgroundSecondary);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+	&__user {
+		margin: 0 20px 0 10px;
+		padding: 0;
+		font-weight: 600;
+		font-size: 15px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		color: var(--colorTextSecondary);
+
+		&-text {
+			margin-right: 10px;
+			font-weight: 400;
+		}
+	}
+
+	&__button {
+		margin: 0 10px 0 auto;
+		padding: 2px;
+		width: 18px;
+		height: 18px;
+		border: none;
+		border-radius: 50%;
+		outline: none;
+		background-color: var(--colorChannelBackgroundActive);
+		cursor: pointer;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+
+		&_hidden {
+			display: none;
+		}
+	}
+
+	&__image {
+		margin: 0;
+		padding: 0;
+		width: 15px;
+		height: 15px;
+	}
+}

@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
-import { UserProfile } from '@features/chat/user-profile';
+import { UserProfile } from '../components/user-profile';
 import styles from './PrivateChatControls.module.scss';
 
 const VoiceCallButton = dynamic(() => import('../components/voice-call-button'));
