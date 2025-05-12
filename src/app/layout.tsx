@@ -1,11 +1,9 @@
-import { QueryProvider } from '@shared/libs/providers/QueryProvider.tsx';
-import { SocketProvider } from '@shared/libs/providers/SocketProvider.tsx';
-import { APP_NAME } from '@shared/libs/utils/constants.ts';
 import type { Metadata } from 'next';
-import { ThemeProvider } from 'next-themes';
 import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
+import { APP_NAME } from '@shared/libs/utils/constants.ts';
+import { RootProvider } from './_providers/RootProvider.tsx';
 import './globals.scss';
 
 const GlobalModal = dynamic(() => import('@shared/ui/global-modal'));
@@ -30,21 +28,10 @@ export default function RootLayout({
 	return (
 		<html lang='ru' className='dark' style={{ colorScheme: 'dark' }} suppressHydrationWarning>
 			<body className={inter.variable}>
-				<QueryProvider>
-					<SocketProvider>
-						<ThemeProvider
-							attribute={'class'}
-							defaultTheme={'dark'}
-							enableSystem={true}
-							disableTransitionOnChange={true}
-							storageKey={'theme'}
-							enableColorScheme={false}
-						>
-							{children}
-							<GlobalModal />
-						</ThemeProvider>
-					</SocketProvider>
-				</QueryProvider>
+				<RootProvider>
+					{children}
+					<GlobalModal />
+				</RootProvider>
 			</body>
 		</html>
 	);

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { ReactNode } from 'react';
-import { ServerChatProvider } from '@shared/libs/providers/ServerChatProvider.tsx';
 import { APP_NAME } from '@shared/libs/utils/constants.ts';
+import { ServerChatProvider } from './_providers/ServerChatProvider.tsx';
 
 export const metadata: Metadata = {
 	title: `${APP_NAME} | Канал сервера`
