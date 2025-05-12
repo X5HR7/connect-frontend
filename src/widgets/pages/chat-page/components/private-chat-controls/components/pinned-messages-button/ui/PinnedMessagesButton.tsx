@@ -1,13 +1,13 @@
 'use client';
 
 import { FC, useEffect, useState } from 'react';
-import { useChatStore } from '@entities/chat';
 import { MessageLayout } from '@entities/message';
 import { useAuthStore } from '@entities/user';
 import { IMessage } from '@shared/libs/interfaces';
 import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
 import { PinIcon } from '@shared/ui/svg';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
+import { useChatStore } from '../../../../../../../../entities/direct-chat';
 import styles from './PinnedMessagesButton.module.scss';
 
 const PinnedMessagesButton: FC = () => {

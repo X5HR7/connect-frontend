@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
-import { useChatStore } from '@entities/chat/model/chatStore.ts';
+import { useChatStore } from '@entities/direct-chat/model/chatStore.ts';
 import { useFriendUserStatus } from '@entities/friend/add-to-friend-button';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import styles from './UserChatProfile.module.scss';

@@ -1,5 +1,5 @@
-import { useChatStore } from '@entities/chat';
 import { IMessage } from '@shared/libs/interfaces';
+import { useChatStore } from '../../../../entities/direct-chat';
 
 export const useAnswerMessage = () => {
 	const setParentMessage = useChatStore(state => state.setParentMessage);

@@ -1,9 +1,9 @@
 'use client';
 
 import { FC } from 'react';
-import { useChatStore } from '@entities/chat';
 import { IUserWithProfile } from '@shared/libs/interfaces';
 import { InputAnswer } from '@shared/ui/chat';
+import { useChatStore } from '../../../../../entities/direct-chat';
 
 interface AnswerViewProps {
 	sender?: IUserWithProfile;
