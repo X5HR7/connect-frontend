@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
-import { useFriendsStore } from '@shared/store/friendsSore.ts';
+import { useFriendsStore } from '@entities/friend';
 import styles from './FriendListWidget.module.scss';
 
 const FriendsList = dynamic(() => import('../components/friends-list'));

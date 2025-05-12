@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
+import { fetchUserChats } from '@features/direct-chat';
 import { useAuthStore } from '@entities/user';
-import { fetchUserChats } from '@shared/libs/api/friends/friends.ts';
 import { IChat } from '@shared/libs/interfaces';
 
 export const useChats = () => {

@@ -2,7 +2,7 @@
 
 import { FC } from 'react';
 import { useShallow } from 'zustand/shallow';
-import { useFriendsStore } from '@shared/store/friendsSore.ts';
+import { useFriendsStore } from '@entities/friend';
 import { FriendRequestsReceivedIndicator } from '@shared/ui/user/friend-requests-received-indicator/FriendRequestsReceivedIndicator.tsx';
 import { FilterButtonProps } from '../lib/filter-button.interface.ts';
 import { getButtonTextByFilter } from '../lib/utils.ts';

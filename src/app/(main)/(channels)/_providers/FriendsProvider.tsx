@@ -2,10 +2,9 @@
 
 import { FC, ReactNode, useEffect } from 'react';
 import { useShallow } from 'zustand/shallow';
-import { useFetchFriendsRequests } from '@shared/libs/hooks/use-fetch-friends-requests.ts';
-import { useFetchFriends } from '@shared/libs/hooks/use-fetch-friends.ts';
+import { useFetchFriends, useFriendsStore } from '@entities/friend';
+import { useFetchFriendsRequests } from '@entities/friend/model/hooks/use-fetch-friends-requests.ts';
 import { EVENTS, IUserFriendRequest, IUserWithProfile } from '@shared/libs/interfaces';
-import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { useSocketStore } from '@shared/store/socketStore.ts';
 
 interface IFriendsProviderProps {

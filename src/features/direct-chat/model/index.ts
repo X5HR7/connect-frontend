@@ -1,4 +1,4 @@
-export { fetchChat, fetchSendChatMessage } from './api/chat.ts';
+export { fetchChat, fetchSendChatMessage, fetchUserChats } from './api/chat.ts';
 export { fetchPinChatMessage } from './api/message.ts';
 export { useAnswerMessage } from './hooks/use-answer-message.ts';
 export { usePinMessage } from './hooks/use-pin-message.ts';

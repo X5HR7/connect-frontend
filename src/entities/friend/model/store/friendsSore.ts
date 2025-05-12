@@ -1,6 +1,6 @@
 import { create } from 'zustand';
-import { TUserRequests } from '@shared/libs/api/friends/friends.ts';
 import { IUserFriendRequest, IUserWithProfile, TFriendsFilter } from '@shared/libs/interfaces';
+import { TUserRequests } from '../api/friends.ts';
 
 interface FriendsStore {
 	filter: TFriendsFilter;

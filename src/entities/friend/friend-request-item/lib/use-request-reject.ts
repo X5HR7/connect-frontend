@@ -1,5 +1,5 @@
-import { fetchFriendRequestReject } from '@shared/libs/api/friends/friends.ts';
 import { useMutation } from '@tanstack/react-query';
+import { fetchFriendRequestReject } from '@entities/friend';
 
 export const useRequestReject = () => {
 	return useMutation({

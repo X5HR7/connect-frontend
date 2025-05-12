@@ -3,12 +3,12 @@
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import { useChatStore } from '@entities/chat/model/chatStore.ts';
-import { useFriendUserStatus } from '@entities/friends/add-to-friend-button';
+import { useFriendUserStatus } from '@entities/friend/add-to-friend-button';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import styles from './UserChatProfile.module.scss';
 
-const AddToFriendButton = dynamic(() => import('@entities/friends/add-to-friend-button'));
-const DeleteFromFriendButton = dynamic(() => import('@entities/friends/delete-from-friend-button'));
+const AddToFriendButton = dynamic(() => import('@entities/friend/add-to-friend-button'));
+const DeleteFromFriendButton = dynamic(() => import('@entities/friend/delete-from-friend-button'));
 
 const UserChatProfile: FC = () => {
 	const receiver = useChatStore(state => state.receiver);

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useFriendsStore } from '@entities/friend';
 import { IUserWithProfile } from '@shared/libs/interfaces';
-import { useFriendsStore } from '@shared/store/friendsSore.ts';
 
 export const useFriendUserStatus = (user?: IUserWithProfile | null) => {
 	const friends = useFriendsStore(state => state.friends);

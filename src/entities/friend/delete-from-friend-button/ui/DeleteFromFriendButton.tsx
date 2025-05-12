@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { useFriendsStore } from '@entities/friend';
 import { IUserWithProfile } from '@shared/libs/interfaces';
-import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { Loader } from '@shared/ui/loader/Loader.tsx';
 import { useDeleteFriend } from '../lib/useDeleteFriend.ts';
 import styles from './DeleteFromFriendButton.module.scss';

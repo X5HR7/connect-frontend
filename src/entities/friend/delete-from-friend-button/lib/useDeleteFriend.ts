@@ -1,5 +1,5 @@
-import { fetchFriendDelete } from '@shared/libs/api/friends/friends.ts';
 import { useMutation } from '@tanstack/react-query';
+import { fetchFriendDelete } from '@entities/friend';
 
 export const useDeleteFriend = () => {
 	return useMutation({

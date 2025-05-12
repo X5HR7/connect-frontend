@@ -1,8 +1,8 @@
 'use client';
 
 import { FC } from 'react';
-import { FriendRequestItem } from '@entities/friends/friend-request-item';
-import { useFriendsStore } from '@shared/store/friendsSore.ts';
+import { useFriendsStore } from '@entities/friend';
+import { FriendRequestItem } from '@entities/friend/friend-request-item';
 import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
 import { FriendRequestForm } from '../components/friend-request-form/';
 import styles from './FriendsRequests.module.scss';

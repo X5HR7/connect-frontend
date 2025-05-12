@@ -2,8 +2,8 @@
 
 import { FC, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useSendFriendRequest } from '@entities/friends/add-to-friend-button';
-import { useFriendsStore } from '@shared/store/friendsSore.ts';
+import { useFriendsStore } from '@entities/friend';
+import { useSendFriendRequest } from '@entities/friend/add-to-friend-button';
 import { IFriendsRequestForm } from '../lib/friends-request-form.interface.ts';
 import styles from './FriendRequestForm.module.scss';
 

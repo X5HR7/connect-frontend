@@ -1,7 +1,7 @@
 'use client';
 
 import { FC } from 'react';
-import { useFriendsStore } from '@shared/store/friendsSore.ts';
+import { useFriendsStore } from '@entities/friend';
 import styles from './FriendRequestsReceivedIndicator.module.scss';
 
 interface Props {

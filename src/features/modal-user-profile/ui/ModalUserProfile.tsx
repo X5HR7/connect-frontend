@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
-import { useFriendUserStatus } from '@entities/friends/add-to-friend-button';
+import { useFriendUserStatus } from '@entities/friend/add-to-friend-button';
 import { useAuthStore } from '@entities/user';
 import { getFormatedDate } from '@shared/libs/utils/get-formated-date.ts';
 import { Loader } from '@shared/ui/loader/Loader.tsx';
@@ -11,8 +11,8 @@ import { IModalUserProfileProps } from '../lib/modal-user-profile.interface.ts';
 import { useGetUserInfo } from '../lib/use-get-user-info.ts';
 import styles from './ModalUserProfile.module.scss';
 
-const AddToFriendButton = dynamic(() => import('@entities/friends/add-to-friend-button/'));
-const DeleteFromFriendButton = dynamic(() => import('@entities/friends/delete-from-friend-button'));
+const AddToFriendButton = dynamic(() => import('@entities/friend/add-to-friend-button/'));
+const DeleteFromFriendButton = dynamic(() => import('@entities/friend/delete-from-friend-button'));
 
 const ModalUserProfile: FC<IModalUserProfileProps> = ({ userId }) => {
 	const currentUser = useAuthStore(state => state.user);

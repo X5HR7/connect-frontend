@@ -3,10 +3,10 @@
 import Image from 'next/image';
 import { FC } from 'react';
 import { useShallow } from 'zustand/shallow';
+import { useFriendsStore } from '@entities/friend';
+import { useFriendRequestAccept } from '@entities/friend/model/hooks/use-friend-request-accept.ts';
 import acceptIcon from '@shared/assets/icons/accept.svg';
 import rejectIcon from '@shared/assets/icons/close.svg';
-import { useFriendRequestAccept } from '@shared/libs/hooks/use-friend-request-accept.ts';
-import { useFriendsStore } from '@shared/store/friendsSore.ts';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import { IFriendRequestItemProps } from '../lib/friend-request-item.interface.ts';

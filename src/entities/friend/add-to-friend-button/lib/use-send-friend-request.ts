@@ -1,5 +1,5 @@
-import { fetchSendFriendRequest } from '@shared/libs/api/friends/friends.ts';
 import { useMutation } from '@tanstack/react-query';
+import { fetchSendFriendRequest } from '@entities/friend';
 
 export const useSendFriendRequest = () => {
 	return useMutation({
