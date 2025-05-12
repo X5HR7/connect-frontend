@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
+import { useAuthStore } from '@entities/user/model/store/authStore.ts';
 import { IServerChannelParams, fetchServerTextChannel } from '@shared/libs/api/servers/channel.ts';
 import { IServerTextChannel } from '@shared/libs/interfaces';
-import { useAuthStore } from '@shared/store/authStore.ts';
 
 export const useFetchServerTextChannel = (params: IServerChannelParams) => {
 	const accessToken = useAuthStore(state => state.accessToken);

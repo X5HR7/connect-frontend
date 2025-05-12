@@ -1,5 +1,5 @@
-import { fetchUpdateUserProfile } from '@shared/libs/api/user/user.ts';
 import { useMutation } from '@tanstack/react-query';
+import { fetchUpdateUserProfile } from '@entities/user';
 
 export const useUpdateProfile = () => {
 	return useMutation({

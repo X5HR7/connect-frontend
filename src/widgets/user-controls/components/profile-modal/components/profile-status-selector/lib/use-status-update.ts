@@ -1,6 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { fetchUpdateUserStatus } from '@shared/libs/api/user/user.ts';
-import { useAuthStore } from '@shared/store/authStore.ts';
+import { fetchUpdateUserStatus, useAuthStore } from '@entities/user';
 
 export const useStatusUpdate = () => {
 	const setUser = useAuthStore(state => state.setUser);

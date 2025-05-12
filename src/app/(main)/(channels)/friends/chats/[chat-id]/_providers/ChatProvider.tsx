@@ -3,10 +3,10 @@
 import { useParams, useRouter } from 'next/navigation';
 import { FC, ReactNode, useEffect } from 'react';
 import { useShallow } from 'zustand/shallow';
+import { useFetchChat } from '@features/direct-chat';
 import { useChatStore } from '@entities/chat/model/chatStore.ts';
-import { useFetchChat } from '@shared/libs/hooks/use-fetch-chat.ts';
+import { useAuthStore } from '@entities/user';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { useAuthStore } from '@shared/store/authStore.ts';
 
 interface ChatProviderProps {
 	children: ReactNode;

@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
-import { useAuthStore } from '@shared/store/authStore.ts';
+import { useAuthStore } from '@entities/user';
 import { useModalStore } from '@shared/store/modalStore.ts';
 import { AccountItem } from '@shared/ui/settings/account-item/AccountItem.tsx';
 import { EditButton } from '@shared/ui/settings/edit-button/EditButton.tsx';

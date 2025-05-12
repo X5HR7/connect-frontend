@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchChat } from '@features/direct-chat/model/api/chat.ts';
+import { useAuthStore } from '@entities/user';
 import { IChat } from '@shared/libs/interfaces';
-import { useAuthStore } from '@shared/store/authStore.ts';
+import { fetchChat } from '../api/chat.ts';
 
 export const useFetchChat = (chatId: string) => {
 	const accessToken = useAuthStore(state => state.accessToken);

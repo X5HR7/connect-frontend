@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchUserInfo } from '@shared/libs/api/user/user.ts';
-import { useAuthStore } from '@shared/store/authStore.ts';
+import { fetchUserInfo, useAuthStore } from '@entities/user';
 
 export const useGetUserInfo = (userId: string) => {
 	const accessToken = useAuthStore(state => state.accessToken);

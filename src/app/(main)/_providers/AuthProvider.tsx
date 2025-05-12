@@ -1,7 +1,7 @@
 'use client';
 
 import { FC, ReactNode, useEffect } from 'react';
-import { useAuthStore } from '@shared/store/authStore.ts';
+import { useAuthStore } from '@entities/user';
 
 interface IAuthProviderProps {
 	children: ReactNode;

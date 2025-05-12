@@ -3,8 +3,8 @@
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import { useFriendUserStatus } from '@entities/friends/add-to-friend-button';
+import { useAuthStore } from '@entities/user';
 import { getFormatedDate } from '@shared/libs/utils/get-formated-date.ts';
-import { useAuthStore } from '@shared/store/authStore.ts';
 import { Loader } from '@shared/ui/loader/Loader.tsx';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import { IModalUserProfileProps } from '../lib/modal-user-profile.interface.ts';

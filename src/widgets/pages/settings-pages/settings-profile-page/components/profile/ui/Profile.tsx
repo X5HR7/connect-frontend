@@ -2,9 +2,8 @@
 
 import { FC, useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { IUpdateUserProfile } from '@shared/libs/api/user/user.ts';
+import { IUpdateUserProfile, useAuthStore } from '@entities/user';
 import { httpsUrlRegex, invalidUrlMessage, maxLength, minLength } from '@shared/libs/utils/auth.constants.ts';
-import { useAuthStore } from '@shared/store/authStore.ts';
 import { FormItem } from '@shared/ui/form/form-item';
 import { SubmitButton } from '@shared/ui/form/submit-button';
 import { ProfileDemo } from '../components/profile-demo';

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
+import { useAuthStore } from '@entities/user';
 import { IUserWithProfile } from '@shared/libs/interfaces';
-import { useAuthStore } from '@shared/store/authStore.ts';
 
 export const useMessageControls = ({ sender }: { sender: IUserWithProfile }) => {
 	const user = useAuthStore(state => state.user);

@@ -1,5 +1,5 @@
-import { fetchUpdateUserPassword } from '@shared/libs/api/user/user.ts';
 import { useMutation } from '@tanstack/react-query';
+import { fetchUpdateUserPassword } from '@entities/user';
 
 export const useUpdatePassword = () => {
 	return useMutation({

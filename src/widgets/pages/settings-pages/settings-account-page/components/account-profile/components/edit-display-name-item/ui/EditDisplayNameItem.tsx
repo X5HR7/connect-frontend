@@ -2,8 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 import { FC } from 'react';
+import { useAuthStore } from '@entities/user';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { useAuthStore } from '@shared/store/authStore.ts';
 import { AccountItem } from '@shared/ui/settings/account-item/AccountItem.tsx';
 import { EditButton } from '@shared/ui/settings/edit-button/EditButton.tsx';
 

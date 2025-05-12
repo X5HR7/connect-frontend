@@ -2,13 +2,13 @@
 
 import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useAuthStore } from '@entities/user';
 import {
 	emailRegex,
 	invalidEmailAddressMessage,
 	minLength,
 	requiredFieldErrorMessage
 } from '@shared/libs/utils/auth.constants.ts';
-import { useAuthStore } from '@shared/store/authStore.ts';
 import { useModalStore } from '@shared/store/modalStore.ts';
 import { FormItem } from '@shared/ui/form/form-item';
 import { ModalBackButton } from '@shared/ui/settings/modal-back-button/ModalBackButton.tsx';

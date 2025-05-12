@@ -2,8 +2,8 @@
 
 import { FC, ReactNode, useCallback, useEffect } from 'react';
 import { useShallow } from 'zustand/shallow';
+import { useAuthStore } from '@entities/user';
 import { EVENTS, IUserWithProfile } from '@shared/libs/interfaces';
-import { useAuthStore } from '@shared/store/authStore.ts';
 import { useSocketStore } from '@shared/store/socketStore.ts';
 
 interface ISocketProviderProps {

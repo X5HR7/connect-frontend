@@ -1,5 +1,5 @@
-import { fetchUsersByUsername } from '@shared/libs/api/user/user.ts';
 import { useMutation } from '@tanstack/react-query';
+import { fetchUsersByUsername } from '@entities/user';
 
 export const useFindUsers = () => {
 	return useMutation({

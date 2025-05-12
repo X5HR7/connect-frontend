@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
+import { useAuthStore } from '@entities/user';
 import { fetchUserServers } from '@shared/libs/api/servers/user-servers.ts';
 import { IServer } from '@shared/libs/interfaces';
-import { useAuthStore } from '@shared/store/authStore.ts';
 
 export const useServers = () => {
 	const accessToken = useAuthStore(state => state.accessToken);

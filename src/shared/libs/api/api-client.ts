@@ -1,6 +1,6 @@
+import { useAuthStore } from '@entities/user';
 import { HttpError } from '@shared/libs/api/HttpError.ts';
 import { BASE_SERVER_URL } from '@shared/libs/utils/constants';
-import { useAuthStore } from '@shared/store/authStore';
 
 export interface AuthResponse {
 	accessToken: string;

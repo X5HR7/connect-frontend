@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { FC, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useAuthStore } from '@entities/user';
 import { IUserWithProfile } from '@shared/libs/interfaces';
 import {
 	invalidUsernameMessage,
@@ -12,7 +13,6 @@ import {
 	usernameRegex
 } from '@shared/libs/utils/auth.constants.ts';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { useAuthStore } from '@shared/store/authStore.ts';
 import { useModalStore } from '@shared/store/modalStore.ts';
 import { FormItem } from '@shared/ui/form/form-item';
 import { Loader } from '@shared/ui/loader/Loader.tsx';

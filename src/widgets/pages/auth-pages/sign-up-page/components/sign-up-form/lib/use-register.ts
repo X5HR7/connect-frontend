@@ -1,7 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { useShallow } from 'zustand/shallow';
-import { AuthRegisterDto, AuthRegisterResponse, register } from '@shared/libs/api/auth/register.ts';
-import { useAuthStore } from '@shared/store/authStore.ts';
+import { AuthRegisterDto, AuthRegisterResponse, register, useAuthStore } from '@entities/user';
 
 export const useRegister = () => {
 	const { setUser, setAccessToken } = useAuthStore(

@@ -1,7 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { useShallow } from 'zustand/shallow';
-import { AuthLoginDto, AuthLoginResponse, login } from '@shared/libs/api/auth/login.ts';
-import { useAuthStore } from '@shared/store/authStore.ts';
+import { AuthLoginDto, AuthLoginResponse, login, useAuthStore } from '@entities/user';
 
 export const useLogin = () => {
 	const { setUser, setAccessToken } = useAuthStore(

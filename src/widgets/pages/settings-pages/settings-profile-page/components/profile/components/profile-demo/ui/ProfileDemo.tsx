@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { useAuthStore } from '@entities/user';
 import { getFormatedDate } from '@shared/libs/utils/get-formated-date.ts';
-import { useAuthStore } from '@shared/store/authStore.ts';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import { ProfileDemoProps } from '../lib/profile-demo.interface.ts';
 import styles from './ProfileDemo.module.scss';

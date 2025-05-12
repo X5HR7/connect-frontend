@@ -1,9 +1,9 @@
 'use client';
 
 import React, { FC, useEffect, useState } from 'react';
+import { useAuthStore } from '@entities/user';
 import { IChat } from '@shared/libs/interfaces';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { useAuthStore } from '@shared/store/authStore.ts';
 import { Loader } from '@shared/ui/loader/Loader.tsx';
 import { NavLink } from '@shared/ui/nav-link/NavLink.tsx';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';

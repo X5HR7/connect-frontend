@@ -1,7 +1,7 @@
 'use client';
 
 import { FC } from 'react';
-import { useAuthStore } from '@shared/store/authStore.ts';
+import { useAuthStore } from '@entities/user';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import { ProfileProps } from '../lib/profile.interface.ts';
 import styles from './Profile.module.scss';
