@@ -4,7 +4,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { FC, ReactNode, useEffect } from 'react';
 import { useShallow } from 'zustand/shallow';
 import { useFetchChat } from '@features/direct-chat';
-import { useChatStore } from '@entities/direct-chat/model/chatStore.ts';
+import { useChatStore } from '@entities/direct-chat';
 import { useAuthStore } from '@entities/user';
 import { urls } from '@shared/libs/utils/url.config.ts';
 

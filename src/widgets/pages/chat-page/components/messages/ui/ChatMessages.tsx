@@ -3,9 +3,9 @@
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import { DirectChatInput, MemoizedDirectChatMessage } from '@features/direct-chat';
+import { useChatStore } from '@entities/direct-chat';
 import { IUserWithProfile } from '@shared/libs/interfaces';
 import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
-import { useChatStore } from '../../../../../../entities/direct-chat';
 import styles from './ChatMessages.module.scss';
 
 const UserChatProfile = dynamic(() => import('@features/direct-chat'));

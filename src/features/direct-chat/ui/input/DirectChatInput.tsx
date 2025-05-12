@@ -2,10 +2,10 @@
 
 import { FC, useState } from 'react';
 import { useShallow } from 'zustand/shallow';
+import { useChatStore } from '@entities/direct-chat';
 import { TextArea } from '@shared/ui/form/text-area';
 import { SendMessageIcon, UploadIcon } from '@shared/ui/svg';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
-import { useChatStore } from '../../../../entities/direct-chat';
 import { useSendMessage } from '../../model/hooks/use-send-message.ts';
 import styles from './DirectChatInput.module.scss';
 import { AnswerView } from './answer-view/AnswerView.tsx';

@@ -2,10 +2,10 @@
 
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
+import { useChatStore } from '@entities/direct-chat';
 import { useModalStore } from '@shared/store/modalStore.ts';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
-import { useChatStore } from '../../../../../../../../entities/direct-chat';
 import styles from './UserProfile.module.scss';
 
 const ModalUserProfile = dynamic(() => import('@features/modal-user-profile'));
