@@ -1,14 +1,12 @@
 'use client';
 
-import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
-// import { UserMessage } from '@features/chat/message';
-import { useChatStore } from '@entities/chat/model/chatStore.ts';
+import { useChatStore } from '@entities/chat';
 import { MessageLayout } from '@entities/message';
-import pinnedIcon from '@shared/assets/icons/pinned.svg';
 import { IMessage } from '@shared/libs/interfaces';
 import { useAuthStore } from '@shared/store/authStore.ts';
 import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
+import { PinIcon } from '@shared/ui/svg';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import styles from './PinnedMessagesButton.module.scss';
 
@@ -35,7 +33,7 @@ const PinnedMessagesButton: FC = () => {
 		<div className={styles.wrapper}>
 			<button className={styles.button} onClick={handleButtonClick}>
 				<Tooltip text={'Запрепленные сообщения'} position={'bottom'}>
-					<Image src={pinnedIcon} alt={'Pinned'} className={styles.button__image} />
+					<PinIcon className={styles.button__image} itemClassName={styles.button__icon} />
 				</Tooltip>
 			</button>
 			<div className={`${styles.modal} ${isModalOpen ? '' : styles.modal_hidden}`}>

@@ -1,9 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { FC } from 'react';
-import callIcon from '@shared/assets/icons/voice_call.svg';
 import { useModalStore } from '@shared/store/modalStore.ts';
+import { VoiceCallIcon } from '@shared/ui/svg';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import styles from './VoiceCallButton.module.scss';
 
@@ -21,7 +20,7 @@ const VoiceCallButton: FC = () => {
 	return (
 		<button className={styles.button} onClick={handleButtonClick}>
 			<Tooltip text={'Начать голосовой звонок'} position={'bottom'}>
-				<Image src={callIcon} alt={'Call'} className={styles.button__image} />
+				<VoiceCallIcon className={styles.button__image} itemClassName={styles.button__icon} />
 			</Tooltip>
 		</button>
 	);

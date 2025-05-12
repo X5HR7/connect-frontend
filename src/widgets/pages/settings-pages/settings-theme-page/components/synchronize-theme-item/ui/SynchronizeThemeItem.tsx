@@ -1,9 +1,9 @@
 'use client';
 
-import { SynchronizeIcon } from '@shared/ui/svg/SynchronizeIcon.tsx';
-import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import { useTheme } from 'next-themes';
 import { FC, useEffect, useState } from 'react';
+import { SynchronizeIcon } from '@shared/ui/svg/shared-icons/SynchronizeIcon.tsx';
+import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import styles from './SynchronizeThemeItem.module.scss';
 
 const SynchronizeThemeItem: FC = () => {

@@ -1,9 +1,8 @@
 'use client';
 
-import closeIcon from '@shared/assets/icons/close.svg';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { FC } from 'react';
+import { CloseIcon } from '@shared/ui/svg';
 import styles from './GoBackButton.module.scss';
 
 const GoBackButton: FC = () => {
@@ -15,7 +14,7 @@ const GoBackButton: FC = () => {
 
 	return (
 		<button type={'button'} className={styles.button} onClick={handleButtonClick}>
-			<Image src={closeIcon} alt={'Close'} className={styles.button__image} />
+			<CloseIcon className={styles.button__image} itemClassName={styles.button__icon} />
 			<p className={styles.button__text}>Закрыть</p>
 		</button>
 	);

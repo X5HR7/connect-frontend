@@ -1,11 +1,8 @@
-import afkIcon from '@shared/assets/status/afk.svg';
-import dndIcon from '@shared/assets/status/dnd.svg';
-import offlineIcon from '@shared/assets/status/offline.svg';
-import onlineIcon from '@shared/assets/status/online.svg';
+import { UserAfkIcon, UserDndIcon, UserOfflineIcon, UserOnlineIcon } from '@shared/ui/svg';
 
 export const statusIcons = {
-	ONLINE: onlineIcon,
-	INACTIVE: afkIcon,
-	DO_NOT_DISTURB: dndIcon,
-	OFFLINE: offlineIcon
+	ONLINE: UserOnlineIcon,
+	INACTIVE: UserAfkIcon,
+	DO_NOT_DISTURB: UserDndIcon,
+	OFFLINE: UserOfflineIcon
 } as const;

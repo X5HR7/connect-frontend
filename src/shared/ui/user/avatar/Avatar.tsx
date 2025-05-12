@@ -1,9 +1,8 @@
-import profileAvatar from '@shared/assets/icons/profile_avatar_temlate.png';
-import offlineIcon from '@shared/assets/status/offline.svg';
-import { IUserProfile } from '@shared/libs/interfaces';
-import { statusIcons } from '@shared/libs/utils/status-icons.ts';
 import Image from 'next/image';
 import { FC } from 'react';
+import profileAvatar from '@shared/assets/icons/profile_avatar_temlate.png';
+import { IUserProfile } from '@shared/libs/interfaces';
+import { statusIcons } from '@shared/libs/utils/status-icons.ts';
 import styles from './Avatar.module.scss';
 
 interface IAvatarProps {
@@ -16,6 +15,7 @@ interface IAvatarProps {
 const Avatar: FC<IAvatarProps> = ({ profile, size = 32, statusStyles = '', indicatorSize }) => {
 	const indicatorWrapperSize = indicatorSize || size / 2;
 	const indicatorStatusSize = indicatorWrapperSize / 1.6;
+	const Icon = statusIcons[profile?.status || 'OFFLINE'];
 
 	return (
 		<div
@@ -38,12 +38,11 @@ const Avatar: FC<IAvatarProps> = ({ profile, size = 32, statusStyles = '', indic
 				className={`${styles.avatar__status} ${statusStyles}`}
 				style={{ width: indicatorWrapperSize, height: indicatorWrapperSize }}
 			>
-				<Image
-					src={profile?.status ? statusIcons[profile?.status] : offlineIcon}
-					alt={'status icon'}
-					className={styles['avatar__status-' + profile?.status]}
-					style={{ width: indicatorStatusSize, height: indicatorStatusSize }}
-				></Image>
+				<Icon
+					className={styles[`avatar__status-${profile?.status}`]}
+					width={indicatorStatusSize}
+					height={indicatorStatusSize}
+				/>
 			</div>
 		</div>
 	);

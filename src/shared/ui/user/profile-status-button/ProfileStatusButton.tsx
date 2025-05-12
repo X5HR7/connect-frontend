@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { FC } from 'react';
 import { TProfileStatus } from '@shared/libs/interfaces/user.interface.ts';
 import { getUserStatus } from '@shared/libs/utils/get-user-status.ts';
@@ -17,11 +16,13 @@ const ProfileStatusButton: FC<ProfileStatusButtonProps> = ({ status, handleClick
 		handleClick(status);
 	};
 
-	const iconSrc = statusIcons[status];
+	const Icon = statusIcons[status || 'OFFLINE'];
 
 	return (
 		<button type={'button'} onClick={handleButtonClick} className={styles.button} disabled={isLoading}>
-			<Image src={iconSrc} alt={'status'} className={styles.button__icon} />
+			<div className={styles.button__image}>
+				<Icon className={styles.button__icon} />
+			</div>
 			<div className={styles.button__info}>
 				<p className={styles['button__info-title']}>{getUserStatus(status)}</p>
 				{description ? <p className={styles['button__info-description']}>{description}</p> : null}

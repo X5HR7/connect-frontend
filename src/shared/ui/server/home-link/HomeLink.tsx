@@ -1,9 +1,8 @@
-import homeIcon from '@shared/assets/icons/home.svg';
+import { FC } from 'react';
 import { urls } from '@shared/libs/utils/url.config.ts';
 import { NavLink } from '@shared/ui/nav-link/NavLink.tsx';
+import { HomeIcon } from '@shared/ui/svg';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
-import Image from 'next/image';
-import { FC } from 'react';
 import styles from './HomeLink.module.scss';
 
 const HomeLink: FC = () => {
@@ -17,7 +16,7 @@ const HomeLink: FC = () => {
 					activeClassName={styles.item__link_active}
 					exact={false}
 				>
-					<Image src={homeIcon} alt={'На главную'} className={styles.item__link__image} />
+					<HomeIcon className={styles.item__link__image} />
 				</NavLink>
 			</Tooltip>
 		</div>

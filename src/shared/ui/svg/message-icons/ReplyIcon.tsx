@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { IconProps } from './icon.interface.ts';
+import { IconProps } from '../icon.interface.ts';
 
 const ReplyIcon: FC<IconProps> = ({ className, itemClassName }) => {
 	return (

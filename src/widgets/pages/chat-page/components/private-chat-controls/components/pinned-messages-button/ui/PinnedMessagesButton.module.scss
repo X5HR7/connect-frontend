@@ -13,18 +13,17 @@
 	outline: none;
 	cursor: pointer;
 	background-color: transparent;
-	opacity: 0.7;
 	transition: opacity 0.2s;
-
-	&:hover {
-		opacity: 1;
-	}
 
 	&__image {
 		margin: 0;
 		padding: 0;
 		width: 22px;
 		height: 22px;
+	}
+
+	&__icon {
+		fill: var(--colorIcon);
 	}
 }
 
