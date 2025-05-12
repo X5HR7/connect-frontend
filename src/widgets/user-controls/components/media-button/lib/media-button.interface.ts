@@ -1,5 +1,6 @@
-import { TKey } from './keys.type.ts';
+import { ReactNode } from 'react';
 
 export interface IMediaButtonProps {
-	type: TKey;
+	children?: ReactNode;
+	onClick?: () => void;
 }

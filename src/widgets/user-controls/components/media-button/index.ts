@@ -1,4 +1,2 @@
-import { MediaButton } from './ui/MediaButton.tsx';
-
-export { MediaButton };
-export default MediaButton;
+export { MicroMediaButton } from './ui/MicroMediaButton.tsx';
+export { VoiceMediaButton } from './ui/VoiceMediaButton.tsx';

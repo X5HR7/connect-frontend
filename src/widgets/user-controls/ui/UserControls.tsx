@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { FC, useState } from 'react';
 import settingsIcon from '@shared/assets/icons/settings.svg';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { MediaButton } from '../components/media-button';
+import { MicroMediaButton, VoiceMediaButton } from '../components/media-button';
 import { Profile } from '../components/profile';
 import styles from './UserControls.module.scss';
 
@@ -24,8 +24,8 @@ const UserControls: FC = () => {
 			<ProfileModal isOpen={isProfileModalOpen} />
 			<Profile onClick={toggleProfileModalState} />
 			<div className={styles.controls__buttons}>
-				<MediaButton type={'micro'} />
-				<MediaButton type={'voice'} />
+				<MicroMediaButton />
+				<VoiceMediaButton />
 				<Link href={urls.SETTINGS_ACCOUNT} className={styles['controls__button']}>
 					<Image src={settingsIcon} alt={'settings'} className={styles['controls__button-icon']} />
 				</Link>

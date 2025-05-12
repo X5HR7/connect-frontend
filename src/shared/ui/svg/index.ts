@@ -6,3 +6,7 @@ export { SynchronizeIcon } from './SynchronizeIcon.tsx';
 export { ReplyIcon } from './ReplyIcon.tsx';
 export { SendMessageIcon } from './SendMessageIcon.tsx';
 export { UploadIcon } from './UploadIcon.tsx';
+export { DisabledVoiceIcon } from './voice-controls/DisabledVoiceIcon.tsx';
+export { EnabledVoiceIcon } from './voice-controls/EnabledVoiceIcon.tsx';
+export { DisabledMicroIcon } from './voice-controls/DisabledMicroIcon.tsx';
+export { EnabledMicroIcon } from './voice-controls/EnabledMicroIcon.tsx';
