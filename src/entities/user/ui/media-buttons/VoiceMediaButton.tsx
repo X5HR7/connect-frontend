@@ -2,8 +2,8 @@
 
 import { FC, useEffect, useState } from 'react';
 import { DisabledVoiceIcon, EnabledVoiceIcon } from '@shared/ui/svg';
-import { MediaButton } from '../components/MediaButton.tsx';
-import { getState, setState } from '../lib/local-storage.service.ts';
+import { MediaButton } from '@shared/ui/user/media-button/MediaButton.tsx';
+import { getState, setState } from '../../lib/local-storage.service.ts';
 import iconStyles from './Icon.module.scss';
 
 const VoiceMediaButton: FC = () => {

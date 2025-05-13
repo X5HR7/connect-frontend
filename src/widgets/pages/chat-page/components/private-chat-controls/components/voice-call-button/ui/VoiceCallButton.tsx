@@ -1,20 +1,27 @@
 'use client';
 
 import { FC } from 'react';
-import { useModalStore } from '@shared/store/modalStore.ts';
+import { useCallStore, useChatStore } from '@entities/direct-chat';
+import { useAuthStore } from '@entities/user';
+import { EVENTS } from '@shared/libs/interfaces';
+import { useSocketStore } from '@shared/store/socketStore.ts';
 import { VoiceCallIcon } from '@shared/ui/svg';
 import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import styles from './VoiceCallButton.module.scss';
 
 const VoiceCallButton: FC = () => {
-	const openModal = useModalStore(state => state.openModal);
+	const currentUser = useAuthStore(state => state.user);
+	const receiver = useChatStore(state => state.receiver);
+	const socket = useSocketStore(state => state.socket);
+	const setCaller = useCallStore(state => state.setCaller);
+	const setCallStatus = useCallStore(state => state.setCallStatus);
 
 	const handleButtonClick = () => {
-		openModal(
-			<div className={styles.modal}>
-				Ошибка подключения. Проверьте свое Интернет соединение или повторите попытку позже.
-			</div>
-		);
+		if (socket && currentUser && receiver) {
+			socket.emit(EVENTS.PRIVATE_CALL_INIT, { caller: currentUser, callee: receiver.user });
+			setCaller(currentUser);
+			setCallStatus('PENDING');
+		}
 	};
 
 	return (

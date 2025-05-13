@@ -18,3 +18,6 @@ export { UserOnlineIcon } from './user-status/UserOnlineIcon.tsx';
 export { UserAfkIcon } from './user-status/UserAfkIcon.tsx';
 export { UserDndIcon } from './user-status/UserDndIcon.tsx';
 export { UserOfflineIcon } from './user-status/UserOfflineIcon.tsx';
+export { CancelCallIcon } from './chat-icons/CancelCallIcon.tsx';
+export { ShareScreenIcon } from './chat-icons/ShareScreenIcon.tsx';
+export { OffShareScreenIcon } from './chat-icons/OffShareScreenIcon.tsx';

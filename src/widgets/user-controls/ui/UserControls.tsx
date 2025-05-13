@@ -4,9 +4,9 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useState } from 'react';
+import { MicroMediaButton, VoiceMediaButton } from '@entities/user';
 import settingsIcon from '@shared/assets/icons/settings.svg';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { MicroMediaButton, VoiceMediaButton } from '../components/media-button';
 import { Profile } from '../components/profile';
 import styles from './UserControls.module.scss';
 

@@ -15,3 +15,5 @@ export {
 } from './model/api/user.ts';
 export type { IUpdateUserProfile } from './model/api/user.ts';
 export { useAuthStore } from './model/store/authStore.ts';
+export { MicroMediaButton } from './ui/media-buttons/MicroMediaButton.tsx';
+export { VoiceMediaButton } from './ui/media-buttons/VoiceMediaButton.tsx';

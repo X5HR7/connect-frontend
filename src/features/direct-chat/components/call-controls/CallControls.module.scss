@@ -1,0 +1,17 @@
+.controls {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	&__media {
+		margin: 10px 0;
+		padding: 7px 20px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		background-color: var(--colorBackgroundSecondary);
+		border-radius: 10px;
+	}
+}
