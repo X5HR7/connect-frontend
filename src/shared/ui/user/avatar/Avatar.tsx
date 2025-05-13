@@ -29,6 +29,8 @@ const Avatar: FC<IAvatarProps> = ({ profile, size = 32, statusStyles = '', indic
 				src={profile?.avatar || profileAvatar}
 				alt={'profile avatar'}
 				className={styles.avatar__image}
+				width={size}
+				height={size}
 				style={{
 					width: `${size}px`,
 					height: `${size}px`
