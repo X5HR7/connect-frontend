@@ -1,0 +1,36 @@
+.messages {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: calc(100vh - 50px); // 50px - top panel
+	display: flex;
+	flex-direction: column;
+
+	&__list {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		min-height: 500px;
+		list-style: none;
+		flex: 1 1 auto;
+	}
+
+	&__input {
+		margin: 0;
+		padding: 10px 10px 2px 10px;
+		width: 100%;
+		min-height: 40px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex: 0 0 auto;
+		position: sticky;
+	}
+}
+
+.empty {
+	margin: 60px 0 0 60px;
+	padding: 0;
+	font-weight: 500;
+	font-size: 18px;
+}
