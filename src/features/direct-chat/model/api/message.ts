@@ -10,3 +10,12 @@ export const fetchPinChatMessage = (messageId: string) => {
 		}
 	});
 };
+
+export const fetchDeleteMessage = (messageId: string) => {
+	return fetchWithAuth<IMessage>(`${BASE_SERVER_URL}/chats/messages/${messageId}`, {
+		method: 'DELETE',
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	});
+};

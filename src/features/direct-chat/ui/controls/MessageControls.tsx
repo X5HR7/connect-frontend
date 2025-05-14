@@ -26,7 +26,7 @@ const MessageControls: FC<MessageControlsProps> = ({ message, sender }) => {
 			{isCurrentUserMessageCreator ? (
 				<>
 					<ControlsEditButton />
-					<ControlsDeleteButton />
+					<ControlsDeleteButton message={message} />
 				</>
 			) : null}
 		</MessageControlsBlock>
