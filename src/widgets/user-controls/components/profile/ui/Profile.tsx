@@ -2,7 +2,7 @@
 
 import { FC } from 'react';
 import { useAuthStore } from '@entities/user';
-import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
+import { Avatar } from '@shared/ui/user';
 import { ProfileProps } from '../lib/profile.interface.ts';
 import styles from './Profile.module.scss';
 

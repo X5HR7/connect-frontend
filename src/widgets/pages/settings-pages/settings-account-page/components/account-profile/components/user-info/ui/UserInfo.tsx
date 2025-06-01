@@ -2,7 +2,7 @@
 
 import { FC } from 'react';
 import { useAuthStore } from '@entities/user';
-import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
+import { Avatar } from '@shared/ui/user';
 import styles from './UserInfo.module.scss';
 
 const UserInfo: FC = () => {

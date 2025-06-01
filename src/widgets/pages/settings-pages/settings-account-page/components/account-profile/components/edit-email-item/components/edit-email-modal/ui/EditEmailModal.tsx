@@ -10,10 +10,8 @@ import {
 	requiredFieldErrorMessage
 } from '@shared/libs/utils/auth.constants.ts';
 import { useModalStore } from '@shared/store/modalStore.ts';
-import { FormItem } from '@shared/ui/form/form-item';
-import { ModalBackButton } from '@shared/ui/settings/modal-back-button/ModalBackButton.tsx';
-import { ModalSaveButton } from '@shared/ui/settings/modal-save-button/ModalSaveButton.tsx';
-import { Modal } from '@shared/ui/settings/modal/Modal.tsx';
+import { FormItem } from '@shared/ui/form';
+import { Modal, ModalBackButton, ModalSaveButton } from '@shared/ui/settings';
 import { IEditEmailForm } from '../lib/edit-email-form.interface.ts';
 import { useUpdateEmail } from '../lib/use-update-email.ts';
 import styles from './EditEmailModal.module.scss';

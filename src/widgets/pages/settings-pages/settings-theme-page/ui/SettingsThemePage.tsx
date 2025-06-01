@@ -1,5 +1,4 @@
-import { PageTitle } from '@shared/ui/settings/page-title/PageTitle.tsx';
-import { SectionTitle } from '@shared/ui/settings/section-title/SectionTitle.tsx';
+import { PageTitle, SectionTitle } from '@shared/ui/settings';
 import { SwitchThemeItem } from '../components/switch-theme-item';
 import { SynchronizeThemeItem } from '../components/synchronize-theme-item';
 import { themes } from '../lib/themes.ts';

@@ -1,8 +1,8 @@
 'use client';
 
-import { TProfileStatus } from '@shared/libs/interfaces/user.interface.ts';
-import { ProfileStatusButton } from '@shared/ui/user/profile-status-button/ProfileStatusButton.tsx';
 import { FC } from 'react';
+import { TProfileStatus } from '@shared/libs/interfaces/user.interface.ts';
+import { ProfileStatusButton } from '@shared/ui/user';
 import { useStatusUpdate } from '../lib/use-status-update.ts';
 import styles from './ProfileStatusSelector.module.scss';
 

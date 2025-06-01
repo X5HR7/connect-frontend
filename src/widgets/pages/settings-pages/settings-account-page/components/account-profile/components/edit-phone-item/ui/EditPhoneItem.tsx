@@ -5,8 +5,7 @@ import { FC, useState } from 'react';
 import { useAuthStore } from '@entities/user';
 import { getSecurePhone } from '@shared/libs/utils/get-secure-data.ts';
 import { useModalStore } from '@shared/store/modalStore.ts';
-import { AccountItem } from '@shared/ui/settings/account-item/AccountItem.tsx';
-import { EditButton } from '@shared/ui/settings/edit-button/EditButton.tsx';
+import { AccountItem, EditButton } from '@shared/ui/settings';
 
 const EditPhoneModal = dynamic(() => import('../components/edit-phone-modal'));
 

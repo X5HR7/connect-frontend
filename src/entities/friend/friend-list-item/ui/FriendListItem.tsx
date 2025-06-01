@@ -1,10 +1,10 @@
-import chatIcon from '@shared/assets/icons/chat.svg';
-import { urls } from '@shared/libs/utils/url.config.ts';
-import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
-import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
+import chatIcon from '@shared/assets/icons/chat.svg';
+import { urls } from '@shared/libs/utils/url.config.ts';
+import { Tooltip } from '@shared/ui/tooltip';
+import { Avatar } from '@shared/ui/user';
 import { IFriendListItem } from '../lib/friend-list-item.interface.ts';
 import styles from './FriendListItem.module.scss';
 

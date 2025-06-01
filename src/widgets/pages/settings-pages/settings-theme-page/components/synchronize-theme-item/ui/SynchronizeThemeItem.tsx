@@ -3,7 +3,7 @@
 import { useTheme } from 'next-themes';
 import { FC, useEffect, useState } from 'react';
 import { SynchronizeIcon } from '@shared/ui/svg/shared-icons/SynchronizeIcon.tsx';
-import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
+import { Tooltip } from '@shared/ui/tooltip';
 import styles from './SynchronizeThemeItem.module.scss';
 
 const SynchronizeThemeItem: FC = () => {

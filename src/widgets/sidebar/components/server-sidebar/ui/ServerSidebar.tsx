@@ -6,7 +6,7 @@ import { FC, useState } from 'react';
 import closeIcon from '@shared/assets/icons/close.svg';
 import openIcon from '@shared/assets/icons/open.svg';
 import { useServerStore } from '@shared/store/serverStore.ts';
-import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
+import { Scroll } from '@shared/ui/scroll';
 import { ServerCategory } from '../components/server-category';
 import { ServerChannel } from '../components/server-channel';
 import styles from './ServerSidebar.module.scss';

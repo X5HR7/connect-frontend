@@ -3,7 +3,7 @@
 import { FC } from 'react';
 import { useFriendsStore } from '@entities/friend';
 import { FriendRequestItem } from '@entities/friend/friend-request-item';
-import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
+import { Scroll } from '@shared/ui/scroll';
 import { FriendRequestForm } from '../components/friend-request-form/';
 import styles from './FriendsRequests.module.scss';
 

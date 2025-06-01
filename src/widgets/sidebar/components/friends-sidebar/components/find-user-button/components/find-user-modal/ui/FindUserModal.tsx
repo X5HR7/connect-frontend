@@ -14,9 +14,9 @@ import {
 } from '@shared/libs/utils/auth.constants.ts';
 import { urls } from '@shared/libs/utils/url.config.ts';
 import { useModalStore } from '@shared/store/modalStore.ts';
-import { FormItem } from '@shared/ui/form/form-item';
-import { Loader } from '@shared/ui/loader/Loader.tsx';
-import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
+import { FormItem } from '@shared/ui/form';
+import { Loader } from '@shared/ui/loader';
+import { Avatar } from '@shared/ui/user';
 import { IForm } from '../lib/form.interface.ts';
 import { useFindUsers } from '../lib/use-find-users.ts';
 import styles from './FindUserModal.module.scss';

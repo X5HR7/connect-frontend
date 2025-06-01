@@ -6,7 +6,7 @@ import { useAuthStore } from '@entities/user';
 import { EVENTS } from '@shared/libs/interfaces';
 import { useSocketStore } from '@shared/store/socketStore.ts';
 import { VoiceCallIcon } from '@shared/ui/svg';
-import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
+import { Tooltip } from '@shared/ui/tooltip';
 import styles from './VoiceCallButton.module.scss';
 
 const VoiceCallButton: FC = () => {

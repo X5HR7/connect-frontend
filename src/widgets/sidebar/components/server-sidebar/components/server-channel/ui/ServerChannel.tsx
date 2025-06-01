@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React, { FC } from 'react';
 import settingsIcon from '@shared/assets/icons/settings.svg';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { NavLink } from '@shared/ui/nav-link/NavLink.tsx';
+import { NavLink } from '@shared/ui/nav-link';
 import { getChannelIcon } from '../lib/get-channel-icon.ts';
 import { ServerChannelProps } from '../lib/server-channel.interface.ts';
 import styles from './ServerChannel.module.scss';

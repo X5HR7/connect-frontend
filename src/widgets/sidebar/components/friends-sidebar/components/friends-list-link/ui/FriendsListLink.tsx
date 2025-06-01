@@ -2,9 +2,9 @@
 
 import { FC } from 'react';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { NavLink } from '@shared/ui/nav-link/NavLink.tsx';
+import { NavLink } from '@shared/ui/nav-link';
 import { FriendIcon } from '@shared/ui/svg';
-import { FriendRequestsReceivedIndicator } from '@shared/ui/user/friend-requests-received-indicator/FriendRequestsReceivedIndicator.tsx';
+import { FriendRequestsReceivedIndicator } from '@shared/ui/user';
 import styles from './FriendsListLink.module.scss';
 
 const FriendsListLink: FC = () => {

@@ -1,5 +1,5 @@
-import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
 import { FC } from 'react';
+import { Avatar } from '@shared/ui/user';
 import { ServerMemberProps } from '../lib/server-member.interface.ts';
 import styles from './ServerMember.module.scss';
 

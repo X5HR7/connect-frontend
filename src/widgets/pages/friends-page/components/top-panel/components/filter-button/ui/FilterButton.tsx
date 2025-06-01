@@ -3,7 +3,7 @@
 import { FC } from 'react';
 import { useShallow } from 'zustand/shallow';
 import { useFriendsStore } from '@entities/friend';
-import { FriendRequestsReceivedIndicator } from '@shared/ui/user/friend-requests-received-indicator/FriendRequestsReceivedIndicator.tsx';
+import { FriendRequestsReceivedIndicator } from '@shared/ui/user';
 import { FilterButtonProps } from '../lib/filter-button.interface.ts';
 import { getButtonTextByFilter } from '../lib/utils.ts';
 import styles from './FilterButton.module.scss';

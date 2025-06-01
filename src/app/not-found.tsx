@@ -1,6 +1,6 @@
-import { APP_NAME } from '@shared/libs/utils/constants.ts';
-import { GoBackButton } from '@shared/ui/go-back-button/GoBackButton.tsx';
 import { Metadata } from 'next';
+import { APP_NAME } from '@shared/libs/utils/constants.ts';
+import { GoBackButton } from '@shared/ui/go-back-button';
 
 export const metadata: Metadata = {
 	title: `${APP_NAME} | 404`

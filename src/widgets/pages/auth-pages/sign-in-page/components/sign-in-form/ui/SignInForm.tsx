@@ -1,5 +1,7 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import {
 	emailRegex,
 	invalidEmailAddressMessage,
@@ -8,10 +10,7 @@ import {
 } from '@shared/libs/utils/auth.constants.ts';
 import { urls } from '@shared/libs/utils/url.config.ts';
 import { AuthForm } from '@shared/ui/auth';
-import { FormItem } from '@shared/ui/form/form-item';
-import { SubmitButton } from '@shared/ui/form/submit-button';
-import { useRouter } from 'next/navigation';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { FormItem, SubmitButton } from '@shared/ui/form';
 import { ISignInForm } from '../lib/form.interface.ts';
 import { useLogin } from '../lib/use-login.ts';
 

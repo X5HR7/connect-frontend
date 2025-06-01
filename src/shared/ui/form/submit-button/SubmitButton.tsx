@@ -1,5 +1,5 @@
-import { Loader } from '@shared/ui/loader/Loader.tsx';
 import React, { FC } from 'react';
+import { Loader } from '@shared/ui/loader';
 import styles from './SubmitButton.module.scss';
 
 interface IProps {

@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 import { OptionsIcon } from '@shared/ui/svg';
-import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
+import { Tooltip } from '@shared/ui/tooltip';
 import styles from './MessageControlsBlock.module.scss';
 
 interface MessageControlsProps {

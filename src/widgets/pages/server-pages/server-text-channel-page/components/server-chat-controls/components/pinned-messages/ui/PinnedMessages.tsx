@@ -6,9 +6,9 @@ import { useServerChatStore } from '@entities/server-chat';
 import { useAuthStore } from '@entities/user';
 import { IServerMessage } from '@shared/libs/interfaces';
 import { useServerStore } from '@shared/store/serverStore.ts';
-import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
+import { Scroll } from '@shared/ui/scroll';
 import { PinIcon } from '@shared/ui/svg';
-import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
+import { Tooltip } from '@shared/ui/tooltip';
 import styles from './PinnedMessages.module.scss';
 
 const PinnedMessages: FC = () => {

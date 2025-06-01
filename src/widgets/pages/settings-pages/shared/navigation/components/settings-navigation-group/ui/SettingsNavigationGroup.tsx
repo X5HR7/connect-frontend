@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { NavLink } from '@shared/ui/nav-link/NavLink.tsx';
+import { NavLink } from '@shared/ui/nav-link';
 import { SettingsNavigationGroupProps } from '../lib/settings-navigation-group.interface.ts';
 import styles from './SettingsNavigationGroup.module.scss';
 

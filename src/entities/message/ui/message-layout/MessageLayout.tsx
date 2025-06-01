@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { getFormatedDate } from '@shared/libs/utils/get-formated-date.ts';
-import { Markdown } from '@shared/ui/markdown/Markdown.tsx';
-import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
+import { Markdown } from '@shared/ui/markdown';
+import { Avatar } from '@shared/ui/user';
 import { MessageLayoutProps } from '../../lib/message-layout.interface.ts';
 import { ParentMessage } from '../index.ts';
 import styles from './MessageLayout.module.scss';

@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useState } from 'react';
 import { DisabledMicroIcon, EnabledMicroIcon } from '@shared/ui/svg';
-import { MediaButton } from '@shared/ui/user/media-button/MediaButton.tsx';
+import { MediaButton } from '@shared/ui/user';
 import { getState, setState } from '../../lib/local-storage.service.ts';
 import iconStyles from './Icon.module.scss';
 

@@ -2,7 +2,7 @@
 
 import { FC } from 'react';
 import { ShareScreenIcon } from '@shared/ui/svg';
-import { MediaButton } from '@shared/ui/user/media-button/MediaButton.tsx';
+import { MediaButton } from '@shared/ui/user';
 import styles from './ShareDisplayButton.module.scss';
 
 interface ShareDisplayButtonProps {

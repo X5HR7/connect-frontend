@@ -1,6 +1,5 @@
 import { FC } from 'react';
-import { PageTitle } from '@shared/ui/settings/page-title/PageTitle.tsx';
-import { SectionTitle } from '@shared/ui/settings/section-title/SectionTitle.tsx';
+import { PageTitle, SectionTitle } from '@shared/ui/settings';
 import { AccountProfile } from '../components/account-profile';
 import { EditPasswordButton } from '../components/edit-password-button';
 import styles from './SettingsAccountPage.module.scss';

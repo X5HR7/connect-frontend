@@ -4,9 +4,9 @@ import React, { FC, useEffect, useState } from 'react';
 import { useAuthStore } from '@entities/user';
 import { IChat } from '@shared/libs/interfaces';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { Loader } from '@shared/ui/loader/Loader.tsx';
-import { NavLink } from '@shared/ui/nav-link/NavLink.tsx';
-import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
+import { Loader } from '@shared/ui/loader';
+import { NavLink } from '@shared/ui/nav-link';
+import { Avatar } from '@shared/ui/user';
 import { useChats } from '../lib/use-chats.ts';
 import styles from './UserChats.module.scss';
 

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { NavLink } from '@shared/ui/nav-link/NavLink.tsx';
+import { NavLink } from '@shared/ui/nav-link';
 import { HomeIcon } from '@shared/ui/svg';
-import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
+import { Tooltip } from '@shared/ui/tooltip';
 import styles from './HomeLink.module.scss';
 
 const HomeLink: FC = () => {

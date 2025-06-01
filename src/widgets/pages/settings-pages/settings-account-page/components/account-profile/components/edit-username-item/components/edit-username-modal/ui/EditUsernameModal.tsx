@@ -10,10 +10,8 @@ import {
 	usernameRegex
 } from '@shared/libs/utils/auth.constants.ts';
 import { useModalStore } from '@shared/store/modalStore.ts';
-import { FormItem } from '@shared/ui/form/form-item';
-import { ModalBackButton } from '@shared/ui/settings/modal-back-button/ModalBackButton.tsx';
-import { ModalSaveButton } from '@shared/ui/settings/modal-save-button/ModalSaveButton.tsx';
-import { Modal } from '@shared/ui/settings/modal/Modal.tsx';
+import { FormItem } from '@shared/ui/form';
+import { Modal, ModalBackButton, ModalSaveButton } from '@shared/ui/settings';
 import { IEditUsernameForm } from '../lib/edit-username-form.interface.ts';
 import { useUpdateUsername } from '../lib/use-update-username.ts';
 import styles from './EditUsernameModal.module.scss';

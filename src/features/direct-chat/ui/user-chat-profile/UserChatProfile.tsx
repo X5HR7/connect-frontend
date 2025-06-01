@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import { useChatStore } from '@entities/direct-chat';
 import { useFriendUserStatus } from '@entities/friend/add-to-friend-button';
-import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
+import { Avatar } from '@shared/ui/user';
 import styles from './UserChatProfile.module.scss';
 
 const AddToFriendButton = dynamic(() => import('@entities/friend/add-to-friend-button'));

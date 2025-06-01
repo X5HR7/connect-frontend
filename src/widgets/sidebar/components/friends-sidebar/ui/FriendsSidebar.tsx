@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
+import { Scroll } from '@shared/ui/scroll';
 import { FindUserButton } from '../components/find-user-button';
 import { FriendsListLink } from '../components/friends-list-link';
 import { UserChats } from '../components/user-chats';

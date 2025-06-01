@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { ReactNode } from 'react';
 import { SettingsNavigation } from '@pages/settings-pages/shared/navigation';
 import { APP_NAME } from '@shared/libs/utils/constants.ts';
-import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
+import { Scroll } from '@shared/ui/scroll';
 import styles from './layout.module.scss';
 
 const GoBackButton = dynamic(() => import('@pages/settings-pages/shared/go-back-button'));

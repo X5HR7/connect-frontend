@@ -1,8 +1,8 @@
 'use client';
 
-import { Tooltip } from '@shared/ui/tooltip/Tooltip.tsx';
 import { useTheme } from 'next-themes';
 import { FC, useEffect, useState } from 'react';
+import { Tooltip } from '@shared/ui/tooltip';
 import { SwitchThemeItemProps } from '../lib/switch-theme-item.interface.ts';
 import styles from './SwitchThemeItem.module.scss';
 

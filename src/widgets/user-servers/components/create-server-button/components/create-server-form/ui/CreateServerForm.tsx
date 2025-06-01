@@ -13,8 +13,8 @@ import {
 import { urls } from '@shared/libs/utils/url.config.ts';
 import { useModalStore } from '@shared/store/modalStore.ts';
 import { useServersStore } from '@shared/store/serversStore.ts';
-import { FormItem } from '@shared/ui/form/form-item';
-import { Loader } from '@shared/ui/loader/Loader.tsx';
+import { FormItem } from '@shared/ui/form';
+import { Loader } from '@shared/ui/loader';
 import { ICreateServerForm } from '../lib/create-server-form.interface.ts';
 import { useCreateServer } from '../lib/use-create-server.ts';
 import styles from './CreateServerForm.module.scss';

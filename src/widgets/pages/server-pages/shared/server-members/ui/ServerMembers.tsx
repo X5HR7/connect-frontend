@@ -3,8 +3,8 @@
 import { FC, useEffect, useState } from 'react';
 import { ServerMember } from '@features/server/server-member';
 import { useServerStore } from '@shared/store/serverStore.ts';
-import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
-import { ServerMembersGroup } from '@shared/ui/server/server-members-group/ServerMembersGroup.tsx';
+import { Scroll } from '@shared/ui/scroll';
+import { ServerMembersGroup } from '@shared/ui/server';
 import { IGroupedMembers, getGroupedServerMembers } from '../lib/get-grouped-server-members.ts';
 
 const ServerMembers: FC = () => {

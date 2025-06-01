@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { IUserWithProfile } from '@shared/libs/interfaces';
-import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
+import { Avatar } from '@shared/ui/user';
 import styles from './CallMember.module.scss';
 
 interface CallMemberProps {

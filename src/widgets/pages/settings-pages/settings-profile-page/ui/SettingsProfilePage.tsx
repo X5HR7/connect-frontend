@@ -1,4 +1,4 @@
-import { PageTitle } from '@shared/ui/settings/page-title/PageTitle.tsx';
+import { PageTitle } from '@shared/ui/settings';
 import { Profile } from '../components/profile';
 import styles from './SettingsProfilePage.module.scss';
 

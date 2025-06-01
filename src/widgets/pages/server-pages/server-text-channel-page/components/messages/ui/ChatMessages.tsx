@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { DirectChatInput, MemoizedDirectChatMessage } from '@features/direct-chat';
 import { useServerChatStore } from '@entities/server-chat';
 import { IUserWithProfile } from '@shared/libs/interfaces';
-import { Scroll } from '@shared/ui/scroll/Scroll.tsx';
+import { Scroll } from '@shared/ui/scroll';
 import styles from './ChatMessages.module.scss';
 
 const ChatMessages: FC = () => {

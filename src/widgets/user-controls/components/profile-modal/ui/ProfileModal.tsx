@@ -7,7 +7,7 @@ import { FC, useEffect, useState } from 'react';
 import { useAuthStore } from '@entities/user';
 import { getUserStatus } from '@shared/libs/utils/get-user-status.ts';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { Avatar } from '@shared/ui/user/avatar/Avatar.tsx';
+import { Avatar } from '@shared/ui/user';
 import { IProfileModalProps } from '../lib/profile-modal.interface.ts';
 import { useLogout } from '../lib/use-logout.ts';
 import styles from './ProfileModal.module.scss';
