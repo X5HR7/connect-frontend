@@ -21,3 +21,4 @@ export { UserOfflineIcon } from './user-status/UserOfflineIcon.tsx';
 export { CancelCallIcon } from './chat-icons/CancelCallIcon.tsx';
 export { ShareScreenIcon } from './chat-icons/ShareScreenIcon.tsx';
 export { OffShareScreenIcon } from './chat-icons/OffShareScreenIcon.tsx';
+export { FriendIcon } from './shared-icons/FriendIcon.tsx';

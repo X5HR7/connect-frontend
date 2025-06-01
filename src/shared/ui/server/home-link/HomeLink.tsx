@@ -16,7 +16,7 @@ const HomeLink: FC = () => {
 					activeClassName={styles.item__link_active}
 					exact={false}
 				>
-					<HomeIcon className={styles.item__link__image} />
+					<HomeIcon className={styles.item__link__image} itemClassName={styles['item__link__image-item']} />
 				</NavLink>
 			</Tooltip>
 		</div>

@@ -1,6 +1,5 @@
-import Image from 'next/image';
 import { FC } from 'react';
-import friendsIcon from '@shared/assets/icons/friend.svg';
+import { FriendIcon } from '@shared/ui/svg';
 import { FilterButton } from '../components/filter-button';
 import styles from './TopPanel.module.scss';
 
@@ -8,7 +7,7 @@ const TopPanel: FC = () => {
 	return (
 		<div className={styles.panel}>
 			<div className={styles.panel__friends}>
-				<Image src={friendsIcon} alt='friends' className={styles['panel__friends-image']} />
+				<FriendIcon className={styles['panel__friends-image']} itemClassName={styles['panel__friends-image-item']} />
 				<p className={styles['panel__friends-text']}>Друзья</p>
 			</div>
 			<div className={styles.panel__buttons}>
