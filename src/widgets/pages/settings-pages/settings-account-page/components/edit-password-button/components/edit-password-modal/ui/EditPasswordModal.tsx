@@ -3,7 +3,7 @@
 import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { minLength, requiredFieldErrorMessage } from '@shared/libs/utils/auth.constants.ts';
-import { useModalStore } from '@shared/store/modalStore.ts';
+import { useModalStore } from '@shared/store';
 import { FormItem } from '@shared/ui/form';
 import { Modal, ModalBackButton, ModalSaveButton } from '@shared/ui/settings';
 import { IEditPasswordForm } from '../lib/edit-password-form.interface.ts';

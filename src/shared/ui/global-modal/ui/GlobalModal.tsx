@@ -3,7 +3,7 @@
 import { FC, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useShallow } from 'zustand/shallow';
-import { useModalStore } from '@shared/store/modalStore.ts';
+import { useModalStore } from '@shared/store';
 import styles from './GlobalModal.module.scss';
 
 const GlobalModal: FC = () => {

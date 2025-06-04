@@ -13,7 +13,7 @@ import {
 	usernameRegex
 } from '@shared/libs/utils/auth.constants.ts';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { useModalStore } from '@shared/store/modalStore.ts';
+import { useModalStore } from '@shared/store';
 import { FormItem } from '@shared/ui/form';
 import { Loader } from '@shared/ui/loader';
 import { Avatar } from '@shared/ui/user';

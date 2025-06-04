@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
-import { useModalStore } from '@shared/store/modalStore.ts';
+import { useModalStore } from '@shared/store';
 import styles from './EditPasswordButton.module.scss';
 
 const EditPasswordModal = dynamic(() => import('../components/edit-password-modal'));

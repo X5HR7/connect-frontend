@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { fetchLogout, useAuthStore } from '@entities/user';
-import { useSocketStore } from '@shared/store/socketStore.ts';
+import { useSocketStore } from '@shared/store';
 
 export const useLogout = () => {
 	const clearAuth = useAuthStore(state => state.clearAuth);

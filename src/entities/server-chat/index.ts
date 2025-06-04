@@ -1,1 +1,1 @@
-export { useServerChatStore } from './model/serverChatStore.ts';
+export { useServerChatStore } from './model/store/server-chat-store.ts';

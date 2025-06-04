@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import { FC, memo } from 'react';
 import { MessageLayout } from '@entities/message';
-import { useModalStore } from '@shared/store/modalStore.ts';
+import { useModalStore } from '@shared/store';
 import { DirectChatMessageProps } from '../../lib/direct-chat-message.inteface.ts';
 
 const ModalUserProfile = dynamic(() => import('@features/modal-user-profile'));

@@ -1,4 +1,4 @@
-export { useFriendsStore } from './model/store/friendsSore.ts';
+export { useFriendsStore } from './model/store/friends-store.ts';
 export {
 	fetchFriendRequestReject,
 	fetchUserFriends,

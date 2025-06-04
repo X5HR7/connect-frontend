@@ -3,9 +3,9 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { FC, useState } from 'react';
+import { useServerStore } from '@entities/server';
 import closeIcon from '@shared/assets/icons/close.svg';
 import openIcon from '@shared/assets/icons/open.svg';
-import { useServerStore } from '@shared/store/serverStore.ts';
 import { Scroll } from '@shared/ui/scroll';
 import { ServerCategory } from '../components/server-category';
 import { ServerChannel } from '../components/server-channel';

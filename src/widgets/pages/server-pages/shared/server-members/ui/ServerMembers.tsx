@@ -2,7 +2,7 @@
 
 import { FC, useEffect, useState } from 'react';
 import { ServerMember } from '@features/server/server-member';
-import { useServerStore } from '@shared/store/serverStore.ts';
+import { useServerStore } from '@entities/server';
 import { Scroll } from '@shared/ui/scroll';
 import { ServerMembersGroup } from '@shared/ui/server';
 import { IGroupedMembers, getGroupedServerMembers } from '../lib/get-grouped-server-members.ts';

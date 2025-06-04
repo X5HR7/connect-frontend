@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { useChatStore } from '@entities/direct-chat';
 import { useAuthStore } from '@entities/user';
 import { EVENTS } from '@shared/libs/interfaces';
-import { useSocketStore } from '@shared/store/socketStore.ts';
+import { useSocketStore } from '@shared/store';
 
 export const useFinishCall = () => {
 	const currentUser = useAuthStore(state => state.user);

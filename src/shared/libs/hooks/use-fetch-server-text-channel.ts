@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { useAuthStore } from '@entities/user/model/store/authStore.ts';
+import { useAuthStore } from '@entities/user';
 import { IServerChannelParams, fetchServerTextChannel } from '@shared/libs/api/servers/channel.ts';
 import { IServerTextChannel } from '@shared/libs/interfaces';
 

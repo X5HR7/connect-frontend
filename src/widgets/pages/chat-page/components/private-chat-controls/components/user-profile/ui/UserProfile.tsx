@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import { useChatStore } from '@entities/direct-chat';
-import { useModalStore } from '@shared/store/modalStore.ts';
+import { useModalStore } from '@shared/store';
 import { Tooltip } from '@shared/ui/tooltip';
 import { Avatar } from '@shared/ui/user';
 import styles from './UserProfile.module.scss';

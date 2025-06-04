@@ -11,10 +11,10 @@ import {
 	requiredFieldErrorMessage
 } from '@shared/libs/utils/auth.constants.ts';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { useModalStore } from '@shared/store/modalStore.ts';
-import { useServersStore } from '@shared/store/serversStore.ts';
+import { useModalStore } from '@shared/store';
 import { FormItem } from '@shared/ui/form';
 import { Loader } from '@shared/ui/loader';
+import { useServersStore } from '../../../../../model/store/servers-store.ts';
 import { ICreateServerForm } from '../lib/create-server-form.interface.ts';
 import { useCreateServer } from '../lib/use-create-server.ts';
 import styles from './CreateServerForm.module.scss';

@@ -2,10 +2,10 @@
 
 import { FC, useEffect, useState } from 'react';
 import { MessageLayout } from '@entities/message';
+import { useServerStore } from '@entities/server';
 import { useServerChatStore } from '@entities/server-chat';
 import { useAuthStore } from '@entities/user';
 import { IServerMessage } from '@shared/libs/interfaces';
-import { useServerStore } from '@shared/store/serverStore.ts';
 import { Scroll } from '@shared/ui/scroll';
 import { PinIcon } from '@shared/ui/svg';
 import { Tooltip } from '@shared/ui/tooltip';

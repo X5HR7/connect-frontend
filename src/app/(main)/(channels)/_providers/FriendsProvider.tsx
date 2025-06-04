@@ -5,7 +5,7 @@ import { useShallow } from 'zustand/shallow';
 import { useFetchFriends, useFriendsStore } from '@entities/friend';
 import { useFetchFriendsRequests } from '@entities/friend/model/hooks/use-fetch-friends-requests.ts';
 import { EVENTS, IUserFriendRequest, IUserWithProfile } from '@shared/libs/interfaces';
-import { useSocketStore } from '@shared/store/socketStore.ts';
+import { useSocketStore } from '@shared/store';
 
 interface IFriendsProviderProps {
 	children: ReactNode;

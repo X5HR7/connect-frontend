@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
-import { useModalStore } from '@shared/store/modalStore.ts';
+import { useModalStore } from '@shared/store';
 import { PlusIcon } from '@shared/ui/svg';
 import styles from './CreateServerButton.module.scss';
 

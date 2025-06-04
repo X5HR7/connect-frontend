@@ -14,6 +14,6 @@ export {
 	fetchUsersByUsername
 } from './model/api/user.ts';
 export type { IUpdateUserProfile } from './model/api/user.ts';
-export { useAuthStore } from './model/store/authStore.ts';
+export { useAuthStore } from './model/store/auth-store.ts';
 export { MicroMediaButton } from './ui/media-buttons/MicroMediaButton.tsx';
 export { VoiceMediaButton } from './ui/media-buttons/VoiceMediaButton.tsx';

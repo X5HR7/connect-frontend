@@ -4,8 +4,7 @@ import { FC, ReactNode, useCallback, useEffect } from 'react';
 import { useCallStore } from '@entities/direct-chat';
 import { useAuthStore } from '@entities/user';
 import { EVENTS, IUserWithProfile } from '@shared/libs/interfaces';
-import { useModalStore } from '@shared/store/modalStore.ts';
-import { useSocketStore } from '@shared/store/socketStore.ts';
+import { useModalStore, useSocketStore } from '@shared/store';
 
 interface CallProviderProps {
 	children: ReactNode;

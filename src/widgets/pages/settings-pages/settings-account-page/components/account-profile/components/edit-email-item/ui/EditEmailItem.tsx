@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import { FC, useState } from 'react';
 import { useAuthStore } from '@entities/user';
 import { getSecureEmail } from '@shared/libs/utils/get-secure-data.ts';
-import { useModalStore } from '@shared/store/modalStore.ts';
+import { useModalStore } from '@shared/store';
 import { AccountItem, EditButton } from '@shared/ui/settings';
 
 const EditEmailModal = dynamic(() => import('../components/edit-email-modal'));

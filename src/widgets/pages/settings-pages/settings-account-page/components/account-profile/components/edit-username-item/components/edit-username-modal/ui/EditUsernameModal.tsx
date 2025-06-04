@@ -9,7 +9,7 @@ import {
 	requiredFieldErrorMessage,
 	usernameRegex
 } from '@shared/libs/utils/auth.constants.ts';
-import { useModalStore } from '@shared/store/modalStore.ts';
+import { useModalStore } from '@shared/store';
 import { FormItem } from '@shared/ui/form';
 import { Modal, ModalBackButton, ModalSaveButton } from '@shared/ui/settings';
 import { IEditUsernameForm } from '../lib/edit-username-form.interface.ts';

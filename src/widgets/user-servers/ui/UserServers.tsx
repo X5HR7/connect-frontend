@@ -3,11 +3,11 @@
 import dynamic from 'next/dynamic';
 import { FC, useEffect } from 'react';
 import { ServerItem } from '@entities/server/server-item';
-import { useServersStore } from '@shared/store/serversStore.ts';
 import { Loader } from '@shared/ui/loader';
 import { HomeLink } from '@shared/ui/server';
 import { Tooltip } from '@shared/ui/tooltip';
 import { useServers } from '../lib/useServers.ts';
+import { useServersStore } from '../model/store/servers-store.ts';
 import styles from './UserServers.module.scss';
 
 const CreateServerButton = dynamic(() => import('../components/create-server-button'));

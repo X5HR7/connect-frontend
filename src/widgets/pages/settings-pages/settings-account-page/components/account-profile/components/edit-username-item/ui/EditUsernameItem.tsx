@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import { useAuthStore } from '@entities/user';
-import { useModalStore } from '@shared/store/modalStore.ts';
+import { useModalStore } from '@shared/store';
 import { AccountItem, EditButton } from '@shared/ui/settings';
 
 const EditUsernameModal = dynamic(() => import('../components/edit-username-modal'));
