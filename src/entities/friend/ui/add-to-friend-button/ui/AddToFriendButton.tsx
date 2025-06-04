@@ -4,10 +4,10 @@ import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 import { useShallow } from 'zustand/shallow';
 import { useFriendsStore } from '@entities/friend';
-import { useFriendRequestAccept } from '@entities/friend/model/hooks/use-friend-request-accept.ts';
 import inviteIcon from '@shared/assets/icons/invite.svg';
 import { IUserWithProfile } from '@shared/libs/interfaces';
 import { Loader } from '@shared/ui/loader';
+import { useFriendRequestAccept } from '../../../model/hooks/use-friend-request-accept.ts';
 import { useSendFriendRequest } from '../lib/use-send-friend-request.ts';
 import styles from './AddToFriendButton.module.scss';
 
