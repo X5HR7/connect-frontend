@@ -12,5 +12,9 @@ export const useModalStore = create<ModalStore>(set => ({
 	isOpen: false,
 	content: null,
 	openModal: content => set({ isOpen: true, content: content }),
-	closeModal: () => set({ isOpen: false, content: null })
+	closeModal: () => {
+		set({ isOpen: false });
+		// 300 ms - длина самой долгой анимации при закрытии модального окна
+		setTimeout(() => set({ content: null }), 300);
+	}
 }));
