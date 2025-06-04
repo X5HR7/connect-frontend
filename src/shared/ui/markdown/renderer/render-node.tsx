@@ -1,8 +1,8 @@
-import React from 'react';
+import { ReactNode, createElement } from 'react';
 import { MarkdownNode } from '../parser/types.ts';
 import { sanitizeText } from './sanitize-text.ts';
 
-export const renderNode = (node: MarkdownNode, key?: string | number): React.ReactNode => {
+export const renderNode = (node: MarkdownNode, key?: string | number): ReactNode => {
 	if (typeof node === 'string') {
 		return <span key={key} dangerouslySetInnerHTML={{ __html: sanitizeText(node, true) }} />;
 	}
@@ -11,7 +11,7 @@ export const renderNode = (node: MarkdownNode, key?: string | number): React.Rea
 		return null;
 	}
 
-	return React.createElement(
+	return createElement(
 		node.type,
 		{ ...node.props, key },
 		node.children.map((child, i) => renderNode(child, i))
