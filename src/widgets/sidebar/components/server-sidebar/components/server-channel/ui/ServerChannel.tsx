@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import React, { FC } from 'react';
+import type { MouseEvent } from 'react';
+import { FC } from 'react';
 import settingsIcon from '@shared/assets/icons/settings.svg';
 import { urls } from '@shared/libs/utils/url.config.ts';
 import { NavLink } from '@shared/ui/nav-link';
@@ -8,7 +9,7 @@ import { ServerChannelProps } from '../lib/server-channel.interface.ts';
 import styles from './ServerChannel.module.scss';
 
 const ServerChannel: FC<ServerChannelProps> = ({ channel, serverId }) => {
-	const handleSettingsClick = (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+	const handleSettingsClick = (event: MouseEvent<HTMLImageElement>) => {
 		event.preventDefault();
 		event.stopPropagation();
 	};

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import type { MouseEvent } from 'react';
 import { FC, useState } from 'react';
 import arrowIcon from '@shared/assets/icons/open.svg';
 import settingsIcon from '@shared/assets/icons/settings.svg';
@@ -14,7 +15,7 @@ const ServerCategory: FC<ServerCategoryProps> = ({ category, children }) => {
 		setIsCollapsed(prev => !prev);
 	};
 
-	const handleSettingsClick = (event: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+	const handleSettingsClick = (event: MouseEvent<HTMLImageElement>) => {
 		event.stopPropagation();
 	};
 

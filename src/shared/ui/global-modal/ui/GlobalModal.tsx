@@ -1,5 +1,6 @@
 'use client';
 
+import type { MouseEvent } from 'react';
 import { FC, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useShallow } from 'zustand/shallow';
@@ -36,7 +37,7 @@ const GlobalModal: FC = () => {
 		closeModal();
 	};
 
-	const handleClickContent = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+	const handleClickContent = (event: MouseEvent<HTMLDivElement>) => {
 		event.stopPropagation();
 	};
 

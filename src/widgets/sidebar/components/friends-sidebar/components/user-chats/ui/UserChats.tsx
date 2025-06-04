@@ -1,5 +1,6 @@
 'use client';
 
+import type { MouseEvent } from 'react';
 import React, { FC, useEffect, useState } from 'react';
 import { useAuthStore } from '@entities/user';
 import { IChat } from '@shared/libs/interfaces';
@@ -22,7 +23,7 @@ const UserChats: FC = () => {
 		}
 	}, [chatsList, isPending]);
 
-	const handleDeleteChat = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, chatId: string) => {
+	const handleDeleteChat = (event: MouseEvent<HTMLButtonElement>, chatId: string) => {
 		event.preventDefault();
 		event.stopPropagation();
 
