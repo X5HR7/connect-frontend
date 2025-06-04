@@ -8,9 +8,9 @@ import acceptIcon from '@shared/assets/icons/accept.svg';
 import rejectIcon from '@shared/assets/icons/close.svg';
 import { Tooltip } from '@shared/ui/tooltip';
 import { Avatar } from '@shared/ui/user';
-import { useFriendRequestAccept } from '../../model/hooks/use-friend-request-accept.ts';
+import { useFriendRequestAccept } from '../../../model/hooks/use-friend-request-accept.ts';
+import { useRequestReject } from '../../../model/hooks/use-request-reject.ts';
 import { IFriendRequestItemProps } from '../lib/friend-request-item.interface.ts';
-import { useRequestReject } from '../lib/use-request-reject.ts';
 import styles from './FriendRequestItem.module.scss';
 
 const FriendRequestItem: FC<IFriendRequestItemProps> = ({ request }) => {

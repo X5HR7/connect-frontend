@@ -1,8 +1,7 @@
 'use client';
 
 import { ChangeEvent, FC, useEffect, useState } from 'react';
-import { useFriendsStore } from '@entities/friend';
-import { FriendListItem } from '@entities/friend/friend-list-item';
+import { FriendListItem, useFriendsStore } from '@entities/friend';
 import { IUserWithProfile } from '@shared/libs/interfaces';
 import { Scroll } from '@shared/ui/scroll';
 import styles from './FriendsList.module.scss';

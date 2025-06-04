@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { FC, useEffect } from 'react';
-import { ServerItem } from '@entities/server/server-item';
+import { ServerItem } from '@entities/server';
 import { Loader } from '@shared/ui/loader';
 import { HomeLink } from '@shared/ui/server';
 import { Tooltip } from '@shared/ui/tooltip';
