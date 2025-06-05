@@ -1,0 +1,20 @@
+.icon {
+	margin: 0 15px 0 0;
+	padding: 0;
+	display: block;
+	width: 30px;
+	height: 30px;
+
+	&__item {
+		stroke: var(--colorTextPrimary);
+	}
+}
+
+.text {
+	margin: 0;
+	padding: 0;
+	width: 90%;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+}

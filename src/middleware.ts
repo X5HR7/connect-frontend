@@ -1,19 +1,24 @@
-import { getNewAccessToken } from '@shared/libs/api/api-client.ts';
-import { urls } from '@shared/libs/utils/url.config.ts';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
+import { getNewAccessToken } from '@shared/libs/api/api-client.ts';
+import { urls } from '@shared/libs/utils/url.config.ts';
 
 export async function middleware(request: NextRequest) {
 	if (request.nextUrl.pathname === urls.HOME) {
 		return NextResponse.next();
 	}
 
+	const referer = request.headers.get('referer');
+	const isComingFromHome = referer && new URL(referer).pathname === urls.HOME;
+	const isGoingToFriends = request.nextUrl.pathname.startsWith('/friends');
+
 	const isClientNavigation =
 		request.headers.get('sec-fetch-dest') === 'empty' ||
 		request.headers.get('next-router-prefetch') === '1' ||
 		request.headers.get('RSC') === '1';
 
-	if (isClientNavigation) {
+	// ?????
+	if (isClientNavigation && !(isComingFromHome && isGoingToFriends)) {
 		return NextResponse.next();
 	}
 	console.log('Middleware executed for path:', request.nextUrl.pathname);

@@ -1,0 +1,9 @@
+.selection {
+	margin: 0;
+	padding: 10px;
+	background-color: var(--colorBackgroundPrimary);
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.22);
+}

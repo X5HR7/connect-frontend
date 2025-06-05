@@ -1,0 +1,53 @@
+.features {
+	&__title {
+		margin: 5px 0 10px 0;
+		padding: 0;
+		font-size: 24px;
+		font-weight: 600;
+	}
+
+	&__content {
+		margin: 0;
+		padding: 15px;
+		display: grid;
+		grid-template-columns: repeat(2, calc(50% - 10px));
+		gap: 20px;
+		list-style: none;
+		counter-reset: features-counter;
+
+		&-item {
+			margin: 0;
+			padding: 0;
+			counter-increment: features-counter;
+
+			&-title {
+				margin: 0 0 10px 0;
+				padding: 0;
+				font-size: 20px;
+				font-weight: 500;
+
+				&::before {
+					content: counter(features-counter) '.';
+					margin-right: 5px;
+				}
+			}
+
+			&-list {
+				margin: 0 0 0 30px;
+				padding: 0;
+				list-style-type: disc;
+
+				&-item {
+					margin: 0;
+					padding: 2px 0;
+					font-size: 16px;
+					font-weight: 400;
+
+					&::marker {
+						font-size: 20px;
+					}
+				}
+			}
+		}
+	}
+}

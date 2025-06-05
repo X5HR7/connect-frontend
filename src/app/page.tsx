@@ -1,12 +1,13 @@
-import { APP_NAME } from '@shared/libs/utils/constants.ts';
 import { Metadata } from 'next';
+import { HomePage } from '@pages/home-page';
+import { APP_NAME } from '@shared/libs/utils/constants.ts';
 
 export const metadata: Metadata = {
 	title: `${APP_NAME} | Главная`
 };
 
-const Home = () => {
-	return <div>HOME PAGE</div>;
+const Page = () => {
+	return <HomePage />;
 };
 
-export default Home;
+export default Page;

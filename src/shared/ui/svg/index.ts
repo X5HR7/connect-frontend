@@ -22,3 +22,8 @@ export { CancelCallIcon } from './chat-icons/CancelCallIcon.tsx';
 export { ShareScreenIcon } from './chat-icons/ShareScreenIcon.tsx';
 export { OffShareScreenIcon } from './chat-icons/OffShareScreenIcon.tsx';
 export { FriendIcon } from './shared-icons/FriendIcon.tsx';
+export { PublicChatIcon } from './public-page-icons/PublicChatIcon.tsx';
+export { PublicEnergyIcon } from './public-page-icons/PublicEnergyIcon.tsx';
+export { PublicTechIcon } from './public-page-icons/PublicTechIcon.tsx';
+export { PublicSolutionsIcon } from './public-page-icons/PublicSolutionsIcon.tsx';
+export { PublicMarkdownIcon } from './public-page-icons/PublicMarkdownIcon.tsx';
