@@ -3,7 +3,7 @@
 import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { minLength, requiredFieldErrorMessage } from '@shared/libs/utils/auth.constants.ts';
-import { useModalStore } from '@shared/store';
+import { modalService } from '@shared/services';
 import { FormItem } from '@shared/ui/form';
 import { Modal, ModalBackButton, ModalSaveButton } from '@shared/ui/settings';
 import { IEditPasswordForm } from '../lib/edit-password-form.interface.ts';
@@ -11,7 +11,6 @@ import { useUpdatePassword } from '../lib/use-update-password.ts';
 import styles from './EditPasswordModal.module.scss';
 
 const EditPasswordModal: FC = () => {
-	const closeModal = useModalStore(state => state.closeModal);
 	const { mutate: updatePassword, isPending } = useUpdatePassword();
 
 	const { formState, register, handleSubmit, setError } = useForm<IEditPasswordForm>({
@@ -22,7 +21,7 @@ const EditPasswordModal: FC = () => {
 		updatePassword(data, {
 			onSuccess: user => {
 				if (user?.id) {
-					closeModal();
+					modalService.close();
 				}
 			},
 			onError: () => {

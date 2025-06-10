@@ -13,7 +13,7 @@ import {
 	usernameRegex
 } from '@shared/libs/utils/auth.constants.ts';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { useModalStore } from '@shared/store';
+import { modalService } from '@shared/services';
 import { FormItem } from '@shared/ui/form';
 import { Loader } from '@shared/ui/loader';
 import { Avatar } from '@shared/ui/user';
@@ -23,7 +23,6 @@ import styles from './FindUserModal.module.scss';
 
 const FindUserModal: FC = () => {
 	const user = useAuthStore(state => state.user);
-	const closeModal = useModalStore(state => state.closeModal);
 	const [users, setUsers] = useState<IUserWithProfile[] | null>(null);
 	const { mutate: findUsers, isPending } = useFindUsers();
 
@@ -47,7 +46,7 @@ const FindUserModal: FC = () => {
 	};
 
 	const handleLinkClick = () => {
-		closeModal();
+		modalService.close();
 	};
 
 	return (

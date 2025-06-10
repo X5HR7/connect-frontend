@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import { useChatStore } from '@entities/direct-chat';
-import { useModalStore } from '@shared/store';
+import { modalService } from '@shared/services';
 import { Tooltip } from '@shared/ui/tooltip';
 import { Avatar } from '@shared/ui/user';
 import styles from './UserProfile.module.scss';
@@ -12,11 +12,10 @@ const ModalUserProfile = dynamic(() => import('@features/modal-user-profile').th
 
 const UserProfile: FC = () => {
 	const receiver = useChatStore(state => state.receiver);
-	const openModal = useModalStore(state => state.openModal);
 
 	const handleUsernameClick = () => {
 		if (receiver) {
-			openModal(<ModalUserProfile userId={receiver.user.id} />);
+			modalService.openDefaultModal(<ModalUserProfile userId={receiver.user.id} />);
 		}
 	};
 

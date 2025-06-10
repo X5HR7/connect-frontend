@@ -1,16 +1,14 @@
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
-import { useModalStore } from '@shared/store';
+import { modalService } from '@shared/services';
 import { PlusIcon } from '@shared/ui/svg';
 import styles from './CreateServerButton.module.scss';
 
 const CreateServerForm = dynamic(() => import('../components/create-server-form').then(mod => mod.CreateServerForm));
 
 const CreateServerButton: FC = () => {
-	const openModal = useModalStore(state => state.openModal);
-
 	const handleButtonClick = () => {
-		openModal(<CreateServerForm />);
+		modalService.openDefaultModal(<CreateServerForm />);
 	};
 
 	return (

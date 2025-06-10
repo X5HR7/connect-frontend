@@ -2,16 +2,14 @@
 
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
-import { useModalStore } from '@shared/store';
+import { modalService } from '@shared/services';
 import styles from './EditPasswordButton.module.scss';
 
 const EditPasswordModal = dynamic(() => import('../components/edit-password-modal').then(mod => mod.EditPasswordModal));
 
 const EditPasswordButton: FC = () => {
-	const openModal = useModalStore(state => state.openModal);
-
 	const handleButtonClick = () => {
-		openModal(<EditPasswordModal />);
+		modalService.openDefaultModal(<EditPasswordModal />);
 	};
 
 	return (

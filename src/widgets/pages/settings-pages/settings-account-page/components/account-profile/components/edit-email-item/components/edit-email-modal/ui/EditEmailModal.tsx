@@ -9,7 +9,7 @@ import {
 	minLength,
 	requiredFieldErrorMessage
 } from '@shared/libs/utils/auth.constants.ts';
-import { useModalStore } from '@shared/store';
+import { modalService } from '@shared/services';
 import { FormItem } from '@shared/ui/form';
 import { Modal, ModalBackButton, ModalSaveButton } from '@shared/ui/settings';
 import { IEditEmailForm } from '../lib/edit-email-form.interface.ts';
@@ -18,7 +18,6 @@ import styles from './EditEmailModal.module.scss';
 
 const EditEmailModal: FC = () => {
 	const user = useAuthStore(state => state.user);
-	const closeModal = useModalStore(state => state.closeModal);
 	const { mutate: updateEmail, isPending } = useUpdateEmail();
 
 	const { formState, register, handleSubmit, setError } = useForm<IEditEmailForm>({
@@ -29,7 +28,7 @@ const EditEmailModal: FC = () => {
 		updateEmail(data, {
 			onSuccess: user => {
 				if (user?.id) {
-					closeModal();
+					modalService.close();
 				}
 			},
 			onError: () => {

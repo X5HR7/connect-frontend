@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
 import { FC, ReactNode } from 'react';
 import { Button } from '@shared/ui/buttons';
-import { ModalLayout } from '@shared/ui/global-modal/ui/shared';
 import { defaultErrorMessage, defaultErrorTitle } from '../../config/messages.ts';
+import { ModalLayout } from '../shared';
 import sharedStyles from '../shared/styles/shared-styles.module.scss';
 import styles from './ErrorModal.module.scss';
 
@@ -22,14 +22,17 @@ const ErrorModal: FC<ErrorModalProps> = ({
 	subtitle = '',
 	message = defaultErrorMessage,
 	children,
+	showButtons = true,
 	onClose
 }) => {
 	return (
 		<ModalLayout
 			buttons={
-				<Button onClick={onClose} status={'error'}>
-					Закрыть
-				</Button>
+				showButtons ? (
+					<Button onClick={onClose} status={'error'}>
+						Закрыть
+					</Button>
+				) : null
 			}
 		>
 			<div className={sharedStyles.wrapper}>

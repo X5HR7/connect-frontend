@@ -8,6 +8,7 @@ interface FormItemProps {
 	type?: 'email' | 'password' | 'text';
 	required?: boolean;
 	description?: string;
+	// TODO: типизировать register
 	register?: any;
 	error: string | undefined;
 }

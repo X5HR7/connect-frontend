@@ -3,17 +3,16 @@
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import { useAuthStore } from '@entities/user';
-import { useModalStore } from '@shared/store';
+import { modalService } from '@shared/services';
 import { AccountItem, EditButton } from '@shared/ui/settings';
 
 const EditUsernameModal = dynamic(() => import('../components/edit-username-modal').then(mod => mod.EditUsernameModal));
 
 const EditUsernameItem: FC = () => {
 	const user = useAuthStore(state => state.user);
-	const openModal = useModalStore(state => state.openModal);
 
 	const handleEditButtonClick = () => {
-		openModal(<EditUsernameModal />);
+		modalService.openDefaultModal(<EditUsernameModal />);
 	};
 
 	return (

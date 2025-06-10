@@ -9,7 +9,7 @@ import {
 	requiredFieldErrorMessage,
 	usernameRegex
 } from '@shared/libs/utils/auth.constants.ts';
-import { useModalStore } from '@shared/store';
+import { modalService } from '@shared/services';
 import { FormItem } from '@shared/ui/form';
 import { Modal, ModalBackButton, ModalSaveButton } from '@shared/ui/settings';
 import { IEditUsernameForm } from '../lib/edit-username-form.interface.ts';
@@ -17,7 +17,6 @@ import { useUpdateUsername } from '../lib/use-update-username.ts';
 import styles from './EditUsernameModal.module.scss';
 
 const EditUsernameModal: FC = () => {
-	const closeModal = useModalStore(state => state.closeModal);
 	const { mutate: updateUsername, isPending } = useUpdateUsername();
 
 	const { formState, register, handleSubmit, setError } = useForm<IEditUsernameForm>({
@@ -28,7 +27,7 @@ const EditUsernameModal: FC = () => {
 		updateUsername(data, {
 			onSuccess: user => {
 				if (user?.id) {
-					closeModal();
+					modalService.close();
 				}
 			},
 			onError: () => {

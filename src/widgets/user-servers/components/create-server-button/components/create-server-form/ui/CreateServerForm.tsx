@@ -11,7 +11,7 @@ import {
 	requiredFieldErrorMessage
 } from '@shared/libs/utils/auth.constants.ts';
 import { urls } from '@shared/libs/utils/url.config.ts';
-import { useModalStore } from '@shared/store';
+import { modalService } from '@shared/services';
 import { FormItem } from '@shared/ui/form';
 import { Loader } from '@shared/ui/loader';
 import { useServersStore } from '../../../../../model/store/servers-store.ts';
@@ -21,7 +21,6 @@ import styles from './CreateServerForm.module.scss';
 
 const CreateServerForm: FC = () => {
 	const addServer = useServersStore(state => state.addServer);
-	const closeModal = useModalStore(state => state.closeModal);
 	const { formState, register, handleSubmit } = useForm<ICreateServerForm>({ mode: 'onChange' });
 	const { mutate: createServer, isPending } = useCreateServer();
 	const router = useRouter();
@@ -33,7 +32,7 @@ const CreateServerForm: FC = () => {
 
 				if (server?.id) {
 					addServer(server);
-					closeModal();
+					modalService.close();
 					router.push(urls.SERVER(server.id));
 				}
 			}

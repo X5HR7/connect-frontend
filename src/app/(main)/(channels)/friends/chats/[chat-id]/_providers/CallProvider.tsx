@@ -4,7 +4,8 @@ import { FC, ReactNode, useCallback, useEffect } from 'react';
 import { useCallStore } from '@entities/direct-chat';
 import { useAuthStore } from '@entities/user';
 import { EVENTS, IUserWithProfile } from '@shared/libs/interfaces';
-import { useModalStore, useSocketStore } from '@shared/store';
+import { modalService } from '@shared/services';
+import { useSocketStore } from '@shared/store';
 
 interface CallProviderProps {
 	children: ReactNode;
@@ -16,7 +17,6 @@ const CallProvider: FC<CallProviderProps> = ({ children }) => {
 	const setCallMembers = useCallStore(state => state.setCallMembers);
 	const setCallStatus = useCallStore(state => state.setCallStatus);
 	const clearCall = useCallStore(state => state.clearCall);
-	const openModal = useModalStore(state => state.openModal);
 
 	const handlePrivateCallInit = useCallback(
 		(caller: IUserWithProfile) => {
@@ -37,12 +37,10 @@ const CallProvider: FC<CallProviderProps> = ({ children }) => {
 	};
 
 	const handleCallError = () => {
-		openModal(
-			<p style={{ maxWidth: 400, padding: 20 }}>
-				Во время звонка произошла ошибка. Проверьте свое Интернет-соединение или попробуйте попытку позже. Также эта
-				ошибка может быть вызвана тем, что собеседник не подключен к приложению.
-			</p>
-		);
+		modalService.openErrorModal({
+			message:
+				'Во время звонка произошла ошибка. Проверьте свое Интернет-соединение или попробуйте попытку позже. Также эта ошибка может быть вызвана тем, что собеседник не подключен к приложению.'
+		});
 		clearCall();
 	};
 
