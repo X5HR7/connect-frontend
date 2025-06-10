@@ -11,6 +11,7 @@ const GlobalModal: FC = () => {
 	const { isOpen, content, closeModal } = useModalStore(
 		useShallow(state => ({ isOpen: state.isOpen, content: state.content, closeModal: state.closeModal }))
 	);
+
 	const [isMounted, setIsMounted] = useState<boolean>(false);
 
 	useEffect(() => {

@@ -27,3 +27,5 @@ export { PublicEnergyIcon } from './public-page-icons/PublicEnergyIcon.tsx';
 export { PublicTechIcon } from './public-page-icons/PublicTechIcon.tsx';
 export { PublicSolutionsIcon } from './public-page-icons/PublicSolutionsIcon.tsx';
 export { PublicMarkdownIcon } from './public-page-icons/PublicMarkdownIcon.tsx';
+export { ErrorIcon } from './status-icons/ErrorIcon.tsx';
+export { SuccessIcon } from './status-icons/SuccessIcon.tsx';

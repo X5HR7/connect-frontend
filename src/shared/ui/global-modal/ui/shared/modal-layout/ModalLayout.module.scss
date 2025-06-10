@@ -1,0 +1,23 @@
+.modal {
+	margin: 0;
+	padding: 12px 0 0 0;
+	max-width: 420px;
+	min-width: 300px;
+	min-height: 200px;
+	display: flex;
+	flex-direction: column;
+
+	&__buttons {
+		margin: auto 0 0 0;
+		padding: 6px 10px 12px 10px;
+		width: auto;
+		min-height: 40px;
+		background-color: var(--colorBackgroundSecondary);
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		justify-content: center;
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+}

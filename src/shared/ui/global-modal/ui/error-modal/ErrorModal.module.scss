@@ -1,0 +1,11 @@
+.modal__icon {
+	margin: 0 auto 15px auto;
+	padding: 0;
+	display: block;
+	width: 75px;
+	height: 75px;
+
+	&_item {
+		stroke: var(--colorRed);
+	}
+}
