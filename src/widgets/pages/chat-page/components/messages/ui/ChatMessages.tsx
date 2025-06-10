@@ -8,7 +8,7 @@ import { IUserWithProfile } from '@shared/libs/interfaces';
 import { Scroll } from '@shared/ui/scroll';
 import styles from './ChatMessages.module.scss';
 
-const UserChatProfile = dynamic(() => import('@features/direct-chat'));
+const UserChatProfile = dynamic(() => import('@features/direct-chat').then(mod => mod.UserChatProfile));
 
 const ChatMessages: FC = () => {
 	const messages = useChatStore(state => state.messages);

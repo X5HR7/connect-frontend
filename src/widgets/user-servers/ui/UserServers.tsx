@@ -10,7 +10,9 @@ import { useServers } from '../lib/useServers.ts';
 import { useServersStore } from '../model/store/servers-store.ts';
 import styles from './UserServers.module.scss';
 
-const CreateServerButton = dynamic(() => import('../components/create-server-button'));
+const CreateServerButton = dynamic(() =>
+	import('../components/create-server-button').then(mod => mod.CreateServerButton)
+);
 
 const UserServers: FC = () => {
 	const servers = useServersStore(state => state.servers);

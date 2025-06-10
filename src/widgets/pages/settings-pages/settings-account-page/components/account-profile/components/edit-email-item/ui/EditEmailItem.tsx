@@ -7,7 +7,7 @@ import { getSecureEmail } from '@shared/libs/utils/get-secure-data.ts';
 import { useModalStore } from '@shared/store';
 import { AccountItem, EditButton } from '@shared/ui/settings';
 
-const EditEmailModal = dynamic(() => import('../components/edit-email-modal'));
+const EditEmailModal = dynamic(() => import('../components/edit-email-modal').then(mod => mod.EditEmailModal));
 
 const EditEmailItem: FC = () => {
 	const user = useAuthStore(state => state.user);

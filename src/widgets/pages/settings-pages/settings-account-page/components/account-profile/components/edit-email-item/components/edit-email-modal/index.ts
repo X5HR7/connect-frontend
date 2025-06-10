@@ -1,4 +1,1 @@
-import { EditEmailModal } from './ui/EditEmailModal.tsx';
-
-export { EditEmailModal };
-export default EditEmailModal;
+export { EditEmailModal } from './ui/EditEmailModal.tsx';

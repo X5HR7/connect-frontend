@@ -7,7 +7,7 @@ import { getSecurePhone } from '@shared/libs/utils/get-secure-data.ts';
 import { useModalStore } from '@shared/store';
 import { AccountItem, EditButton } from '@shared/ui/settings';
 
-const EditPhoneModal = dynamic(() => import('../components/edit-phone-modal'));
+const EditPhoneModal = dynamic(() => import('../components/edit-phone-modal').then(mod => mod.EditPhoneModal));
 
 const EditPhoneItem: FC = () => {
 	const user = useAuthStore(state => state.user);

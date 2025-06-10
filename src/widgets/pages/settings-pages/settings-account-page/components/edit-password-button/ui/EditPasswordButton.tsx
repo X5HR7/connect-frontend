@@ -5,7 +5,7 @@ import { FC } from 'react';
 import { useModalStore } from '@shared/store';
 import styles from './EditPasswordButton.module.scss';
 
-const EditPasswordModal = dynamic(() => import('../components/edit-password-modal'));
+const EditPasswordModal = dynamic(() => import('../components/edit-password-modal').then(mod => mod.EditPasswordModal));
 
 const EditPasswordButton: FC = () => {
 	const openModal = useModalStore(state => state.openModal);

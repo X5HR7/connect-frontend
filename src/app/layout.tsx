@@ -6,7 +6,7 @@ import { APP_NAME } from '@shared/libs/utils/constants.ts';
 import { RootProvider } from './_providers/RootProvider.tsx';
 import './globals.scss';
 
-const GlobalModal = dynamic(() => import('@shared/ui/global-modal'));
+const GlobalModal = dynamic(() => import('@shared/ui/global-modal').then(mod => mod.GlobalModal));
 
 const inter = Inter({
 	variable: '--font-inter',

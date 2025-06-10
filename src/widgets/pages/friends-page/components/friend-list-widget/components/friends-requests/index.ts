@@ -1,3 +1,1 @@
-import { FriendsRequests } from './ui/FriendsRequests.tsx';
-
-export default FriendsRequests;
+export { FriendsRequests } from './ui/FriendsRequests.tsx';

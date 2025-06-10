@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import styles from './layout.module.scss';
 
-const AuthLayout = ({ children }: { children: ReactNode }) => {
+const Layout = ({ children }: { children: ReactNode }) => {
 	return (
 		<div className={styles.layout}>
 			<section className={styles.layout__content}>{children}</section>
@@ -9,4 +9,4 @@ const AuthLayout = ({ children }: { children: ReactNode }) => {
 	);
 };
 
-export default AuthLayout;
+export default Layout;

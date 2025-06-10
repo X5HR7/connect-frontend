@@ -4,7 +4,7 @@ import { useModalStore } from '@shared/store';
 import { PlusIcon } from '@shared/ui/svg';
 import styles from './CreateServerButton.module.scss';
 
-const CreateServerForm = dynamic(() => import('../components/create-server-form'));
+const CreateServerForm = dynamic(() => import('../components/create-server-form').then(mod => mod.CreateServerForm));
 
 const CreateServerButton: FC = () => {
 	const openModal = useModalStore(state => state.openModal);

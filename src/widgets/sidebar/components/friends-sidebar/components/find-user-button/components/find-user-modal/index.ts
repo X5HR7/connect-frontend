@@ -1,4 +1,1 @@
-import { FindUserModal } from './ui/FindUserModal.tsx';
-
-export { FindUserModal };
-export default FindUserModal;
+export { FindUserModal } from './ui/FindUserModal.tsx';

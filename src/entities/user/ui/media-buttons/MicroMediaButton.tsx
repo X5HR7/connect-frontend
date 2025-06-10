@@ -28,4 +28,3 @@ const MicroMediaButton: FC = () => {
 };
 
 export { MicroMediaButton };
-export default MicroMediaButton;

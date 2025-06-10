@@ -1,4 +1,1 @@
-import { EditUsernameModal } from './ui/EditUsernameModal.tsx';
-
-export { EditUsernameModal };
-export default EditUsernameModal;
+export { EditUsernameModal } from './ui/EditUsernameModal.tsx';

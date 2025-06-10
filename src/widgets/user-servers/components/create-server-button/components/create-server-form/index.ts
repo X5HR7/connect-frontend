@@ -1,4 +1,1 @@
-import { CreateServerForm } from './ui/CreateServerForm.tsx';
-
-export { CreateServerForm };
-export default CreateServerForm;
+export { CreateServerForm } from './ui/CreateServerForm.tsx';

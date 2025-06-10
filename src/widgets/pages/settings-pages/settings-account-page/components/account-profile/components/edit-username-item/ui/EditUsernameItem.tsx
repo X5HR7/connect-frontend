@@ -6,7 +6,7 @@ import { useAuthStore } from '@entities/user';
 import { useModalStore } from '@shared/store';
 import { AccountItem, EditButton } from '@shared/ui/settings';
 
-const EditUsernameModal = dynamic(() => import('../components/edit-username-modal'));
+const EditUsernameModal = dynamic(() => import('../components/edit-username-modal').then(mod => mod.EditUsernameModal));
 
 const EditUsernameItem: FC = () => {
 	const user = useAuthStore(state => state.user);

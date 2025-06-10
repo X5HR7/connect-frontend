@@ -5,8 +5,8 @@ import { FC } from 'react';
 import { useFriendsStore } from '@entities/friend';
 import styles from './FriendListWidget.module.scss';
 
-const FriendsList = dynamic(() => import('../components/friends-list'));
-const FriendsRequests = dynamic(() => import('../components/friends-requests'));
+const FriendsList = dynamic(() => import('../components/friends-list').then(mod => mod.FriendsList));
+const FriendsRequests = dynamic(() => import('../components/friends-requests').then(mod => mod.FriendsRequests));
 
 const FriendListWidget: FC = () => {
 	const filter = useFriendsStore(state => state.filter);

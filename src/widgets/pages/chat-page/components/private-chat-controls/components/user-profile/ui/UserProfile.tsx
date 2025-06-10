@@ -8,7 +8,7 @@ import { Tooltip } from '@shared/ui/tooltip';
 import { Avatar } from '@shared/ui/user';
 import styles from './UserProfile.module.scss';
 
-const ModalUserProfile = dynamic(() => import('@features/modal-user-profile'));
+const ModalUserProfile = dynamic(() => import('@features/modal-user-profile').then(mod => mod.ModalUserProfile));
 
 const UserProfile: FC = () => {
 	const receiver = useChatStore(state => state.receiver);

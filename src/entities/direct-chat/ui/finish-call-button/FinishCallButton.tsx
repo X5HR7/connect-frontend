@@ -15,4 +15,3 @@ const FinishCallButton: FC<FinishCallButtonProps> = ({ onClick }) => {
 };
 
 export { FinishCallButton };
-export default FinishCallButton;

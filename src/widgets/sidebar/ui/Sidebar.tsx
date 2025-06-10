@@ -5,8 +5,8 @@ import { usePathname } from 'next/navigation';
 import { FC } from 'react';
 import { urls } from '@shared/libs/utils/url.config.ts';
 
-const ServerSidebar = dynamic(() => import('../components/server-sidebar'));
-const FriendsSidebar = dynamic(() => import('../components/friends-sidebar'));
+const ServerSidebar = dynamic(() => import('../components/server-sidebar').then(mod => mod.ServerSidebar));
+const FriendsSidebar = dynamic(() => import('../components/friends-sidebar').then(mod => mod.FriendsSidebar));
 
 const Sidebar: FC = () => {
 	const path = usePathname();

@@ -10,7 +10,7 @@ import { urls } from '@shared/libs/utils/url.config.ts';
 import { Profile } from '../components/profile';
 import styles from './UserControls.module.scss';
 
-const ProfileModal = dynamic(() => import('../components/profile-modal'));
+const ProfileModal = dynamic(() => import('../components/profile-modal').then(mod => mod.ProfileModal));
 
 const UserControls: FC = () => {
 	const [isProfileModalOpen, setIsProfileModalOpen] = useState<boolean>(false);

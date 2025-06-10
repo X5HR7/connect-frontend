@@ -5,7 +5,7 @@ import { FC } from 'react';
 import { useModalStore } from '@shared/store';
 import styles from './FindUserButton.module.scss';
 
-const FindUserModal = dynamic(() => import('../components/find-user-modal'));
+const FindUserModal = dynamic(() => import('../components/find-user-modal').then(mod => mod.FindUserModal));
 
 const FindUserButton: FC = () => {
 	const openModal = useModalStore(state => state.openModal);

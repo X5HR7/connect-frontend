@@ -15,4 +15,3 @@ const AcceptCallButton: FC<FinishCallButtonProps> = ({ onClick }) => {
 };
 
 export { AcceptCallButton };
-export default AcceptCallButton;

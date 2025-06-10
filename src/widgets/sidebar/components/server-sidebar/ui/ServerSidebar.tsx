@@ -11,7 +11,7 @@ import { ServerCategory } from '../components/server-category';
 import { ServerChannel } from '../components/server-channel';
 import styles from './ServerSidebar.module.scss';
 
-const ServerControls = dynamic(() => import('../components/server-controls'));
+const ServerControls = dynamic(() => import('../components/server-controls').then(mod => mod.ServerControls));
 
 const ServerSidebar: FC = () => {
 	const server = useServerStore(state => state.server);

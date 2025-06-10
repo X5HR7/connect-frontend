@@ -34,4 +34,3 @@ const MessageControls: FC<MessageControlsProps> = ({ message, sender }) => {
 };
 
 export { MessageControls };
-export default MessageControls;

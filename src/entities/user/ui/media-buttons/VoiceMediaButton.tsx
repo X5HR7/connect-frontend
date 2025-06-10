@@ -28,4 +28,3 @@ const VoiceMediaButton: FC = () => {
 };
 
 export { VoiceMediaButton };
-export default VoiceMediaButton;

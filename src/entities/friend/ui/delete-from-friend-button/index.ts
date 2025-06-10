@@ -1,4 +1,1 @@
-import { DeleteFromFriendButton } from './ui/DeleteFromFriendButton.tsx';
-
-export { DeleteFromFriendButton };
-export default DeleteFromFriendButton;
+export { DeleteFromFriendButton } from './ui/DeleteFromFriendButton.tsx';

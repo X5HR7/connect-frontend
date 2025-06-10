@@ -6,8 +6,8 @@ import { MessageLayout } from '@entities/message';
 import { useModalStore } from '@shared/store';
 import { DirectChatMessageProps } from '../../lib/direct-chat-message.inteface.ts';
 
-const ModalUserProfile = dynamic(() => import('@features/modal-user-profile'));
-const MessageControls = dynamic(() => import('../controls/MessageControls.tsx'));
+const ModalUserProfile = dynamic(() => import('@features/modal-user-profile').then(mod => mod.ModalUserProfile));
+const MessageControls = dynamic(() => import('../controls/MessageControls.tsx').then(mod => mod.MessageControls));
 
 const DirectChatMessage: FC<DirectChatMessageProps> = ({ message, sender, parentMessageSender }) => {
 	const openModal = useModalStore(state => state.openModal);

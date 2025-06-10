@@ -1,4 +1,1 @@
-import { ChatSearchForm } from './ui/ChatSearchForm.tsx';
-
-export { ChatSearchForm };
-export default ChatSearchForm;
+export { ChatSearchForm } from './ui/ChatSearchForm.tsx';

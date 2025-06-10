@@ -1,3 +1,1 @@
-import { ServerSidebar } from './ui/ServerSidebar.tsx';
-
-export default ServerSidebar;
+export { ServerSidebar } from './ui/ServerSidebar.tsx';

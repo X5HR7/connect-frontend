@@ -1,4 +1,1 @@
-import { ProfileStatusSelector } from './ui/ProfileStatusSelector.tsx';
-
-export { ProfileStatusSelector };
-export default ProfileStatusSelector;
+export { ProfileStatusSelector } from './ui/ProfileStatusSelector.tsx';

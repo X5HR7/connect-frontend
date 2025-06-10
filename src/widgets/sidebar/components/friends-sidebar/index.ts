@@ -1,3 +1,1 @@
-import { FriendsSidebar } from './ui/FriendsSidebar.tsx';
-
-export default FriendsSidebar;
+export { FriendsSidebar } from './ui/FriendsSidebar.tsx';

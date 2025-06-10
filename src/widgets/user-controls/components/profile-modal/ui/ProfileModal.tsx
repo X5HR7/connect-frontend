@@ -12,7 +12,9 @@ import { IProfileModalProps } from '../lib/profile-modal.interface.ts';
 import { useLogout } from '../lib/use-logout.ts';
 import styles from './ProfileModal.module.scss';
 
-const ProfileStatusSelector = dynamic(() => import('../components/profile-status-selector'));
+const ProfileStatusSelector = dynamic(() =>
+	import('../components/profile-status-selector').then(mod => mod.ProfileStatusSelector)
+);
 
 const ProfileModal: FC<IProfileModalProps> = ({ isOpen }) => {
 	const [isStatusModalOpen, setIsStatusModalOpen] = useState<boolean>(false);

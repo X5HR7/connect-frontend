@@ -3,9 +3,11 @@ import { FC } from 'react';
 import { UserProfile } from '../components/user-profile';
 import styles from './PrivateChatControls.module.scss';
 
-const VoiceCallButton = dynamic(() => import('../components/voice-call-button'));
-const PinnedMessagesButton = dynamic(() => import('../components/pinned-messages-button'));
-const ChatSearchForm = dynamic(() => import('../components/chat-search-form'));
+const VoiceCallButton = dynamic(() => import('../components/voice-call-button').then(mod => mod.VoiceCallButton));
+const PinnedMessagesButton = dynamic(() =>
+	import('../components/pinned-messages-button').then(mod => mod.PinnedMessagesButton)
+);
+const ChatSearchForm = dynamic(() => import('../components/chat-search-form').then(mod => mod.ChatSearchForm));
 
 const PrivateChatControls: FC = () => {
 	return (
